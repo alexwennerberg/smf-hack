@@ -206,7 +206,6 @@ func (c *Ctx) destroyLoginCookie() {
 
 var (
 	birthdateRe  = regexp.MustCompile(`(\d{4})[\-\., ](\d{2})[\-\., ](\d{2})`)
-	langCleanRe  = regexp.MustCompile(`[^\w\-]`)
 	msnMatchRe   = emailRe
 	floatCommaRe = strings.NewReplacer(",", ".")
 )

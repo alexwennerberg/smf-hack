@@ -5,7 +5,6 @@ package app
 // subs_members2.go.)
 
 import (
-	"regexp"
 	"strings"
 	"time"
 )
@@ -313,9 +312,6 @@ func (c *Ctx) findMembers(names []string, useWildcards, buddiesOnly bool, max in
 	}
 	return results
 }
-
-// pmNameClean strips [<>&"'=\] like sendpm does for non-numeric names.
-var pmNameCleanRe = regexp.MustCompile(`[<>&"'=\\]`)
 
 // markMessages is markMessages($personal_messages, $label, $owner). Pass
 // pms == nil for all, label == "" for all labels.

@@ -171,19 +171,6 @@ func HtmlspecialcharsRecursive(p *PArray) {
 	}
 }
 
-// HtmltrimRecursive trims " \t\n\r\x0B\x00\xA0" from string values, like
-// htmltrim__recursive.
-func HtmltrimRecursive(p *PArray) {
-	for _, k := range p.keys {
-		switch v := p.m[k].(type) {
-		case string:
-			p.m[k] = Htmltrim(v)
-		case *PArray:
-			HtmltrimRecursive(v)
-		}
-	}
-}
-
 func Htmltrim(s string) string {
 	return strings.Trim(s, " \t\n\r\x0B\x00\xA0")
 }

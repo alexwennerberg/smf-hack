@@ -69,11 +69,6 @@ func Open(cfg Config) (*App, error) {
 	return a, nil
 }
 
-// Tbl prefixes a table name: a.Tbl("members") -> "smf_members".
-func (a *App) Tbl(name string) string {
-	return a.Config.DBPrefix + name
-}
-
 // Q replaces {$db_prefix} in a query, so queries can be ported verbatim
 // from the PHP sources.
 func (a *App) Q(query string) string {

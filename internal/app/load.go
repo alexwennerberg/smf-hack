@@ -108,7 +108,6 @@ type ThemeSettings struct {
 }
 
 func (t *ThemeSettings) Get(k string) string     { return t.m[k] }
-func (t *ThemeSettings) Has(k string) bool       { _, ok := t.m[k]; return ok }
 func (t *ThemeSettings) Empty(k string) bool     { return empty(t.m[k]) }
 func (t *ThemeSettings) Int(k string) int        { return atoi(t.m[k]) }
 func (t *ThemeSettings) ThemeURL() string        { return t.m["theme_url"] }

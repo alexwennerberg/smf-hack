@@ -28,15 +28,6 @@ type MaintainCategory struct {
 	Boards []MaintainBoard
 }
 
-// NotDoneCtx backs template_not_done (the progress/continuation page used by
-// chunked operations).
-type NotDoneCtx struct {
-	ContinueGetData   string
-	ContinuePostData  string
-	ContinuePercent   int
-	ContinueCountdown int
-}
-
 // MaintainCtx backs template_maintain.
 type MaintainCtx struct {
 	Finished      bool

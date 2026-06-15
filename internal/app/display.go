@@ -815,31 +815,6 @@ func phpRound(v float64, precision int) string {
 	return s
 }
 
-func floatToStr(v float64, precision int) string {
-	// strconv-free tiny formatter for the poll percentages.
-	neg := v < 0
-	if neg {
-		v = -v
-	}
-	intPart := int64(v)
-	frac := v - float64(intPart)
-	out := itoa(int(intPart))
-	if precision > 0 {
-		fracDigits := ""
-		for i := 0; i < precision; i++ {
-			frac *= 10
-			d := int(frac)
-			fracDigits += itoa(d)
-			frac -= float64(d)
-		}
-		out += "." + fracDigits
-	}
-	if neg {
-		out = "-" + out
-	}
-	return out
-}
-
 // prepareDisplayMessages materializes prepareDisplayContext() over all rows.
 func (c *Ctx) prepareDisplayMessages(page *DisplayCtx, messages []int, newFrom int, attachmentsByMsg map[int][]attachmentRow, viewNewestFirst bool) {
 	a := c.App

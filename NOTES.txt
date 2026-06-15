@@ -9,3 +9,5 @@ Trimming down
 A lot of the 'vestigal' features (calendar, karma, etc) are against my goal of
 'a codebase that I can maintain solo'. I did not want to produce "AI slop", I
 wanted to produce something I was happy with. 
+
+Foru

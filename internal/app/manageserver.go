@@ -44,7 +44,6 @@ type settingSpec struct {
 	name  string      // modSettings key
 	data  [][2]string // select options: {value, label}
 	label string      // label override when there's no $txt[name]
-	help  string      // explicit help key (core settings); DB settings derive it
 	size  int
 }
 

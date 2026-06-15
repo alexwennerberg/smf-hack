@@ -324,8 +324,6 @@ func (c *Ctx) deleteMembers(users []int) {
 	c.updateStatsMemberRecount()
 }
 
-var nameJunkRe = regexp.MustCompile("[\t\n\r \x0B\x00]+")
-
 // resetPassword is resetPassword($memID, $username) from Subs-Auth.php.
 func (c *Ctx) resetPassword(memID int, username string) {
 	a := c.App

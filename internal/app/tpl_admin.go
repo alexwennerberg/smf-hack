@@ -617,58 +617,6 @@ func templateMaintain(c *Ctx) {
 	}
 }
 
-// templateNotDone is template_not_done() from Admin.template.php: the
-// auto-refreshing progress page for chunked operations.
-func templateNotDone(c *Ctx) {
-	page := c.Page.(*NotDoneCtx)
-	scripturl := c.App.ScriptURL
-
-	c.O(`
-	<div class="tborder">
-		<div class="titlebg" style="padding: 4px;">`, c.Txt("not_done_title"), `</div>
-		<div class="windowbg" style="padding: 4px;">
-			`, c.Txt("not_done_reason"))
-
-	if page.ContinuePercent != 0 {
-		pad := "1pt"
-		if c.Browser.IsSafari || c.Browser.IsKonqueror {
-			pad = "2pt"
-		}
-		c.O(`
-			<div style="padding-left: 20%; padding-right: 20%; margin-top: 1ex;">
-				<div style="font-size: 8pt; height: 12pt; border: 1px solid black; background-color: white; padding: 1px; position: relative;">
-					<div style="padding-top: `, pad, `; width: 100%; z-index: 2; color: black; position: absolute; text-align: center; font-weight: bold;">`, page.ContinuePercent, `%</div>
-					<div style="width: `, page.ContinuePercent, `%; height: 12pt; z-index: 1; background-color: red;">&nbsp;</div>
-				</div>
-			</div>`)
-	}
-
-	c.O(`
-			<form action="`, scripturl, page.ContinueGetData, `" method="post" accept-charset="`, c.CharacterSet, `" style="margin: 0;" name="autoSubmit" id="autoSubmit">
-				<div style="margin: 1ex; text-align: right;"><input type="submit" name="cont" value="`, c.Txt("not_done_continue"), `" /></div>
-				`, page.ContinuePostData, `
-			</form>
-		</div>
-	</div>
-	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
-		var countdown = `, page.ContinueCountdown, `;
-		doAutoSubmit();
-
-		function doAutoSubmit()
-		{
-			if (countdown == 0)
-				document.forms.autoSubmit.submit();
-			else if (countdown == -1)
-				return;
-
-			document.forms.autoSubmit.cont.value = "`, c.Txt("not_done_continue"), ` (" + countdown + ")";
-			countdown--;
-
-			setTimeout("doAutoSubmit();", 1000);
-		}
-	// ]]></script>`)
-}
-
 // templateShowSettings is template_show_settings() from Admin.template.php:
 // the generic settings form used by ManageServer/ModSettings and the other
 // Manage* modules.

@@ -18,5 +18,10 @@ admin pages need a bunch of text changes
 Untested:
 - all the admin settings
 
-To Cut:
--
+Change/cut:
+- SHA1 -> Modern Password hashing
+- drop MSN, ICQ, AIM, MSN, YIM
+
+Come back to:
+phpser
+strftime
