@@ -262,7 +262,7 @@ func (c *Ctx) ViewMemberlist() {
 // memberSearchInputFromPost collects the advanced-search fields from POST.
 func (c *Ctx) memberSearchInputFromPost() map[string]any {
 	in := map[string]any{}
-	for _, f := range []string{"mem_id", "age", "posts", "reg_date", "last_online", "membername", "email", "website", "location", "ip", "messenger"} {
+	for _, f := range []string{"mem_id", "age", "posts", "reg_date", "last_online", "membername", "email", "website", "location", "ip"} {
 		if c.POST.Has(f) {
 			in[f] = c.POST.Str(f)
 		}
@@ -367,11 +367,10 @@ var memberParams = map[string]memberParam{
 	"website":     {[]string{"websiteTitle", "websiteUrl"}, "string", false, nil},
 	"location":    {[]string{"location"}, "string", false, nil},
 	"ip":          {[]string{"memberIP"}, "string", false, nil},
-	"messenger":   {[]string{"ICQ", "AIM", "YIM", "MSN"}, "string", false, nil},
 }
 
 // memberParamOrder keeps the PHP field order for the query parts.
-var memberParamOrder = []string{"mem_id", "age", "posts", "reg_date", "last_online", "gender", "activated", "membername", "email", "website", "location", "ip", "messenger"}
+var memberParamOrder = []string{"mem_id", "age", "posts", "reg_date", "last_online", "gender", "activated", "membername", "email", "website", "location", "ip"}
 
 // buildMemberWhere is the ViewMemberlist query builder.
 func (c *Ctx) buildMemberWhere(in map[string]any) (string, []any) {

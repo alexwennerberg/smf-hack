@@ -95,10 +95,6 @@ func TestProfileSave(t *testing.T) {
 		"gender":       {"1"},
 		"websiteTitle": {""},
 		"websiteUrl":   {""},
-		"ICQ":          {""},
-		"AIM":          {""},
-		"MSN":          {""},
-		"YIM":          {""},
 		"bday1":        {""}, "bday2": {""}, "bday3": {""},
 	}, allCookies...)
 	if w2.Code != 302 {

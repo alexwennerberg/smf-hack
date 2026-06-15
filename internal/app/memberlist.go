@@ -89,10 +89,6 @@ func (c *Ctx) Memberlist() {
 		{Key: "realName", Label: c.Txt("35")},
 		{Key: "emailAddress", Label: c.Txt("307"), Width: "25"},
 		{Key: "websiteUrl", Label: c.Txt("96"), Width: "25"},
-		{Key: "ICQ", Label: c.Txt("513"), Width: "25"},
-		{Key: "AIM", Label: c.Txt("603"), Width: "25"},
-		{Key: "YIM", Label: c.Txt("604"), Width: "25"},
-		{Key: "MSN", Label: c.Txt("MSN"), Width: "25"},
 		{Key: "ID_GROUP", Label: c.Txt("87")},
 		{Key: "registered", Label: c.Txt("233")},
 		{Key: "posts", Label: c.Txt("21"), Width: "115", Colspan: "2"},
@@ -224,22 +220,6 @@ func (c *Ctx) mlAll(page *MemberlistCtx) {
 			"down": "LENGTH(mem.websiteURL) > 0 DESC, (mem.websiteURL IS NULL) ASC, mem.websiteURL ASC",
 			"up":   "LENGTH(mem.websiteURL) > 0 ASC, (mem.websiteURL IS NULL) DESC, mem.websiteURL DESC",
 		},
-		"ICQ": {
-			"down": "LENGTH(mem.ICQ) > 0 DESC, (mem.ICQ IS NULL) OR mem.ICQ = 0 ASC, mem.ICQ ASC",
-			"up":   "LENGTH(mem.ICQ) > 0 ASC, (mem.ICQ IS NULL) OR mem.ICQ = 0 DESC, mem.ICQ DESC",
-		},
-		"AIM": {
-			"down": "LENGTH(mem.AIM) > 0 DESC, (mem.AIM IS NULL) ASC, mem.AIM ASC",
-			"up":   "LENGTH(mem.AIM) > 0 ASC, (mem.AIM IS NULL) DESC, mem.AIM DESC",
-		},
-		"YIM": {
-			"down": "LENGTH(mem.YIM) > 0 DESC, (mem.YIM IS NULL) ASC, mem.YIM ASC",
-			"up":   "LENGTH(mem.YIM) > 0 ASC, (mem.YIM IS NULL) DESC, mem.YIM DESC",
-		},
-		"MSN": {
-			"down": "LENGTH(mem.MSN) > 0 DESC, (mem.MSN IS NULL) ASC, mem.MSN ASC",
-			"up":   "LENGTH(mem.MSN) > 0 ASC, (mem.MSN IS NULL) DESC, mem.MSN DESC",
-		},
 		"registered": {
 			"down": "mem.dateRegistered ASC",
 			"up":   "mem.dateRegistered DESC",
@@ -339,10 +319,6 @@ func (c *Ctx) mlSearch(page *MemberlistCtx) {
 		var fields []string
 		if has("name") {
 			fields = []string{"memberName", "realName"}
-		}
-		// Search for messengers...
-		if has("messenger") && (!c.User.IsGuest || a.SettingEmpty("guest_hideContacts")) {
-			fields = append(fields, "MSN", "AIM", "ICQ", "YIM")
 		}
 		// Search for websites.
 		if has("website") {

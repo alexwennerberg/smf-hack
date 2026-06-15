@@ -206,7 +206,6 @@ func (c *Ctx) destroyLoginCookie() {
 
 var (
 	birthdateRe  = regexp.MustCompile(`(\d{4})[\-\., ](\d{2})[\-\., ](\d{2})`)
-	msnMatchRe   = emailRe
 	floatCommaRe = strings.NewReplacer(",", ".")
 )
 
@@ -242,30 +241,16 @@ func (c *Ctx) saveProfileChanges(st *profileSaveState) {
 
 	// Arrays of all the changes - makes things easier.
 	profileBools := []string{"notifyAnnouncements", "notifyOnce", "notifySendBody"}
-	profileInts := []string{"pm_email_notify", "notifyTypes", "ICQ", "gender", "ID_THEME"}
+	profileInts := []string{"pm_email_notify", "notifyTypes", "gender", "ID_THEME"}
 	profileFloats := []string{"timeOffset"}
 	profileStrings := []string{
 		"websiteUrl", "websiteTitle",
-		"AIM", "YIM",
 		"location", "birthdate",
 		"timeFormat",
 		"buddy_list",
 		"pm_ignore_list",
 		"smileySet",
 		"signature", "personalText", "avatar",
-	}
-
-	// Fix the spaces in messenger screennames...
-	for _, v := range []string{"MSN", "AIM", "YIM"} {
-		if c.POST.Has(v) {
-			c.POST.Set(v, strings.ReplaceAll(c.POST.Str(v), " ", "+"))
-		}
-	}
-
-	// Make sure the MSN one is an email address, not something like 'none'
-	// :P.
-	if c.POST.Has("MSN") && (c.POST.Str("MSN") == "" || msnMatchRe.MatchString(c.POST.Str("MSN"))) {
-		profileStrings = append(profileStrings, "MSN")
 	}
 
 	// Validate the title...
@@ -535,13 +520,6 @@ func (c *Ctx) saveProfileChanges(st *profileSaveState) {
 			// Make sure we update the stats too.
 			c.updateStatsMemberRecount()
 		}
-
-		if c.POST.Has("karmaGood") {
-			st.vars["karmaGood"] = c.POST.Int("karmaGood")
-		}
-		if c.POST.Has("karmaBad") {
-			st.vars["karmaBad"] = c.POST.Int("karmaBad")
-		}
 	}
 
 	// Assigning membergroups (you need admin_forum permissions to change an
@@ -657,12 +635,6 @@ func (c *Ctx) saveProfileChanges(st *profileSaveState) {
 			if c.POST.Has(v) {
 				st.vars[v] = c.POST.Str(v)
 			}
-		}
-	}
-
-	if icq, ok := st.vars["ICQ"]; ok {
-		if n, isInt := icq.(int); isInt && n == 0 {
-			st.vars["ICQ"] = ""
 		}
 	}
 }

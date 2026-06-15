@@ -47,7 +47,7 @@ func templateWhoMain(c *Ctx) {
 		<tr class="windowbg`, alt, `">
 			<td>`)
 
-		// Guests don't have icq, msn, etc... and can't be messaged.
+		// Guests can't be messaged.
 		if !member.IsGuest {
 			openA, closeA := "", ""
 			if page.CanSendPM {
@@ -61,7 +61,6 @@ func templateWhoMain(c *Ctx) {
 			c.O(`
 				<div style="float: right; width: 14ex;">
 					`, openA, onlineBtn, closeA, `
-					`, member.ICQLink, ` `, member.MSNLink, ` `, member.YIMLink, ` `, member.AIMLink, `
 				</div>`)
 		}
 

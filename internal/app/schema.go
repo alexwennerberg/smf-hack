@@ -212,16 +212,6 @@ var schemaStatements = []string{
   PRIMARY KEY (ip)
 )`,
 
-	// log_karma
-	`CREATE TABLE {$db_prefix}log_karma (
-  ID_TARGET INTEGER NOT NULL DEFAULT 0,
-  ID_EXECUTOR INTEGER NOT NULL DEFAULT 0,
-  logTime INTEGER NOT NULL DEFAULT 0,
-  action INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (ID_TARGET, ID_EXECUTOR)
-)`,
-	`CREATE INDEX {$db_prefix}log_karma_logTime ON {$db_prefix}log_karma (logTime)`,
-
 	// log_mark_read
 	`CREATE TABLE {$db_prefix}log_mark_read (
   ID_MEMBER INTEGER NOT NULL DEFAULT 0,
@@ -334,10 +324,6 @@ var schemaStatements = []string{
   websiteTitle TEXT NOT NULL DEFAULT '',
   websiteUrl TEXT NOT NULL DEFAULT '',
   location TEXT NOT NULL DEFAULT '',
-  ICQ TEXT NOT NULL DEFAULT '',
-  AIM TEXT NOT NULL DEFAULT '',
-  YIM TEXT NOT NULL DEFAULT '',
-  MSN TEXT NOT NULL DEFAULT '',
   hideEmail INTEGER NOT NULL DEFAULT 0,
   showOnline INTEGER NOT NULL DEFAULT 1,
   timeFormat TEXT NOT NULL DEFAULT '',
@@ -345,8 +331,6 @@ var schemaStatements = []string{
   timeOffset REAL NOT NULL DEFAULT 0,
   avatar TEXT NOT NULL DEFAULT '',
   pm_email_notify INTEGER NOT NULL DEFAULT 0,
-  karmaBad INTEGER NOT NULL DEFAULT 0,
-  karmaGood INTEGER NOT NULL DEFAULT 0,
   usertitle TEXT NOT NULL DEFAULT '',
   notifyAnnouncements INTEGER NOT NULL DEFAULT 1,
   notifyOnce INTEGER NOT NULL DEFAULT 1,
@@ -666,9 +650,9 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 	memberGeneralPerms := []string{"view_mlist", "search_posts", "profile_view_own", "profile_view_any",
 		"pm_read", "pm_send", "calendar_view", "view_stats", "who_view", "profile_identity_own",
 		"profile_extra_own", "profile_remove_own", "profile_server_avatar", "profile_upload_avatar",
-		"profile_remote_avatar", "karma_edit"}
+		"profile_remote_avatar"}
 	gmodGeneralPerms := append(append([]string{}, memberGeneralPerms[:15]...),
-		"profile_title_own", "calendar_post", "calendar_edit_any", "karma_edit")
+		"profile_title_own", "calendar_post", "calendar_edit_any")
 	for _, perm := range guestPerms {
 		if err := exec(`INSERT INTO {$db_prefix}permissions (ID_GROUP, permission) VALUES (-1, ?)`, perm); err != nil {
 			return err
@@ -693,17 +677,10 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		{"compactTopicPagesEnable", "1"},
 		{"enableStickyTopics", "1"},
 		{"todayMod", "1"},
-		{"karmaMode", "0"},
-		{"karmaTimeRestrictAdmins", "1"},
 		{"enablePreviousNext", "1"},
 		{"pollMode", "1"},
 		{"enableVBStyleLogin", "1"},
 		{"enableCompressedOutput", "1"},
-		{"karmaWaitTime", "1"},
-		{"karmaMinPosts", "0"},
-		{"karmaLabel", "Karma:"},
-		{"karmaSmiteLabel", "[smite]"},
-		{"karmaApplaudLabel", "[applaud]"},
 		{"attachmentSizeLimit", "128"},
 		{"attachmentPostLimit", "192"},
 		{"attachmentNumPerPostLimit", "4"},

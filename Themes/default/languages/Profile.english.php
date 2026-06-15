@@ -36,9 +36,6 @@ $txt[596] = 'For best security, you should use six or more characters with a com
 $txt[597] = 'Additional Information';
 $txt[598] = 'This must be included if you specify a URL below.';
 $txt[599] = 'This must be a complete URL.';
-$txt[600] = 'This is your ICQ number.';
-$txt[601] = 'This is your AOL Instant Messenger nickname.';
-$txt[602] = 'This is your Yahoo! Instant Messenger nickname.';
 $txt[606] = 'Signatures are displayed at the bottom of each post or personal message. BBC code and smileys may be used in your signature.';
 $txt[664] = 'Max ' . $modSettings['max_signatureLength'] . '; characters remaining: ';
 $txt[688] = 'Send this member a personal message';
@@ -49,7 +46,6 @@ $txt[749] = 'The \'number of posts\' box can only contain digits.';
 $txt['smf225'] = 'Language';
 $txt['smf227'] = 'Avatar image is too big, please resize it and try again (max';
 $txt['smf233'] = 'Invalid Date Registered value, valid example:';
-$txt['smf237'] = 'Your MSN messenger email address';
 $txt['smf241'] = 'Current Password';
 $txt['smf243'] = 'You haven\'t entered your current password.';
 // Don't use entities in the below string, except the main ones. (lt, gt, quot.)

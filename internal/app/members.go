@@ -27,12 +27,6 @@ type memberProfile struct {
 	Birthdate        string
 	MemberIP         string
 	MemberIP2        string
-	ICQ              string
-	AIM              string
-	YIM              string
-	MSN              string
-	KarmaGood        int
-	KarmaBad         int
 	LngFile          string
 	IDGroup          int
 	IDPostGroup      int
@@ -95,22 +89,6 @@ type MemberCtx struct {
 	BirthDate       string
 	Signature       string
 	Location        string
-	ICQName         string
-	ICQHref         string
-	ICQLink         string
-	ICQLinkText     string
-	AIMName         string
-	AIMHref         string
-	AIMLink         string
-	AIMLinkText     string
-	YIMName         string
-	YIMHref         string
-	YIMLink         string
-	YIMLinkText     string
-	MSNName         string
-	MSNHref         string
-	MSNLink         string
-	MSNLinkText     string
 	RealPosts       int
 	Posts           string
 	AvatarName      string
@@ -119,9 +97,6 @@ type MemberCtx struct {
 	AvatarURL       string
 	LastLogin       string
 	LastLoginTS     int64
-	KarmaGood       int
-	KarmaBad        int
-	KarmaAllow      bool
 	IP              string
 	IP2             string
 	IsOnline        bool
@@ -189,8 +164,8 @@ func (c *Ctx) loadMemberDataSet(users []int, name string, set string) []int {
 			IFNULL(lo.logTime, 0) AS isOnline, IFNULL(a.ID_ATTACH, 0) AS ID_ATTACH, IFNULL(a.filename, '') AS filename, IFNULL(a.attachmentType, 0) AS attachmentType,
 			mem.signature, mem.personalText, mem.location, mem.gender, mem.avatar, mem.ID_MEMBER, mem.memberName,
 			mem.realName, mem.emailAddress, mem.hideEmail, mem.dateRegistered, mem.websiteTitle, mem.websiteUrl,
-			mem.birthdate, mem.memberIP, mem.memberIP2, mem.ICQ, mem.AIM, mem.YIM, mem.MSN, mem.posts, mem.lastLogin,
-			mem.karmaGood, mem.ID_POST_GROUP, mem.karmaBad, mem.lngfile, mem.ID_GROUP, mem.timeOffset, mem.showOnline,
+			mem.birthdate, mem.memberIP, mem.memberIP2, mem.posts, mem.lastLogin,
+			mem.ID_POST_GROUP, mem.lngfile, mem.ID_GROUP, mem.timeOffset, mem.showOnline,
 			mem.buddy_list, IFNULL(mg.onlineColor, '') AS member_group_color, IFNULL(mg.groupName, '') AS member_group,
 			IFNULL(pg.onlineColor, '') AS post_group_color, IFNULL(pg.groupName, '') AS post_group, mem.is_activated,
 			CASE WHEN mem.ID_GROUP = 0 OR IFNULL(mg.stars, '') = '' THEN IFNULL(pg.stars, '') ELSE mg.stars END AS stars` + titleCol
@@ -221,8 +196,8 @@ func (c *Ctx) loadMemberDataSet(users []int, name string, set string) []int {
 			&p.IsOnline, &p.IDAttach, &p.AttachFilename, &p.AttachType,
 			&p.Signature, &p.PersonalText, &p.Location, &p.Gender, &p.Avatar, &p.ID, &p.MemberName,
 			&p.RealName, &p.EmailAddress, &p.HideEmail, &p.DateRegistered, &p.WebsiteTitle, &p.WebsiteURL,
-			&p.Birthdate, &p.MemberIP, &p.MemberIP2, &p.ICQ, &p.AIM, &p.YIM, &p.MSN, &p.Posts, &p.LastLogin,
-			&p.KarmaGood, &p.IDPostGroup, &p.KarmaBad, &p.LngFile, &p.IDGroup, &p.TimeOffset, &p.ShowOnline,
+			&p.Birthdate, &p.MemberIP, &p.MemberIP2, &p.Posts, &p.LastLogin,
+			&p.IDPostGroup, &p.LngFile, &p.IDGroup, &p.TimeOffset, &p.ShowOnline,
 			&p.BuddyList, &p.MemberGroupColor, &p.MemberGroup,
 			&p.PostGroupColor, &p.PostGroup, &p.IsActivated, &p.Stars,
 		}
@@ -390,10 +365,6 @@ func (c *Ctx) loadMemberContext(user int) bool {
 		Signature:    signature,
 		Location:     location,
 		RealPosts:    p.Posts,
-		KarmaGood:    p.KarmaGood,
-		KarmaBad:     p.KarmaBad,
-		KarmaAllow: !c.User.IsGuest && c.User.Posts >= a.SettingInt("karmaMinPosts") &&
-			c.allowedTo("karma_edit") && !a.SettingEmpty("karmaMode") && c.User.ID != user,
 		IP:             Htmlspecialchars(p.MemberIP),
 		IP2:            Htmlspecialchars(p.MemberIP2),
 		IsOnline:       isOnline,
@@ -434,34 +405,6 @@ func (c *Ctx) loadMemberContext(user int) bool {
 		m.BirthDate = "0000" + p.Birthdate[4:]
 	} else {
 		m.BirthDate = p.Birthdate
-	}
-
-	contactable := a.SettingEmpty("guest_hideContacts") || !c.User.IsGuest
-	if p.ICQ != "" && contactable {
-		m.ICQName = p.ICQ
-		m.ICQHref = "http://www.icq.com/whitepages/about_me.php?uin=" + p.ICQ
-		m.ICQLink = `<a href="http://www.icq.com/whitepages/about_me.php?uin=` + p.ICQ + `" target="_blank"><img src="http://status.icq.com/online.gif?img=5&amp;icq=` + p.ICQ + `" alt="` + p.ICQ + `" width="18" height="18" border="0" /></a>`
-		m.ICQLinkText = `<a href="http://www.icq.com/whitepages/about_me.php?uin=` + p.ICQ + `" target="_blank">` + p.ICQ + `</a>`
-	}
-	if p.AIM != "" && contactable {
-		aimURL := urlencodeSpaces(p.AIM)
-		m.AIMName = p.AIM
-		m.AIMHref = "aim:goim?screenname=" + aimURL + "&amp;message=" + c.Txt("aim_default_message")
-		m.AIMLink = `<a href="aim:goim?screenname=` + aimURL + `&amp;message=` + c.Txt("aim_default_message") + `"><img src="` + c.Theme.ImagesURL() + `/aim.gif" alt="` + p.AIM + `" border="0" /></a>`
-		m.AIMLinkText = `<a href="aim:goim?screenname=` + aimURL + `&amp;message=` + c.Txt("aim_default_message") + `">` + p.AIM + `</a>`
-	}
-	if p.YIM != "" && contactable {
-		yimURL := urlencode(p.YIM)
-		m.YIMName = p.YIM
-		m.YIMHref = "http://edit.yahoo.com/config/send_webmesg?.target=" + yimURL
-		m.YIMLink = `<a href="http://edit.yahoo.com/config/send_webmesg?.target=` + yimURL + `"><img src="http://opi.yahoo.com/online?u=` + yimURL + `&amp;m=g&amp;t=0" alt="` + p.YIM + `" border="0" /></a>`
-		m.YIMLinkText = `<a href="http://edit.yahoo.com/config/send_webmesg?.target=` + yimURL + `">` + p.YIM + `</a>`
-	}
-	if p.MSN != "" && contactable {
-		m.MSNName = p.MSN
-		m.MSNHref = "http://members.msn.com/" + p.MSN
-		m.MSNLink = `<a href="http://members.msn.com/` + p.MSN + `" target="_blank"><img src="` + c.Theme.ImagesURL() + `/msntalk.gif" alt="` + p.MSN + `" border="0" /></a>`
-		m.MSNLinkText = `<a href="http://members.msn.com/` + p.MSN + `" target="_blank">` + p.MSN + `</a>`
 	}
 
 	if p.Posts > 100000 {
@@ -566,9 +509,4 @@ func urlencode(s string) string {
 		}
 	}
 	return b.String()
-}
-
-// urlencodeSpaces is urlencode(strtr($s, array(' ' => '%20'))) for AIM.
-func urlencodeSpaces(s string) string {
-	return urlencode(strings.ReplaceAll(s, " ", "%20"))
 }

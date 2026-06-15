@@ -42,13 +42,7 @@ type ProfileMember struct {
 	Registered   string
 	Group        int
 	GenderName   string
-	KarmaGood    string
-	KarmaBad     string
 	Avatar       ProfileAvatar
-	ICQ          string
-	AIM          string
-	YIM          string
-	MSN          string
 	WebsiteTitle string
 	WebsiteURL   string
 
@@ -379,14 +373,6 @@ func (c *Ctx) buildProfileMember(memID int) *ProfileMember {
 	} else if p.Gender != 0 {
 		m.GenderName = "m"
 	}
-	m.KarmaGood = "0"
-	if p.KarmaGood != 0 {
-		m.KarmaGood = itoa(p.KarmaGood)
-	}
-	m.KarmaBad = "0"
-	if p.KarmaBad != 0 {
-		m.KarmaBad = itoa(p.KarmaBad)
-	}
 
 	av := &m.Avatar
 	av.Name = p.Avatar
@@ -409,10 +395,6 @@ func (c *Ctx) buildProfileMember(memID int) *ProfileMember {
 	av.AllowUpload = c.allowedTo("profile_upload_avatar") || memID != c.User.ID
 	av.AllowExternal = c.allowedTo("profile_remote_avatar") || memID != c.User.ID
 
-	m.ICQ = p.ICQ
-	m.AIM = strings.ReplaceAll(p.AIM, "+", " ")
-	m.YIM = p.YIM
-	m.MSN = p.MSN
 	m.WebsiteTitle = p.WebsiteTitle
 	m.WebsiteURL = p.WebsiteURL
 

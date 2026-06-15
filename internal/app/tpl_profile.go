@@ -156,26 +156,6 @@ func templateProfileSummary(c *Ctx) {
 				</tr>`)
 	}
 
-	// If karma enabled show the members karma.
-	if a.Setting("karmaMode") == "1" {
-		c.O(`
-				<tr>
-					<td>
-						<b>`, a.Setting("karmaLabel"), ` </b>
-					</td><td>
-						`, member.KarmaGood-member.KarmaBad, `
-					</td>
-				</tr>`)
-	} else if a.Setting("karmaMode") == "2" {
-		c.O(`
-				<tr>
-					<td>
-						<b>`, a.Setting("karmaLabel"), ` </b>
-					</td><td>
-						+`, member.KarmaGood, `/-`, member.KarmaBad, `
-					</td>
-				</tr>`)
-	}
 	c.O(`
 				<tr>
 					<td><b>`, c.Txt("233"), `: </b></td>
@@ -232,22 +212,9 @@ func templateProfileSummary(c *Ctx) {
 		}
 	}
 
-	// Messenger type information.
 	c.O(`
 				<tr>
 					<td colspan="2"><hr size="1" width="100%" class="hrcolor" /></td>
-				</tr><tr>
-					<td><b>`, c.Txt("513"), `:</b></td>
-					<td>`, member.ICQLinkText, `</td>
-				</tr><tr>
-					<td><b>`, c.Txt("603"), `: </b></td>
-					<td>`, member.AIMLinkText, `</td>
-				</tr><tr>
-					<td><b>`, c.Txt("MSN"), `: </b></td>
-					<td>`, member.MSNLinkText, `</td>
-				</tr><tr>
-					<td><b>`, c.Txt("604"), `: </b></td>
-					<td>`, member.YIMLinkText, `</td>
 				</tr><tr>
 					<td><b>`, c.Txt("69"), `: </b></td>
 					<td>`)
@@ -504,7 +471,7 @@ func templateProfileEditBuddies(c *Ctx) {
 	c.O(`
 		<table border="0" width="85%" cellspacing="1" cellpadding="4" class="bordercolor" align="center">
 			<tr class="titlebg">
-				<td colspan="8" height="26">
+				<td colspan="4" height="26">
 					&nbsp;<img src="`, c.Theme.ImagesURL(), `/icons/profile_sm.gif" alt="" align="top" />&nbsp;`, c.Txt("editBuddies"), `
 				</td>
 			</tr>
@@ -512,10 +479,6 @@ func templateProfileEditBuddies(c *Ctx) {
 				<td width="20%">`, c.Txt("68"), `</td>
 				<td>`, c.Txt("online8"), `</td>
 				<td>`, c.Txt("69"), `</td>
-				<td align="center">`, c.Txt("513"), `</td>
-				<td align="center">`, c.Txt("603"), `</td>
-				<td align="center">`, c.Txt("604"), `</td>
-				<td align="center">`, c.Txt("MSN"), `</td>
 				<td></td>
 			</tr>`)
 
@@ -523,7 +486,7 @@ func templateProfileEditBuddies(c *Ctx) {
 	if len(sub.Buddies) == 0 {
 		c.O(`
 			<tr class="windowbg">
-				<td colspan="8" align="center"><b>`, c.Txt("no_buddies"), `</b></td>
+				<td colspan="4" align="center"><b>`, c.Txt("no_buddies"), `</b></td>
 			</tr>`)
 	}
 
@@ -543,10 +506,6 @@ func templateProfileEditBuddies(c *Ctx) {
 				<td>`, buddy.Link, `</td>
 				<td align="center"><a href="`, buddy.OnlineHref, `"><img src="`, buddy.OnlineImageHref, `" alt="`, buddy.OnlineLabel, `" title="`, buddy.OnlineLabel, `" /></a></td>
 				<td align="center">`, emailCell, `</td>
-				<td align="center">`, buddy.ICQLink, `</td>
-				<td align="center">`, buddy.AIMLink, `</td>
-				<td align="center">`, buddy.YIMLink, `</td>
-				<td align="center">`, buddy.MSNLink, `</td>
 				<td align="center"><a href="`, scripturl, `?action=profile;u=`, page.MemID, `;sa=editBuddies;remove=`, buddy.ID, `"><img src="`, c.Theme.ImagesURL(), `/icons/delete.gif" alt="`, c.Txt("buddy_remove"), `" title="`, c.Txt("buddy_remove"), `" /></a></td>
 			</tr>`)
 

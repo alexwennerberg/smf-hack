@@ -354,23 +354,6 @@ func templatePMFolder(c *Ctx) {
 				c.O(`
 									`, member.GroupStars, `<br />`)
 
-				// Is karma display enabled? Total or +/-?
-				if c.App.Setting("karmaMode") == "1" {
-					c.O(`
-									<br />
-									`, c.App.Setting("karmaLabel"), ` `, member.KarmaGood-member.KarmaBad, `<br />`)
-				} else if c.App.Setting("karmaMode") == "2" {
-					c.O(`
-									<br />
-									`, c.App.Setting("karmaLabel"), ` +`, member.KarmaGood, `/-`, member.KarmaBad, `<br />`)
-				}
-
-				// Is this user allowed to modify this member's karma?
-				if member.KarmaAllow {
-					c.O(`
-									<a href="`, scripturl, `?action=modifykarma;sa=applaud;uid=`, member.ID, `;f=`, page.Folder, `;start=`, page.Start, `;`, lbl, `;pm=`, message.ID, `;sesc=`, c.Sc, `">`, c.App.Setting("karmaApplaudLabel"), `</a> <a href="`, scripturl, `?action=modifykarma;sa=smite;uid=`, member.ID, `;f=`, page.Folder, `;start=`, page.Start, `;`, lbl, `;pm=`, message.ID, `;sesc=`, c.Sc, `">`, c.App.Setting("karmaSmiteLabel"), `</a><br />`)
-				}
-
 				// Show online and offline buttons?
 				if !c.App.SettingEmpty("onlineEnable") {
 					openA, closeA := "", ""
@@ -411,12 +394,6 @@ func templatePMFolder(c *Ctx) {
 									`, member.Blurb, `<br />
 									<br />`)
 				}
-				c.O(`
-									`, member.ICQLink, `
-									`, member.MSNLink, `
-									`, member.YIMLink, `
-									`, member.AIMLink, `<br />`)
-
 				// Show the profile, website, email address, and personal message buttons.
 				if !c.Theme.Empty("show_profile_buttons") {
 					profileBtn := c.Txt("27")

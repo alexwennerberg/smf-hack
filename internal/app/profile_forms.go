@@ -640,10 +640,6 @@ func (c *Ctx) rememberPostData(page *ProfileCtx) {
 	}
 	m.Signature = strings.NewReplacer("<", "&lt;", ">", "&gt;").Replace(c.POST.Str("signature"))
 	m.Location = c.POST.Str("location")
-	m.ICQ = c.POST.Str("ICQ")
-	m.AIM = strings.ReplaceAll(c.POST.Str("AIM"), "+", " ")
-	m.YIM = c.POST.Str("YIM")
-	m.MSN = c.POST.Str("MSN")
 	m.Posts = c.POST.Int("posts")
 
 	av := &m.Avatar
@@ -664,14 +660,6 @@ func (c *Ctx) rememberPostData(page *ProfileCtx) {
 		av.External = c.POST.Str("userpicpersonal")
 	}
 
-	m.KarmaGood = "0"
-	if !empty(c.POST.Str("karmaGood")) {
-		m.KarmaGood = c.POST.Str("karmaGood")
-	}
-	m.KarmaBad = "0"
-	if !empty(c.POST.Str("karmaBad")) {
-		m.KarmaBad = c.POST.Str("karmaBad")
-	}
 	m.TimeFormat = c.POST.Str("timeFormat")
 	m.TimeOffset = "0"
 	if !empty(c.POST.Str("timeOffset")) {

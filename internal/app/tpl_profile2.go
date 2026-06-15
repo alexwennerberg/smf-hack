@@ -500,24 +500,6 @@ func templateProfileForumProfile(c *Ctx) {
 								<td colspan="2"><hr width="100%" size="1" class="hrcolor" /></td>
 							</tr>`)
 
-	// All the messenger type contact info.
-	c.O(`
-							<tr>
-								<td width="40%"><b>`, c.Txt("513"), `: </b><div class="smalltext">`, c.Txt("600"), `</div></td>
-								<td><input type="text" name="ICQ" size="24" value="`, page.Member.ICQ, `" /></td>
-							</tr><tr>
-								<td width="40%"><b>`, c.Txt("603"), `: </b><div class="smalltext">`, c.Txt("601"), `</div></td>
-								<td><input type="text" name="AIM" maxlength="16" size="24" value="`, page.Member.AIM, `" /></td>
-							</tr><tr>
-								<td width="40%"><b>`, c.Txt("MSN"), `: </b><div class="smalltext">`, c.Txt("smf237"), `.</div></td>
-								<td><input type="text" name="MSN" size="24" value="`, page.Member.MSN, `" /></td>
-							</tr><tr>
-								<td width="40%"><b>`, c.Txt("604"), `: </b><div class="smalltext">`, c.Txt("602"), `</div></td>
-								<td><input type="text" name="YIM" maxlength="32" size="24" value="`, page.Member.YIM, `" /></td>
-							</tr><tr>
-								<td colspan="2"><hr width="100%" size="1" class="hrcolor" /></td>
-							</tr>`)
-
 	// Input box for custom titles, if they can edit it...
 	if !a.SettingEmpty("titlesEnable") && sub.AllowEditTitle {
 		c.O(`
@@ -598,20 +580,6 @@ func templateProfileForumProfile(c *Ctx) {
 								<td width="40%"><b>`, c.Txt("84"), `: </b><div class="smalltext">`, c.Txt("599"), `</div></td>
 								<td><input type="text" name="websiteUrl" size="50" value="`, page.Member.WebsiteURL, `" /></td>
 							</tr>`)
-
-	// If karma is enabled let the admin edit it...
-	if c.User.IsAdmin && !a.SettingEmpty("karmaMode") {
-		c.O(`
-							<tr>
-								<td colspan="2"><hr width="100%" size="1" class="hrcolor" /></td>
-							</tr><tr>
-								<td valign="top"><b>`, a.Setting("karmaLabel"), `</b></td>
-								<td>
-									`, a.Setting("karmaApplaudLabel"), ` <input type="text" name="karmaGood" size="4" value="`, page.Member.KarmaGood, `" onchange="setInnerHTML(document.getElementById('karmaTotal'), this.value - this.form.karmaBad.value);" style="margin-right: 2ex;" /> `, a.Setting("karmaSmiteLabel"), ` <input type="text" name="karmaBad" size="4" value="`, page.Member.KarmaBad, `" onchange="this.form.karmaGood.onchange();" /><br />
-									(`, c.Txt("94"), `: <span id="karmaTotal">`, atoi(page.Member.KarmaGood)-atoi(page.Member.KarmaBad), `</span>)
-								</td>
-							</tr>`)
-	}
 
 	// Show the standard "Save Settings" profile button.
 	templateProfileSave(c, page)

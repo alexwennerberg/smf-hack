@@ -80,7 +80,7 @@ func templateMemberlistMain(c *Ctx) {
 	if c.Theme.Empty("use_tabs") {
 		c.O(`
 		<tr class="titlebg">
-			<td colspan="12">`)
+			<td colspan="8">`)
 		c.O(`
 					`, mlOldStyleLinks(c, page), `
 			</td>
@@ -92,7 +92,7 @@ func templateMemberlistMain(c *Ctx) {
 	}
 	c.O(`
 		<tr>
-			<td colspan="12" class="`, rowClass, `">`)
+			<td colspan="8" class="`, rowClass, `">`)
 
 	// Display page numbers and the a-z links for sorting by name if not a
 	// result of a search.
@@ -198,10 +198,6 @@ func templateMemberlistMain(c *Ctx) {
 			<td class="windowbg" align="left">`, member.Link, `</td>
 			<td class="windowbg2">`, emailCell, `</td>
 			<td class="windowbg">`, websiteCell, `</td>
-			<td class="windowbg2">`, member.ICQLink, `</td>
-			<td class="windowbg2">`, member.AIMLink, `</td>
-			<td class="windowbg2">`, member.YIMLink, `</td>
-			<td class="windowbg2">`, member.MSNLink, `</td>
 			<td class="windowbg" align="left">`, group, `</td>
 			<td class="windowbg" align="left">`, member.RegisteredDate, `</td>
 			<td class="windowbg2" width="15">`, member.Posts, `</td>
@@ -214,14 +210,14 @@ func templateMemberlistMain(c *Ctx) {
 		// No members?
 		c.O(`
 		<tr>
-			<td colspan="12" class="windowbg">`, c.Txt("170"), `</td>
+			<td colspan="8" class="windowbg">`, c.Txt("170"), `</td>
 		</tr>`)
 	}
 
 	// Show the page numbers again. (makes 'em easier to find!)
 	c.O(`
 		<tr>
-			<td class="titlebg" colspan="12">`, c.Txt("139"), `: `, page.PageIndex, `</td>
+			<td class="titlebg" colspan="8">`, c.Txt("139"), `: `, page.PageIndex, `</td>
 		</tr>
 	</table>`)
 
@@ -281,7 +277,6 @@ func templateMemberlistSearch(c *Ctx) {
 				<tr>
 					<td align="left">
 								<label for="fields-email"><input type="checkbox" name="fields[]" id="fields-email" value="email" checked="checked" class="check" /> `, c.Txt("mlist_search_email"), `</label><br />
-								<label for="fields-messenger"><input type="checkbox" name="fields[]" id="fields-messenger" value="messenger" class="check" /> `, c.Txt("mlist_search_messenger"), `</label><br />
 								<label for="fields-group"><input type="checkbox" name="fields[]" id="fields-group" value="group" class="check" /> `, c.Txt("mlist_search_group"), `</label>
 					</td>
 					<td align="left" valign="top">

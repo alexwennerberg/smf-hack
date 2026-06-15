@@ -833,22 +833,6 @@ func templateManualProfile(c *Ctx) {
 											</td>
 										</tr>
 										<tr>
-											<td><b>ICQ:</b></td>
-											<td></td>
-										</tr>
-										<tr>
-											<td><b>AIM:</b></td>
-											<td></td>
-										</tr>
-										<tr>
-											<td><b>MSN:</b></td>
-											<td></td>
-										</tr>
-										<tr>
-											<td><b>YIM:</b></td>
-											<td></td>
-										</tr>
-										<tr>
 											<td><b>`, c.Txt("manual_profile_email"), `:</b></td>
 											<td><a href="mailto:`, c.Txt("manual_profile_email_user"), `" class="board">`, c.Txt("manual_profile_email_user"), `</a></td>
 										</tr>

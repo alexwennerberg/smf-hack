@@ -7,7 +7,6 @@ package app
 
 import (
 	"math/rand"
-	"net/http"
 	"os"
 	"path/filepath"
 	"strings"
@@ -156,14 +155,14 @@ func (c *Ctx) Register2() {
 
 	// Collect all extra registration fields someone might have filled in.
 	extra := map[string]string{}
-	for _, v := range []string{"websiteUrl", "websiteTitle", "AIM", "YIM", "location", "birthdate",
+	for _, v := range []string{"websiteUrl", "websiteTitle", "location", "birthdate",
 		"timeFormat", "buddy_list", "pm_ignore_list", "smileySet", "personalText", "avatar",
 		"secretQuestion", "secretAnswer"} {
 		if c.POST.Has(v) {
 			extra[v] = Htmlspecialchars(post(v))
 		}
 	}
-	for _, v := range []string{"pm_email_notify", "notifyTypes", "ICQ", "gender", "ID_THEME"} {
+	for _, v := range []string{"pm_email_notify", "notifyTypes", "gender", "ID_THEME"} {
 		if c.POST.Has(v) {
 			extra[v] = itoa(c.POST.Int(v))
 		}
@@ -188,10 +187,6 @@ func (c *Ctx) Register2() {
 		if strings.TrimSpace(realName) != "" && !c.isReservedName(realName, 0, true, false) && entityLen(realName) <= 60 {
 			extra["realName"] = Htmlspecialchars(realName)
 		}
-	}
-
-	if c.POST.Has("MSN") && emailRe.MatchString(post("MSN")) {
-		extra["MSN"] = Htmlspecialchars(post("MSN"))
 	}
 
 	// Birthdate parts...
@@ -554,5 +549,3 @@ func (c *Ctx) showLetterImage(letter string) bool {
 	c.W.Write(data)
 	return true
 }
-
-var _ = http.StatusOK

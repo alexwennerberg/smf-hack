@@ -791,18 +791,6 @@ func (c *Ctx) getXmlProfile(format string) []xmlField {
 	if m.Title != "" {
 		data = append(data, xleaf("title", cdataParse(m.Title)))
 	}
-	if m.ICQName != "" && !hideContacts {
-		data = append(data, xleaf("icq", m.ICQName))
-	}
-	if m.AIMName != "" && !hideContacts {
-		data = append(data, xleaf("aim", m.AIMName))
-	}
-	if m.MSNName != "" && !hideContacts {
-		data = append(data, xleaf("msn", m.MSNName))
-	}
-	if m.YIMName != "" && !hideContacts {
-		data = append(data, xleaf("yim", m.YIMName))
-	}
 	if m.WebsiteTitle != "" {
 		data = append(data, xnodeK("website",
 			xleaf("title", cdataParse(m.WebsiteTitle)),
@@ -810,11 +798,6 @@ func (c *Ctx) getXmlProfile(format string) []xmlField {
 	}
 	if m.Group != "" {
 		data = append(data, xleaf("postition", cdataParse(m.Group)))
-	}
-	if !a.SettingEmpty("karmaMode") {
-		data = append(data, xnodeK("karma",
-			xleaf("good", itoa(m.KarmaGood)),
-			xleaf("bad", itoa(m.KarmaBad))))
 	}
 	if (!m.HideEmail || a.SettingEmpty("allow_hideEmail")) && !hideContacts {
 		data = append(data, xleaf("email", m.Email))

@@ -172,8 +172,6 @@ func templateSearchMembers(c *Ctx) {
 								<label for="gender-1"><input type="checkbox" name="gender[]" value="1" id="gender-1" checked="checked" class="check" /> `, c.Txt("238"), `</label>&nbsp;&nbsp;
 								<label for="gender-2"><input type="checkbox" name="gender[]" value="2" id="gender-2" checked="checked" class="check" /> `, c.Txt("239"), `</label>
 							</td>
-							<th align="right">`, c.Txt("messenger_address"), `:</th>
-							<td align="left"><input type="text" name="messenger" value="" /></td>
 						</tr><tr>
 							<th align="right">`, c.Txt("activation_status"), `:</th>
 							<td align="left" colspan="2">

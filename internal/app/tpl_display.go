@@ -349,24 +349,6 @@ func templateDisplayMain(c *Ctx) {
 			c.O(`
 								`, member.GroupStars, `<br />`)
 
-			// Is karma display enabled?  Total or +/-?
-			if c.App.Setting("karmaMode") == "1" {
-				c.O(`
-								<br />
-								`, c.App.Setting("karmaLabel"), ` `, member.KarmaGood-member.KarmaBad, `<br />`)
-			} else if c.App.Setting("karmaMode") == "2" {
-				c.O(`
-								<br />
-								`, c.App.Setting("karmaLabel"), ` +`, member.KarmaGood, `/-`, member.KarmaBad, `<br />`)
-			}
-
-			// Is this user allowed to modify this member's karma?
-			if member.KarmaAllow {
-				c.O(`
-								<a href="`, scripturl, `?action=modifykarma;sa=applaud;uid=`, member.ID, `;topic=`, c.Topic, `.`, page.Start, `;m=`, message.ID, `;sesc=`, c.Sc, `">`, c.App.Setting("karmaApplaudLabel"), `</a>
-								<a href="`, scripturl, `?action=modifykarma;sa=smite;uid=`, member.ID, `;topic=`, c.Topic, `.`, page.Start, `;m=`, message.ID, `;sesc=`, c.Sc, `">`, c.App.Setting("karmaSmiteLabel"), `</a><br />`)
-			}
-
 			// Show online and offline buttons?
 			if !c.App.SettingEmpty("onlineEnable") {
 				if page.CanSendPM {
@@ -413,13 +395,6 @@ func templateDisplayMain(c *Ctx) {
 								`, member.Blurb, `<br />
 								<br />`)
 			}
-
-			// This shows the popular messaging icons.
-			c.O(`
-								`, member.ICQLink, `
-								`, member.MSNLink, `
-								`, member.AIMLink, `
-								`, member.YIMLink, `<br />`)
 
 			// Show the profile, website, email address, and PM buttons.
 			if !c.Theme.Empty("show_profile_buttons") {
