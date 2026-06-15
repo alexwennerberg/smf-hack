@@ -269,36 +269,36 @@ type SearchPostRef struct {
 
 // SearchTopicResult is one topic in the results (≈ prepareSearchContext output).
 type SearchTopicResult struct {
-	ID          int
-	Relevance   string
-	NumMatches  int
-	IsSticky    bool
-	IsLocked    bool
-	IsPoll      bool
-	IsHot       bool
-	IsVeryHot   bool
-	PostedIn    bool
-	Views       int
-	Replies     int
-	CanReply    bool
-	CanMarkNot  bool
-	Class       string
-	FirstPost   SearchPostRef
-	LastPost    SearchPostRef
-	Board       RecentRef
-	Category    RecentRef
-	Matches     []*SearchMatch
+	ID         int
+	Relevance  string
+	NumMatches int
+	IsSticky   bool
+	IsLocked   bool
+	IsPoll     bool
+	IsHot      bool
+	IsVeryHot  bool
+	PostedIn   bool
+	Views      int
+	Replies    int
+	CanReply   bool
+	CanMarkNot bool
+	Class      string
+	FirstPost  SearchPostRef
+	LastPost   SearchPostRef
+	Board      RecentRef
+	Category   RecentRef
+	Matches    []*SearchMatch
 }
 
 // SearchResultsCtx is the page context for template_results.
 type SearchResultsCtx struct {
-	Compact      bool
-	PageIndex    string
-	Params       string
-	KeyWords     []string
-	CanSendPM    bool
-	Topics       []*SearchTopicResult
-	NoResults    bool
+	Compact   bool
+	PageIndex string
+	Params    string
+	KeyWords  []string
+	CanSendPM bool
+	Topics    []*SearchTopicResult
+	NoResults bool
 	// Re-shown adjust-query box fields.
 	Search       string
 	Searchtype   int
@@ -440,7 +440,7 @@ func (c *Ctx) PlushSearch2() {
 		if sp.maxage != 0 {
 			where += " AND posterTime >= " + itoa64(nowUnix()-86400*int64(sp.maxage))
 		}
-		a.DB.QueryRow(a.Q(`SELECT ` + selMin + `, ` + selMax + ` FROM {$db_prefix}messages WHERE ` + where)).Scan(&minMsgID, &maxMsgID)
+		a.DB.QueryRow(a.Q(`SELECT `+selMin+`, `+selMax+` FROM {$db_prefix}messages WHERE `+where)).Scan(&minMsgID, &maxMsgID)
 		if minMsgID < 0 || maxMsgID < 0 {
 			searchErrors = append(searchErrors, "no_messages_in_time_frame")
 		}
@@ -1150,7 +1150,7 @@ func (c *Ctx) buildSearchResults(page *SearchResultsCtx, idSearch, topic int, so
 			}
 		}
 		if len(topicIDs) > 0 {
-			rows, err := a.DB.Query(a.Q(`SELECT ID_TOPIC FROM {$db_prefix}messages WHERE ID_TOPIC IN (` + joinInts(topicIDs) + `) AND ID_MEMBER = ? GROUP BY ID_TOPIC`), c.User.ID)
+			rows, err := a.DB.Query(a.Q(`SELECT ID_TOPIC FROM {$db_prefix}messages WHERE ID_TOPIC IN (`+joinInts(topicIDs)+`) AND ID_MEMBER = ? GROUP BY ID_TOPIC`), c.User.ID)
 			if err == nil {
 				for rows.Next() {
 					var id int

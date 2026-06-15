@@ -24,8 +24,8 @@ type xmlField struct {
 	arr bool
 }
 
-func xleaf(key, val string) xmlField     { return xmlField{key: key, val: val} }
-func xnode(sub ...xmlField) xmlField      { return xmlField{sub: sub, arr: true} }
+func xleaf(key, val string) xmlField              { return xmlField{key: key, val: val} }
+func xnode(sub ...xmlField) xmlField              { return xmlField{sub: sub, arr: true} }
 func xnodeK(key string, sub ...xmlField) xmlField { return xmlField{key: key, sub: sub, arr: true} }
 
 // ShowXmlFeed is ShowXmlFeed(): the ?action=.xml dispatcher.
@@ -291,7 +291,7 @@ func fixPossibleURL(c *Ctx, val string) string {
 	return val
 }
 
-// cdataParse is cdata_parse($data) with ns='' (the only form News.php uses):
+// cdataParse is cdata_parse($data) with ns=” (the only form News.php uses):
 // wrap in CDATA but pull recognized entities (&amp; &lt; &gt; &quot; and
 // numeric) back out so they survive as real XML entities.
 func cdataParse(data string) string {

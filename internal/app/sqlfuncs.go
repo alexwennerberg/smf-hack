@@ -58,8 +58,8 @@ func init() {
 				return int64(atoiSimple(s[lo:hi])), nil
 			})
 	}
-	datePart("YEAR", 0, 4)       // YYYY-MM-DD -> YYYY
-	datePart("MONTH", 5, 7)      // YYYY-MM-DD -> MM
+	datePart("YEAR", 0, 4)        // YYYY-MM-DD -> YYYY
+	datePart("MONTH", 5, 7)       // YYYY-MM-DD -> MM
 	datePart("DAYOFMONTH", 8, 10) // YYYY-MM-DD -> DD
 }
 

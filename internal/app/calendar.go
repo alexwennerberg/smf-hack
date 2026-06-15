@@ -29,7 +29,7 @@ type CalBirthday struct {
 type CalEvent struct {
 	ID         int
 	Title      string
-	Topic      int  // for calendarDoIndex's topic+title dedup
+	Topic      int // for calendarDoIndex's topic+title dedup
 	CanEdit    bool
 	ModifyHref string
 	Href       string

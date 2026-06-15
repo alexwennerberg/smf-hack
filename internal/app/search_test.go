@@ -18,9 +18,9 @@ func TestSearchFormAdvanced(t *testing.T) {
 	}
 	for _, want := range []string{
 		`name="searchform"`,
-		`?action=search2`,             // posts to the engine
+		`?action=search2`, // posts to the engine
 		`<input type="hidden" name="advanced" value="1" />`,
-		`name="brd[1]"`,               // the board picker lists board 1
+		`name="brd[1]"`,     // the board picker lists board 1
 		`name="searchtype"`, // advanced-only field
 		`name="sort"`,       // sort select
 	} {
@@ -68,7 +68,7 @@ func TestSearch2Results(t *testing.T) {
 	w := postForm(t, a, "/index.php?action=post2;start=0;board=1.0", url.Values{
 		"topic": {"0"}, "subject": {"A searchable subject"},
 		"message": {"The quick brown fox jumps over the lazy dog."},
-		"icon": {"xx"}, "notify": {"0"}, "lock": {"0"}, "sticky": {"0"},
+		"icon":    {"xx"}, "notify": {"0"}, "lock": {"0"}, "sticky": {"0"},
 		"move": {"0"}, "additional_options": {"0"}, "sc": {sc}, "seqnum": {seq},
 	}, cookies...)
 	if w.Code != 302 {

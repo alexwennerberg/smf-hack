@@ -215,10 +215,10 @@ func (c *Ctx) UnreadTopics() {
 		a.DB.QueryRow(a.Q(`
 			SELECT COUNT(*), IFNULL(MIN(t.ID_LAST_MSG), 0)
 			FROM {$db_prefix}topics AS t
-				LEFT JOIN {$db_prefix}log_topics AS lt ON (lt.ID_TOPIC = t.ID_TOPIC AND lt.ID_MEMBER = ` + itoa(me) + `)
-				LEFT JOIN {$db_prefix}log_mark_read AS lmr ON (lmr.ID_BOARD = t.ID_BOARD AND lmr.ID_MEMBER = ` + itoa(me) + `)
-			WHERE t.` + queryThisBoard + `
-				AND ` + whereLast + `
+				LEFT JOIN {$db_prefix}log_topics AS lt ON (lt.ID_TOPIC = t.ID_TOPIC AND lt.ID_MEMBER = `+itoa(me)+`)
+				LEFT JOIN {$db_prefix}log_mark_read AS lmr ON (lmr.ID_BOARD = t.ID_BOARD AND lmr.ID_MEMBER = `+itoa(me)+`)
+			WHERE t.`+queryThisBoard+`
+				AND `+whereLast+`
 				AND IFNULL(lt.ID_MSG, IFNULL(lmr.ID_MSG, 0)) < t.ID_LAST_MSG`)).Scan(&numTopics, &minMessage)
 
 		page.PageIndex, _ = c.constructPageIndex(scripturl+"?action="+action+allParam+qblFmt+page.QuerystringSortLimits, start, numTopics, maxTopics, true)
@@ -249,11 +249,11 @@ func (c *Ctx) UnreadTopics() {
 		a.DB.QueryRow(a.Q(`
 			SELECT COUNT(DISTINCT t.ID_TOPIC), IFNULL(MIN(t.ID_LAST_MSG), 0)
 			FROM ({$db_prefix}topics AS t, {$db_prefix}messages AS m)
-				LEFT JOIN {$db_prefix}log_topics AS lt ON (lt.ID_TOPIC = t.ID_TOPIC AND lt.ID_MEMBER = ` + itoa(me) + `)
-				LEFT JOIN {$db_prefix}log_mark_read AS lmr ON (lmr.ID_BOARD = t.ID_BOARD AND lmr.ID_MEMBER = ` + itoa(me) + `)
-			WHERE t.` + queryThisBoard + `
+				LEFT JOIN {$db_prefix}log_topics AS lt ON (lt.ID_TOPIC = t.ID_TOPIC AND lt.ID_MEMBER = `+itoa(me)+`)
+				LEFT JOIN {$db_prefix}log_mark_read AS lmr ON (lmr.ID_BOARD = t.ID_BOARD AND lmr.ID_MEMBER = `+itoa(me)+`)
+			WHERE t.`+queryThisBoard+`
 				AND m.ID_TOPIC = t.ID_TOPIC
-				AND m.ID_MEMBER = ` + itoa(me) + `
+				AND m.ID_MEMBER = `+itoa(me)+`
 				AND IFNULL(lt.ID_MSG, IFNULL(lmr.ID_MSG, 0)) < t.ID_LAST_MSG`)).Scan(&numTopics, &minMessage)
 
 		page.PageIndex, _ = c.constructPageIndex(scripturl+"?action="+action+qblFmt+page.QuerystringSortLimits, start, numTopics, maxTopics, true)
@@ -327,7 +327,7 @@ func (c *Ctx) UnreadTopics() {
 		rows, err := a.DB.Query(a.Q(`
 			SELECT ID_TOPIC
 			FROM {$db_prefix}messages
-			WHERE ID_TOPIC IN (` + joinInts(ids) + `)
+			WHERE ID_TOPIC IN (`+joinInts(ids)+`)
 				AND ID_MEMBER = ?`), me)
 		if err == nil {
 			for rows.Next() {

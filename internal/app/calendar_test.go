@@ -223,13 +223,13 @@ func TestBoardIndexCalendar(t *testing.T) {
 		t.Fatalf("board index status %d", w.Code)
 	}
 	for _, want := range []string{
-		`/icons/calendar.gif`,                 // the block header icon
-		`style="color: #000080;"`,             // cal_holidaycolor span (holidays)
-		`Test Holiday`,                        // the holiday title
-		`style="color: #920AC4;"`,             // cal_bdaycolor span (birthdays)
+		`/icons/calendar.gif`,                        // the block header icon
+		`style="color: #000080;"`,                    // cal_holidaycolor span (holidays)
+		`Test Holiday`,                               // the holiday title
+		`style="color: #920AC4;"`,                    // cal_bdaycolor span (birthdays)
 		`?action=profile;u=1"><b>admin</b> (25)</a>`, // today's birthday (bolded) with age
-		`style="color: #078907;"`,             // cal_eventcolor span (events)
-		`Test Event`,                          // the event title
+		`style="color: #078907;"`,                    // cal_eventcolor span (events)
+		`Test Event`,                                 // the event title
 	} {
 		if !strings.Contains(body, want) {
 			t.Errorf("board-index calendar block missing %q:\n%.2000s", want, body)

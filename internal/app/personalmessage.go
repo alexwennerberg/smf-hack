@@ -85,15 +85,15 @@ type PMCtx struct {
 	LimitBar        int
 	LimitBarPercent float64
 	HasLimitBar     bool
-	Labels         map[int]*PMLabel
-	LabelOrder     []int
-	UsingLabels    bool
-	CurrentLabelID int
-	CurrentLabel   string
-	Folder         string
-	RedirectURL    string
-	Areas          []PMAreaGroup
-	Area           string
+	Labels          map[int]*PMLabel
+	LabelOrder      []int
+	UsingLabels     bool
+	CurrentLabelID  int
+	CurrentLabel    string
+	Folder          string
+	RedirectURL     string
+	Areas           []PMAreaGroup
+	Area            string
 
 	// folder view:
 	FromOrTo       string
@@ -126,19 +126,19 @@ type PMCtx struct {
 	SendLog *pmLog
 
 	// search:
-	SPSearch         string
-	SPUserspec       string
-	SPSearchtype     int
-	SPMinage         int
-	SPMaxage         int
-	SPSubjectOnly    bool
-	SPShowComplete   bool
-	SimpleSearch     bool
-	SearchErrMsgs    []string
-	SearchLabels     []*PMSearchLabel
-	CheckAll         bool
-	SearchParamsEnc  string
-	SearchResults    []*PMMessage
+	SPSearch        string
+	SPUserspec      string
+	SPSearchtype    int
+	SPMinage        int
+	SPMaxage        int
+	SPSubjectOnly   bool
+	SPShowComplete  bool
+	SimpleSearch    bool
+	SearchErrMsgs   []string
+	SearchLabels    []*PMSearchLabel
+	CheckAll        bool
+	SearchParamsEnc string
+	SearchResults   []*PMMessage
 
 	// killall / prune / labels / report:
 	DeleteAll  bool
@@ -2288,18 +2288,18 @@ func (c *Ctx) pmMessageSearch2(page *PMCtx) {
 			href := scripturl + "?action=pm;f=" + page.Folder + labelParam + ";pmid=" + itoa(r.id) + "#msg" + itoa(r.id)
 			counter++
 			page.SearchResults = append(page.SearchResults, &PMMessage{
-				ID:            r.id,
-				Member:        member,
-				Subject:       r.subject,
-				Body:          r.body,
-				Time:          c.timeformat(r.msgtime),
-				RecipientsTo:  recipientsTo[r.id],
-				Labels:        messageLabels[r.id],
-				FullyLabeled:  len(messageLabels[r.id]) == len(page.Labels),
-				IsRepliedTo:   messageReplied[r.id],
-				Href:          href,
-				Link:          `<a href="` + href + `">` + r.subject + `</a>`,
-				Counter:       counter,
+				ID:           r.id,
+				Member:       member,
+				Subject:      r.subject,
+				Body:         r.body,
+				Time:         c.timeformat(r.msgtime),
+				RecipientsTo: recipientsTo[r.id],
+				Labels:       messageLabels[r.id],
+				FullyLabeled: len(messageLabels[r.id]) == len(page.Labels),
+				IsRepliedTo:  messageReplied[r.id],
+				Href:         href,
+				Link:         `<a href="` + href + `">` + r.subject + `</a>`,
+				Counter:      counter,
 			})
 		}
 	}

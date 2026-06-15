@@ -86,7 +86,7 @@ func (c *Ctx) RecentPosts() {
 
 		if len(cats) == 1 {
 			var name string
-			a.DB.QueryRow(a.Q(`SELECT name FROM {$db_prefix}categories WHERE ID_CAT = `+cats[0]+` LIMIT 1`)).Scan(&name)
+			a.DB.QueryRow(a.Q(`SELECT name FROM {$db_prefix}categories WHERE ID_CAT = ` + cats[0] + ` LIMIT 1`)).Scan(&name)
 			if name == "" {
 				c.fatalLangError("1", false)
 			}

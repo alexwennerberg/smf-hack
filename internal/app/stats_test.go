@@ -21,8 +21,8 @@ func TestStatsPage(t *testing.T) {
 	for _, want := range []string{
 		"Statistics Center",
 		"Top 10 Posters",
-		`id="stats"`,        // history table
-		"January 2026",      // month row from the seeded activity
+		`id="stats"`,   // history table
+		"January 2026", // month row from the seeded activity
 	} {
 		if !strings.Contains(body, want) {
 			t.Errorf("stats page missing %q", want)
