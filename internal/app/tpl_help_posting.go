@@ -12,7 +12,6 @@ func templateManualPosting(c *Ctx) {
 			<ol class="la">
 				<li><a href="`, scripturl, `?action=help;page=post#newtopic">`, c.Txt("manual_posting_starting_topic"), `</a></li>
 				<li><a href="`, scripturl, `?action=help;page=post#newpoll">`, c.Txt("manual_posting_start_poll"), `</a></li>
-				<li><a href="`, scripturl, `?action=help;page=post#calendar">`, c.Txt("manual_posting_post_event"), `</a></li>
 				<li><a href="`, scripturl, `?action=help;page=post#reply">`, c.Txt("manual_posting_replying"), `</a></li>
 				<li><a href="`, scripturl, `?action=help;page=post#quote">`, c.Txt("manual_posting_quote_post"), `</a></li>
 				<li><a href="`, scripturl, `?action=help;page=post#modify">`, c.Txt("manual_posting_modify_delete"), `</a></li>
@@ -101,8 +100,6 @@ func templateManualPosting(c *Ctx) {
 	<p>`, c.Txt("manual_posting_poll_desc_part1"), `<a href="`, scripturl, `?action=help;page=post#newtopic">`, c.Txt("manual_posting_poll_desc_link_newtopic"), `</a>`, c.Txt("manual_posting_poll_desc_part2"), `</p>
 	<p>`, c.Txt("manual_posting_poll_options"), `</p>
 	<p>`, c.Txt("manual_posting_poll_note"), `</p>
-	<h3 id="calendar">`, c.Txt("manual_posting_post_event"), `</h3>
-	<p>`, c.Txt("manual_posting_event_desc_part1"), `<a href="`, scripturl, `?action=help;page=index#main">`, c.Txt("manual_posting_event_desc_link_index_main"), `</a>`, c.Txt("manual_posting_event_desc_part2"), `</p>
 	<h3 id="reply">`, c.Txt("manual_posting_replying"), `</h3>
 	<p>`, c.Txt("manual_posting_replying_desc_part1"), `<a href="`, scripturl, `?action=help;page=post#newtopic">`, c.Txt("manual_posting_replying_desc_link_newtopic"), `</a>`, c.Txt("manual_posting_replying_desc_part2"), `</p>
 	<p>`, c.Txt("manual_posting_quick_reply_part1"), `<a href="`, scripturl, `?action=help;page=post#bbc">`, c.Txt("manual_posting_quick_reply_link_bbc"), `</a>`, c.Txt("manual_posting_quick_reply_part2"), `<a href="`, scripturl, `?action=help;page=post#smileys">`, c.Txt("manual_posting_quick_reply_link_bbc_smileys"), `</a>`, c.Txt("manual_posting_quick_reply_part3"), `</p>

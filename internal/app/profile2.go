@@ -152,13 +152,6 @@ func (c *Ctx) ModifyProfile2() {
 		a.UpdateSettings(map[string]string{"memberlist_updated": i64toa(time.Now().Unix())})
 	}
 
-	// If the member changed his/her birthdate, update calendar statistics.
-	if _, ok := st.vars["birthdate"]; ok {
-		a.updateStatsCalendar()
-	} else if _, ok := st.vars["realName"]; ok {
-		a.updateStatsCalendar()
-	}
-
 	// Send an email?
 	if st.newPassEmail {
 		// Send off the email.

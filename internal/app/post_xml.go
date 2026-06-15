@@ -457,7 +457,6 @@ func templateXMLPost(c *Ctx) {
 	c.O(`
 		<caption name="guestname" color="`, capColor(page.PostError["long_name"] || page.PostError["no_name"] || page.PostError["bad_name"]), `" />
 		<caption name="email" color="`, capColor(page.PostError["no_email"] || page.PostError["bad_email"]), `" />
-		<caption name="evtitle" color="`, capColor(page.PostError["no_event"]), `" />
 		<caption name="subject" color="`, capColor(page.PostError["no_subject"]), `" />
 		<caption name="question" color="`, capColor(page.PostError["no_question"]), `" />`, postErrTag, `
 	</errors>

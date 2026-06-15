@@ -2,7 +2,6 @@ package app
 
 // Hand-port of Themes/default/Post.template.php template_main() and
 // template_postbox(), plus theme_postbox() from Sources/Subs-Post.php.
-// Calendar-event markup (make_event) ports with Phase 5.
 
 import "strings"
 
@@ -78,10 +77,9 @@ func templatePostMain(c *Ctx) {
 					}
 					// !!! Currently not sending poll options and option checkboxes.
 					var i, x = new Array();
-					var textFields = ["subject", "message", "icon", "guestname", "email", "evtitle", "question", "topic", "sc"];
+					var textFields = ["subject", "message", "icon", "guestname", "email", "question", "topic", "sc"];
 					var numericFields = [
 						"board", "topic", "num_replies",
-						"eventid", "calendar", "year", "month", "day",
 						"poll_max_votes", "poll_expire", "poll_change_vote", "poll_hide"
 					];
 					var checkboxFields = [
@@ -182,7 +180,7 @@ func templatePostMain(c *Ctx) {
 	c.O(`
 			function saveEntities()
 			{
-				var textFields = ["subject", "message", "guestname", "evtitle", "question"];
+				var textFields = ["subject", "message", "guestname", "question"];
 				for (i in textFields)
 					if (document.forms.postmodify.elements[textFields[i]])
 						document.forms.postmodify[textFields[i]].value = document.forms.postmodify[textFields[i]].value.replace(/&#/g, "&#38;#");
@@ -250,31 +248,6 @@ func templatePostMain(c *Ctx) {
 			}`)
 	}
 
-	// If we are making a calendar event we want to ensure we show the
-	// current days in a month etc... this is done here.
-	if page.MakeEvent {
-		c.O(`
-			var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-			function generateDays()
-			{
-				var dayElement = document.getElementById("day"), yearElement = document.getElementById("year"), monthElement = document.getElementById("month");
-				var days, selected = dayElement.selectedIndex;
-
-				monthLength[1] = yearElement.options[yearElement.selectedIndex].value % 4 == 0 ? 29 : 28;
-				days = monthLength[monthElement.value - 1];
-
-				while (dayElement.options.length)
-					dayElement.options[0] = null;
-
-				for (i = 1; i <= days; i++)
-					dayElement.options[dayElement.length] = new Option(i, i);
-
-				if (selected < days)
-					dayElement.selectedIndex = selected;
-			}`)
-	}
-
 	// End of the javascript, start the form and display the link tree.
 	boardParam := ""
 	if c.Board != 0 {
@@ -317,11 +290,6 @@ func templatePostMain(c *Ctx) {
 				</tr>
 			</table><br />
 		</div>`)
-
-	if page.MakeEvent && (!page.Event.New || c.Board != 0) {
-		c.O(`
-			<input type="hidden" name="eventid" value="`, page.Event.ID, `" />`)
-	}
 
 	// Start the main table.
 	c.O(`
@@ -397,98 +365,6 @@ func templatePostMain(c *Ctx) {
 								</td>
 								<td>
 									<input type="text" name="email" size="25" value="`, page.GuestEmail, `" tabindex="`, nextTab(), `" />
-								</td>
-							</tr>`)
-		}
-	}
-
-	// Are you posting a calendar event?
-	if page.MakeEvent {
-		noEvent := ""
-		if page.PostError["no_event"] {
-			noEvent = "color: red;"
-		}
-		c.O(`
-							<tr>
-								<td align="right" style="font-weight: bold;`, noEvent, `" id="caption_evtitle">
-									`, c.Txt("calendar12"), `
-								</td>
-								<td class="smalltext">
-									<input type="text" name="evtitle" maxlength="30" size="30" value="`, page.Event.Title, `" tabindex="`, nextTab(), `" />
-								</td>
-							</tr><tr>
-								<td></td>
-								<td class="smalltext">
-									<input type="hidden" name="calendar" value="1" />`, c.Txt("calendar10"), `&nbsp;
-									<select name="year" id="year" tabindex="`, nextTab(), `" onchange="generateDays();">`)
-
-		// Show a list of all the years we allow...
-		for year := c.App.SettingInt("cal_minyear"); year <= c.App.SettingInt("cal_maxyear"); year++ {
-			c.O(`
-										<option value="`, year, `"`, evSel(year == page.Event.Year), `>`, year, `</option>`)
-		}
-
-		c.O(`
-									</select>&nbsp;
-									`, c.Txt("calendar9"), `&nbsp;
-									<select name="month" id="month" onchange="generateDays();">`)
-
-		// There are 12 months per year - ensure that they all get listed.
-		for month := 1; month <= 12; month++ {
-			c.O(`
-										<option value="`, month, `"`, evSel(month == page.Event.Month), `>`, c.TxtListItem("months", month), `</option>`)
-		}
-
-		c.O(`
-									</select>&nbsp;
-									`, c.Txt("calendar11"), `&nbsp;
-									<select name="day" id="day">`)
-
-		// This prints out all the days in the current month - this changes dynamically as we switch months.
-		for day := 1; day <= page.Event.LastDay; day++ {
-			c.O(`
-										<option value="`, day, `"`, evSel(day == page.Event.Day), `>`, day, `</option>`)
-		}
-
-		c.O(`
-									</select>
-								</td>
-							</tr>`)
-
-		// If events can span more than one day then allow the user to select how long it should last.
-		if !c.App.SettingEmpty("cal_allowspan") {
-			c.O(`
-							<tr>
-								<td align="right"><b>`, c.Txt("calendar54"), `</b></td>
-								<td class="smalltext">
-									<select name="span">`)
-
-			for days := 1; days <= c.App.SettingInt("cal_maxspan"); days++ {
-				c.O(`
-										<option value="`, days, `"`, evSel(page.Event.Span == days), `>`, days, `</option>`)
-			}
-
-			c.O(`
-									</select>
-								</td>
-							</tr>`)
-		}
-
-		// If this is a new event let the user specify which board they want the linked post to be put into.
-		if page.Event.New && page.IsNewPost {
-			c.O(`
-							<tr>
-								<td align="right"><b>`, c.Txt("calendar13"), `</b></td>
-								<td class="smalltext">
-									<select name="board">`)
-
-			for _, board := range page.Event.Boards {
-				c.O(`
-										<option value="`, board.ID, `"`, evSel(board.ID == page.Event.Board), `>`, board.CatName, ` - `, board.Prefix, board.Name, `</option>`)
-			}
-
-			c.O(`
-									</select>
 								</td>
 							</tr>`)
 		}
@@ -1280,13 +1156,4 @@ func templatePostbox(c *Ctx, msg string, o postboxOpts, showBBC bool, disabledTa
 					<textarea class="editor" name="`, o.name, `" rows="`, o.rows, `" cols="`, o.columns, `" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);" tabindex="`, o.nextTab(), `"`, msgErrStyle, `>`, msg, `</textarea>
 				</td>
 			</tr>`)
-}
-
-// evSel returns the selected="selected" attribute when cond holds — used by
-// the make_event option lists in the post form.
-func evSel(cond bool) string {
-	if cond {
-		return ` selected="selected"`
-	}
-	return ""
 }

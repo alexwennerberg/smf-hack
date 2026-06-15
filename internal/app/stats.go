@@ -3,7 +3,6 @@ package app
 // The recount branches of updateStats() from Subs.php ('message', 'topic')
 // and the posts-adjusting subset of updateMemberData() from Load.php, plus
 // the DisplayStats controller (?action=stats) from Stats.php.
-// updateStats('calendar') ports with Phase 5 (Calendar).
 
 import (
 	"math"
@@ -41,10 +40,6 @@ func (a *App) updateStatsTopic() {
 
 	a.UpdateSettings(map[string]string{"totalTopics": itoa(totalTopics)})
 }
-
-// updateStatsCalendar is updateStats('calendar'). The calendar cache ports
-// with Phase 5; nothing to refresh until then.
-func (a *App) updateStatsCalendar() {}
 
 // updateMemberPosts applies updateMemberData($id, array('posts' => ...))
 // deltas; PHP guards posts from going negative via the unsigned column, we

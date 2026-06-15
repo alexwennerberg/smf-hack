@@ -184,8 +184,6 @@ func templateDisplayMain(c *Ctx) {
 </table>`)
 	}
 
-	// (linked calendar events arrive with Phase 5's calendar port.)
-
 	// Build the normal button array.
 	buildNormalButtons := func(forceCustomPollFirst bool) []stripButton {
 		var buttons []stripButton
@@ -741,10 +739,6 @@ func templateDisplayMain(c *Ctx) {
 			Custom: `onclick="return confirm('` + c.Txt("poll_remove_warn") + `');"`,
 		})
 	}
-	if page.CalendarPost {
-		modButtons = append(modButtons, stripButton{URL: scripturl + "?action=post;calendar;msg=" + itoa(page.TopicFirstMessage) + ";topic=" + itoa(c.Topic) + ".0;sesc=" + c.Sc, Text: "calendar37"})
-	}
-
 	c.O(`
 	<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 1ex;">
 		<tr>

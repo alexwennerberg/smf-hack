@@ -516,7 +516,6 @@ func (c *Ctx) QuickModeration() {
 
 				a.DB.Exec(a.Q(`UPDATE {$db_prefix}topics SET ID_BOARD = ? WHERE ID_TOPIC = ?`), to, topicID)
 				a.DB.Exec(a.Q(`UPDATE {$db_prefix}messages SET ID_BOARD = ? WHERE ID_TOPIC = ?`), to, topicID)
-				a.DB.Exec(a.Q(`UPDATE {$db_prefix}calendar SET ID_BOARD = ? WHERE ID_TOPIC = ?`), to, topicID)
 
 				moveCache = append(moveCache, [3]int{topicID, boardID, to})
 			}
@@ -641,7 +640,6 @@ func (c *Ctx) QuickModeration() {
 
 	a.updateStatsTopic()
 	a.updateStatsMessage()
-	a.updateStatsCalendar()
 
 	if len(affectedOrder) > 0 {
 		c.updateLastMessages(affectedOrder, 0)

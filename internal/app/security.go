@@ -228,7 +228,7 @@ func (c *Ctx) banPermissions() {
 	if _, banned := ban["cannot_post"]; banned {
 		denied := map[string]bool{}
 		for _, p := range []string{
-			"pm_send", "calendar_post", "calendar_edit_own", "calendar_edit_any", "poll_post",
+			"pm_send", "poll_post",
 			"poll_add_own", "poll_add_any", "poll_edit_own", "poll_edit_any", "poll_lock_own",
 			"poll_lock_any", "poll_remove_own", "poll_remove_any", "manage_attachments",
 			"manage_smileys", "manage_boards", "admin_forum", "manage_permissions",

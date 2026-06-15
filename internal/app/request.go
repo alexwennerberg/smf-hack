@@ -72,7 +72,6 @@ type Ctx struct {
 	AllowAdmin         bool
 	AllowEditProfile   bool
 	AllowMemberlist    bool
-	AllowCalendar      bool
 	AllowPM            bool
 	UnapprovedMembers  int
 	DisableLoginHash   bool // $context['disable_login_hashing']
@@ -192,6 +191,26 @@ func (c *Ctx) O(args ...any) {
 			panic("Ctx.O: unsupported type")
 		}
 	}
+}
+
+// selAttr returns ` selected="selected"` when b is true, for <option> tags.
+func selAttr(b bool) string {
+	if b {
+		return ` selected="selected"`
+	}
+	return ""
+}
+
+// joinStr joins xs with sep (like strings.Join).
+func joinStr(xs []string, sep string) string {
+	out := ""
+	for i, s := range xs {
+		if i > 0 {
+			out += sep
+		}
+		out += s
+	}
+	return out
 }
 
 var ipRe = regexp.MustCompile(`^((([1]?\d)?\d|2[0-4]\d|25[0-5])\.){3}(([1]?\d)?\d|2[0-4]\d|25[0-5])$`)

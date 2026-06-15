@@ -3,7 +3,7 @@ package app
 // Port of Sources/Post.php: Post2 + the notification senders +
 // checkSubmitOnce/logAction + the Post2 attachment block. (Post() lives in
 // post_form.go; QuoteFast/JavaScriptModify in post_xml.go; AnnounceTopic in
-// announce.go. Calendar-event hooks port with Phase 5.)
+// announce.go.)
 
 import (
 	"encoding/json"
@@ -557,10 +557,6 @@ func (c *Ctx) Post2() {
 		}
 	}
 
-	if c.POST.Has("calendar") && !c.REQUEST.Has("deleteevent") && Htmltrim(c.POST.Str("evtitle")) == "" {
-		postErrors = append(postErrors, "no_event")
-	}
-
 	// You are not!
 	if strings.ToLower(c.POST.Str("message")) == "i am the administrator." && !c.User.IsAdmin {
 		c.fatalError("Knave! Masquerader! Charlatan!", false)
@@ -735,54 +731,6 @@ func (c *Ctx) Post2() {
 		// This is a new topic or an already existing one. Save it.
 		c.createPost(msg, topicOpts, poster)
 		c.Topic = topicOpts.ID
-	}
-
-	// Editing or posting an event?
-	if c.POST.Has("calendar") && (!c.REQUEST.Has("eventid") || c.REQUEST.Int("eventid") == -1) {
-		c.calendarCanLink()
-		c.calendarInsertEvent(c.Board, c.Topic, c.POST.Str("evtitle"), c.User.ID, c.POST.Int("month"), c.POST.Int("day"), c.POST.Int("year"), c.POST.Str("span"))
-	} else if c.POST.Has("calendar") {
-		eventID := c.REQUEST.Int("eventid")
-
-		// Validate the post...
-		c.calendarValidatePost()
-
-		// If you're not allowed to edit any events, you have to be the poster.
-		if !c.allowedTo("calendar_edit_any") {
-			// Get the event's poster.
-			var poster int
-			a.DB.QueryRow(a.Q(`SELECT ID_MEMBER FROM {$db_prefix}calendar WHERE ID_EVENT = ?`), eventID).Scan(&poster)
-
-			// Silly hacker, Trix are for kids.
-			if poster == c.User.ID {
-				c.isAllowedTo("calendar_edit_own")
-			} else {
-				c.isAllowedTo("calendar_edit_any")
-			}
-		}
-
-		// Delete it?
-		if c.REQUEST.Has("deleteevent") {
-			a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}calendar WHERE ID_EVENT = ?`), eventID)
-		} else {
-			// ... or just update it?
-			nSpan := 0
-			if !a.SettingEmpty("cal_allowspan") && !empty(c.REQUEST.Str("span")) {
-				nSpan = c.REQUEST.Int("span") - 1
-				if mx := a.SettingInt("cal_maxspan"); nSpan > mx {
-					nSpan = mx
-				}
-			}
-			start := mktimeUTC(c.REQUEST.Int("year"), c.REQUEST.Int("month"), c.REQUEST.Int("day"))
-			end := start.AddDate(0, 0, nSpan)
-
-			a.DB.Exec(a.Q(`
-				UPDATE {$db_prefix}calendar
-				SET endDate = ?, startDate = ?, title = ?
-				WHERE ID_EVENT = ?`),
-				end.Format("2006-01-02"), start.Format("2006-01-02"), Htmlspecialchars(c.REQUEST.Str("evtitle")), eventID)
-		}
-		a.updateStatsCalendar()
 	}
 
 	// Marking read should be done even for editing messages....

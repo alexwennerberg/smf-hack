@@ -426,9 +426,6 @@ func (c *Ctx) applyForumFixes() {
 	// missing_polls: clear dangling poll references.
 	a.DB.Exec(a.Q(`UPDATE {$db_prefix}topics SET ID_POLL = 0 WHERE ID_POLL != 0 AND ID_POLL NOT IN (SELECT ID_POLL FROM {$db_prefix}polls)`))
 
-	// missing_calendar_topics: clear dangling calendar events.
-	a.DB.Exec(a.Q(`UPDATE {$db_prefix}calendar SET ID_TOPIC = 0, ID_BOARD = 0 WHERE ID_TOPIC != 0 AND ID_TOPIC NOT IN (SELECT ID_TOPIC FROM {$db_prefix}topics)`))
-
 	// Orphaned log rows.
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}log_topics WHERE ID_TOPIC NOT IN (SELECT ID_TOPIC FROM {$db_prefix}topics)`))
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}log_topics WHERE ID_MEMBER NOT IN (SELECT ID_MEMBER FROM {$db_prefix}members)`))
@@ -439,5 +436,4 @@ func (c *Ctx) applyForumFixes() {
 	// Recount the forum-wide stats.
 	a.updateStatsMessage()
 	a.updateStatsTopic()
-	a.updateStatsCalendar()
 }

@@ -167,10 +167,9 @@
 					}
 					// !!! Currently not sending poll options and option checkboxes.
 					var i, x = new Array();
-					var textFields = ["subject", "message", "icon", "guestname", "email", "evtitle", "question", "topic", "sc"];
+					var textFields = ["subject", "message", "icon", "guestname", "email", "question", "topic", "sc"];
 					var numericFields = [
 						"board", "topic", "num_replies",
-						"eventid", "calendar", "year", "month", "day",
 						"poll_max_votes", "poll_expire", "poll_change_vote", "poll_hide"
 					];
 					var checkboxFields = [
@@ -268,7 +267,7 @@
 			}
 			function saveEntities()
 			{
-				var textFields = ["subject", "message", "guestname", "evtitle", "question"];
+				var textFields = ["subject", "message", "guestname", "question"];
 				for (i in textFields)
 					if (document.forms.postmodify.elements[textFields[i]])
 						document.forms.postmodify[textFields[i]].value = document.forms.postmodify[textFields[i]].value.replace(/&#/g, "&#38;#");

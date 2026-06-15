@@ -1,7 +1,6 @@
 package app
 
 // Post() and getTopic() from Sources/Post.php — the post/reply/edit form.
-// Calendar events (make_event) port with Phase 5; see PORTING.md.
 
 import (
 	"io"
@@ -52,7 +51,6 @@ type PostAttachment struct {
 // PostCtx is the page context for tpl_post.go.
 type PostCtx struct {
 	ShowSpellchecking     bool
-	MakeEvent             bool
 	MakePoll              bool
 	Notify                bool
 	Sticky                bool
@@ -98,7 +96,6 @@ type PostCtx struct {
 	IsFirstPost           bool
 	PreviousPosts         []PostPrevPost
 	ResponsePrefix        string
-	Event                 *EventContext
 }
 
 var (
@@ -138,9 +135,6 @@ func (c *Ctx) Post() {
 	page := &PostCtx{}
 	c.Page = page
 
-	// You are now seeing the forum's message... you are a unique pony.
-	page.MakeEvent = c.REQUEST.Has("calendar")
-
 	hasPoll := c.REQUEST.Has("poll")
 	msgID := c.REQUEST.Int("msg")
 	hasMsg := c.REQUEST.Has("msg")
@@ -151,7 +145,7 @@ func (c *Ctx) Post() {
 	}
 
 	// You must be posting to *some* board.
-	if c.Board == 0 && !page.MakeEvent {
+	if c.Board == 0 {
 		c.fatalLangError("smf232", false)
 	}
 
@@ -217,7 +211,7 @@ func (c *Ctx) Post() {
 			page.Sticky = sticky != 0
 		}
 	} else {
-		if (!page.MakeEvent || c.Board != 0) && (!hasPoll || a.Setting("pollMode") != "1") {
+		if !hasPoll || a.Setting("pollMode") != "1" {
 			c.isAllowedTo("post_new")
 		}
 
@@ -270,104 +264,6 @@ func (c *Ctx) Post() {
 		}
 	}
 
-	// Are we calendar-enabled, and posting/editing an event?
-	if page.MakeEvent {
-		// Start loading up the event info.
-		event := &EventContext{}
-		page.Event = event
-		if c.REQUEST.Has("evtitle") {
-			event.Title = Htmlspecialchars(c.REQUEST.Str("evtitle"))
-		}
-		if c.REQUEST.Has("eventid") {
-			event.ID = c.REQUEST.Int("eventid")
-		} else {
-			event.ID = -1
-		}
-		event.New = event.ID == -1
-
-		// Permissions check!
-		c.isAllowedTo("calendar_post")
-
-		// Editing an event?  (but NOT previewing!?)
-		if !event.New && !c.REQUEST.Has("subject") {
-			// If the user doesn't have permission to edit the post in this topic, redirect them.
-			if posterID != c.User.ID || (!c.allowedTo("modify_own") && !c.allowedTo("modify_any")) {
-				c.CalendarPost()
-				return
-			}
-
-			// Get the current event information.
-			var idMember int
-			var title, startDate, endDate string
-			a.DB.QueryRow(a.Q(`
-				SELECT ID_MEMBER, title, startDate, endDate
-				FROM {$db_prefix}calendar
-				WHERE ID_EVENT = ?
-				LIMIT 1`), event.ID).Scan(&idMember, &title, &startDate, &endDate)
-
-			// Make sure the user is allowed to edit this event.
-			if idMember != c.User.ID {
-				c.isAllowedTo("calendar_edit_any")
-			} else if !c.allowedTo("calendar_edit_any") {
-				c.isAllowedTo("calendar_edit_own")
-			}
-
-			sd, _ := time.Parse("2006-01-02", startDate)
-			ed, _ := time.Parse("2006-01-02", endDate)
-			event.Month = int(sd.Month())
-			event.Day = sd.Day()
-			event.Year = sd.Year()
-			event.Title = title
-			event.Span = int(ed.Sub(sd).Hours()/24) + 1
-		} else {
-			today := time.Unix(c.forumTime(true, 0), 0).UTC()
-
-			// You must have a month and year specified!
-			if !c.REQUEST.Has("month") {
-				c.REQUEST.Set("month", itoa(int(today.Month())))
-			}
-			if !c.REQUEST.Has("year") {
-				c.REQUEST.Set("year", itoa(today.Year()))
-			}
-
-			event.Month = c.REQUEST.Int("month")
-			event.Year = c.REQUEST.Int("year")
-			if c.REQUEST.Has("day") {
-				event.Day = c.REQUEST.Int("day")
-			} else if c.REQUEST.Int("month") == int(today.Month()) {
-				event.Day = today.Day()
-			}
-			if c.REQUEST.Has("span") {
-				event.Span = c.REQUEST.Int("span")
-			} else {
-				event.Span = 1
-			}
-
-			// Make sure the year and month are in the valid range.
-			if event.Month < 1 || event.Month > 12 {
-				c.fatalLangError("calendar1", false)
-			}
-			if event.Year < a.SettingInt("cal_minyear") || event.Year > a.SettingInt("cal_maxyear") {
-				c.fatalLangError("calendar2", false)
-			}
-
-			// Get a list of boards they can post in.
-			boards := c.boardsAllowedTo("post_new")
-			if len(boards) == 0 {
-				c.fatalLangError("cannot_post_new", false)
-			}
-			event.Boards = c.eventBoardList(boards)
-		}
-
-		// Find the last day of the month.
-		event.LastDay = lastDayOfMonth(event.Year, event.Month)
-
-		if c.Board != 0 {
-			event.Board = c.Board
-		} else {
-			event.Board = a.SettingInt("cal_defaultboard")
-		}
-	}
 
 	postError := newPostErrSet()
 	for _, e := range c.PostErrors {
@@ -774,12 +670,6 @@ func (c *Ctx) Post() {
 	// or reply...
 	if hasPoll {
 		c.PageTitle = c.Txt("smf20")
-	} else if page.MakeEvent {
-		if page.Event.ID == -1 {
-			c.PageTitle = c.Txt("calendar23")
-		} else {
-			c.PageTitle = c.Txt("calendar20")
-		}
 	} else if hasMsg {
 		c.PageTitle = c.Txt("66")
 	} else if c.REQUEST.Has("subject") && page.PreviewSubject != "" {

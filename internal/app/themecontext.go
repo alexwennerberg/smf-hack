@@ -105,7 +105,6 @@ func (c *Ctx) setupThemeContext() {
 		"profile_identity_own", "profile_identity_any", "profile_extra_own", "profile_extra_any",
 		"profile_remove_own", "profile_remove_any", "moderate_forum", "manage_membergroups")
 	c.AllowMemberlist = c.allowedTo("view_mlist")
-	c.AllowCalendar = c.allowedTo("calendar_view") && !a.SettingEmpty("cal_enabled")
 	c.AllowPM = c.allowedTo("pm_read")
 
 	c.InMaintenance = c.App.Config.Maintenance != 0

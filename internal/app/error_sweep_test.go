@@ -94,7 +94,7 @@ func TestActionSweep(t *testing.T) {
 		// Discovery & misc.
 		"/index.php?action=recent", "/index.php?action=unread", "/index.php?action=unreadreplies",
 		"/index.php?action=search", "/index.php?action=search2", "/index.php?action=stats",
-		"/index.php?action=calendar", "/index.php?action=who", "/index.php?action=printpage;topic=1.0",
+		"/index.php?action=who", "/index.php?action=printpage;topic=1.0",
 		"/index.php?action=sendtopic;topic=1.0", "/index.php?action=help", "/index.php?action=help;page=post",
 		"/index.php?action=helpadmin;help=ban_members",
 		// Auth/registration.
@@ -108,7 +108,7 @@ func TestActionSweep(t *testing.T) {
 		"/index.php?action=permissions", "/index.php?action=ban;sa=add", "/index.php?action=ban;sa=list",
 		"/index.php?action=reports", "/index.php?action=reports;rt=boards", "/index.php?action=reports;rt=staff",
 		"/index.php?action=smileys;sa=editsets", "/index.php?action=smileys;sa=settings",
-		"/index.php?action=manageattachments", "/index.php?action=managesearch", "/index.php?action=managecalendar",
+		"/index.php?action=manageattachments", "/index.php?action=managesearch",
 		"/index.php?action=news;sa=editnews", "/index.php?action=news;sa=settings", "/index.php?action=viewErrorLog",
 		"/index.php?action=maintain", "/index.php?action=boardrecount", "/index.php?action=repairboards",
 		"/index.php?action=regcenter", "/index.php?action=theme;sa=settings", "/index.php?action=theme;sa=list",

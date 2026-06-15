@@ -291,7 +291,6 @@ func TestGoldenCrawl(t *testing.T) {
 		{"admin_smileys_settings", "/index.php?action=smileys;sa=settings", "admin"},
 		{"admin_attachments", "/index.php?action=manageattachments", "admin"},
 		{"admin_managesearch", "/index.php?action=managesearch", "admin"},
-		{"admin_managecalendar", "/index.php?action=managecalendar", "admin"},
 		{"admin_news_editnews", "/index.php?action=news;sa=editnews", "admin"},
 		{"admin_news_settings", "/index.php?action=news;sa=settings", "admin"},
 		{"admin_serversettings", "/index.php?action=serversettings;sesc={sesc}", "admin"},

@@ -344,7 +344,6 @@ func (c *Ctx) removeTopics(topics []int, decreasePostCount, ignoreRecycling bool
 
 	// Delete anything related to the topic.
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}messages WHERE ID_TOPIC ` + condition))
-	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}calendar WHERE ID_TOPIC ` + condition))
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}log_topics WHERE ID_TOPIC ` + condition))
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}log_notify WHERE ID_TOPIC ` + condition))
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}topics WHERE ID_TOPIC ` + condition))
@@ -353,7 +352,6 @@ func (c *Ctx) removeTopics(topics []int, decreasePostCount, ignoreRecycling bool
 	// Update the totals...
 	a.updateStatsMessage()
 	a.updateStatsTopic()
-	a.updateStatsCalendar()
 
 	var updates []int
 	for _, stats := range adjustBoards {
@@ -612,7 +610,6 @@ func (c *Ctx) removeMessage(message int, decreasePostCount bool) bool {
 	// Update the pesky statistics.
 	a.updateStatsMessage()
 	a.updateStatsTopic()
-	a.updateStatsCalendar()
 
 	// And now to update the last message of each board we messed with.
 	if recycle {

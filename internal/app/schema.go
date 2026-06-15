@@ -111,28 +111,6 @@ var schemaStatements = []string{
 	`CREATE INDEX {$db_prefix}boards_ID_MSG_UPDATED ON {$db_prefix}boards (ID_MSG_UPDATED)`,
 	`CREATE INDEX {$db_prefix}boards_memberGroups ON {$db_prefix}boards (memberGroups)`,
 
-	// calendar
-	`CREATE TABLE {$db_prefix}calendar (
-  ID_EVENT INTEGER PRIMARY KEY AUTOINCREMENT,
-  startDate TEXT NOT NULL DEFAULT '0001-01-01',
-  endDate TEXT NOT NULL DEFAULT '0001-01-01',
-  ID_BOARD INTEGER NOT NULL DEFAULT 0,
-  ID_TOPIC INTEGER NOT NULL DEFAULT 0,
-  title TEXT NOT NULL DEFAULT '',
-  ID_MEMBER INTEGER NOT NULL DEFAULT 0
-)`,
-	`CREATE INDEX {$db_prefix}calendar_startDate ON {$db_prefix}calendar (startDate)`,
-	`CREATE INDEX {$db_prefix}calendar_endDate ON {$db_prefix}calendar (endDate)`,
-	`CREATE INDEX {$db_prefix}calendar_topic ON {$db_prefix}calendar (ID_TOPIC, ID_MEMBER)`,
-
-	// calendar_holidays
-	`CREATE TABLE {$db_prefix}calendar_holidays (
-  ID_HOLIDAY INTEGER PRIMARY KEY AUTOINCREMENT,
-  eventDate TEXT NOT NULL DEFAULT '0001-01-01',
-  title TEXT NOT NULL DEFAULT ''
-)`,
-	`CREATE INDEX {$db_prefix}calendar_holidays_eventDate ON {$db_prefix}calendar_holidays (eventDate)`,
-
 	// categories
 	`CREATE TABLE {$db_prefix}categories (
   ID_CAT INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -582,12 +560,6 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		return err
 	}
 
-	// calendar_holidays
-	for _, h := range defaultHolidays {
-		if err := exec(`INSERT INTO {$db_prefix}calendar_holidays (title, eventDate) VALUES (?, ?)`, h.title, h.date); err != nil {
-			return err
-		}
-	}
 
 	// categories
 	if err := exec(`INSERT INTO {$db_prefix}categories (ID_CAT, catOrder, name, canCollapse) VALUES (1, 0, ?, 1)`, "General Category"); err != nil {
@@ -646,13 +618,13 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 	}
 
 	// permissions
-	guestPerms := []string{"search_posts", "calendar_view", "view_stats", "profile_view_any"}
+	guestPerms := []string{"search_posts", "view_stats", "profile_view_any"}
 	memberGeneralPerms := []string{"view_mlist", "search_posts", "profile_view_own", "profile_view_any",
-		"pm_read", "pm_send", "calendar_view", "view_stats", "who_view", "profile_identity_own",
+		"pm_read", "pm_send", "view_stats", "who_view", "profile_identity_own",
 		"profile_extra_own", "profile_remove_own", "profile_server_avatar", "profile_upload_avatar",
 		"profile_remote_avatar"}
-	gmodGeneralPerms := append(append([]string{}, memberGeneralPerms[:15]...),
-		"profile_title_own", "calendar_post", "calendar_edit_any")
+	gmodGeneralPerms := append(append([]string{}, memberGeneralPerms[:14]...),
+		"profile_title_own")
 	for _, perm := range guestPerms {
 		if err := exec(`INSERT INTO {$db_prefix}permissions (ID_GROUP, permission) VALUES (-1, ?)`, perm); err != nil {
 			return err
@@ -707,22 +679,6 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		{"max_image_width", "0"},
 		{"max_image_height", "0"},
 		{"onlineEnable", "0"},
-		{"cal_holidaycolor", "000080"},
-		{"cal_bdaycolor", "920AC4"},
-		{"cal_eventcolor", "078907"},
-		{"cal_enabled", "0"},
-		{"cal_maxyear", "2010"},
-		{"cal_minyear", "2004"},
-		{"cal_daysaslink", "0"},
-		{"cal_defaultboard", ""},
-		{"cal_showeventsonindex", "0"},
-		{"cal_showbdaysonindex", "0"},
-		{"cal_showholidaysonindex", "0"},
-		{"cal_showeventsoncalendar", "1"},
-		{"cal_showbdaysoncalendar", "1"},
-		{"cal_showholidaysoncalendar", "1"},
-		{"cal_showweeknum", "0"},
-		{"cal_maxspan", "7"},
 		{"smtp_host", ""},
 		{"smtp_port", "25"},
 		{"smtp_username", ""},
@@ -801,7 +757,6 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		{"smiley_sets_known", "default,classic"},
 		{"smiley_sets_names", "Default\nClassic"},
 		{"smiley_sets_default", "default"},
-		{"cal_days_for_index", "7"},
 		{"requireAgreement", "1"},
 		{"unapprovedMembers", "0"},
 		{"default_personalText", ""},

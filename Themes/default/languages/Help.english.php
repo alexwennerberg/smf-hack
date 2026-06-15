@@ -172,8 +172,6 @@ $helptxt['smileys'] = '<b>Smiley Center</b><br />
 	get confusing for your users using different sets.<br /><br />
 
 	You are also able to edit message icons from here, if you have them enabled on the settings page.';
-$helptxt['calendar'] = '<b>Manage Calendar</b><br />
-	Here you can modify the current calendar settings as well as add and remove holidays that appear on the calendar.';
 
 $helptxt['serversettings'] = '<b>Server Settings</b><br />
 	Here you can perform the core configuration for your forum. This section includes the database and url settings, as well as other
@@ -235,23 +233,6 @@ $helptxt['karmaMode'] = 'Karma is a feature that shows the popularity of a membe
 		have to wait this time as well.<br /><br />Whether or not groups of members can smite others is controlled by
 		a permission.  If you have trouble getting this feature to work for everyone, double check your permissions.';
 // !!! This should be resused or removed.
-$helptxt['cal_enabled'] = 'The calendar can be used for showing birthdays, or for showing important moments happening in your community.<br /><br />
-		<b>Show days as link to \'Post Event\'</b>:<br />This will allow members to post events for that day, when they click on that date<br />
-		<b>Show week numbers</b>:<br />Show which week it is.<br />
-		<b>Max days in advance on board index</b>:<br />If this is set to 7, the next week\'s worth of events will be shown.<br />
-		<b>Show holidays on board index</b>:<br />Show today\'s holidays in a calendar bar on the board index.<br />
-		<b>Show birthdays on board index</b>:<br />Show today\'s birthdays in a calendar bar on the board index.<br />
-		<b>Show events on board index</b>:<br />Show today\'s events in a calendar bar on the board index.<br />
-		<b>Default Board to Post In</b>:<br />What\'s the default board to post events in?<br />
-		<b>Allow events not linked to posts</b>:<br />Allow members to post events without requiring it to be linked with a post in a board.<br />
-		<b>Minimum year</b>:<br />Select the &quot;first&quot; year on the calendar list.<br />
-		<b>Maximum year</b>:<br />Select the &quot;last&quot; year on the calendar list<br />
-		<b>Birthday color</b>:<br />Select the color of the birthday text<br />
-		<b>Event color</b>:<br />Select the color of the event text<br />
-		<b>Holiday color</b>:<br />Select the color of the Holiday text<br />
-		<b>Allow events to span multiple days</b>:<br />Check to allow events to span multiple days.<br />
-		<b>Max number of days an event can span</b>:<br />Select the maximum days that an event can span.<br /><br />
-		Remember that usage of the calendar (posting events, viewing events, etc.) is controlled by permissions set on the permissions screen.';
 $helptxt['localCookies'] = 'SMF uses cookies to store login information on the client computer.
 	Cookies can be stored globally (myserver.com) or locally (myserver.com/path/to/forum).<br />
 	Check this option if you\'re experiencing problems with users getting logged out automatically.<hr />
@@ -405,7 +386,6 @@ $helptxt['membergroups'] = 'In SMF there are two types of groups that your membe
 		<li><b>Post Groups:</b> Unlike regular groups post based groups cannot be assigned. Instead, members are automatically assigned to a post based group when they reach the minimum number of posts required to be in that group.</li>
 	</ul>';
 
-$helptxt['calendar_how_edit'] = 'You can edit these events by clicking on the red asterisk (*) next to their names.';
 
 $helptxt['maintenance_general'] = 'From here, you are able to optimize all your tables (makes them smaller and faster!), make sure you have the newest versions, find any errors that might be messing up your board, recount totals, and empty logs.<br /><br />The last two should be avoided unless something is wrong, but don\'t hurt anything.';
 $helptxt['maintenance_backup'] = 'This area allows you to save a copy of all the posts, settings, members, and other information in your forum to a very large file.<br /><br />It is recommended that you do this often, perhaps weekly, for safety and security.';

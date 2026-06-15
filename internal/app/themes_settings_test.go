@@ -81,18 +81,17 @@ func TestThemeOptionsResetList(t *testing.T) {
 	w := postForm(t, a, "/index.php?action=theme;sa=reset;th=1", url.Values{
 		"submit":                              {"Save"},
 		"who":                                 {"0"},
-		"default_options[show_board_desc]":    {"1"},
-		"default_options[calendar_start_day]": {"1"},
-		"sc":                                  {sc},
+		"default_options[show_board_desc]": {"1"},
+		"sc":                               {sc},
 	}, cookies...)
 	if w.Code != 302 {
 		t.Fatalf("save theme options: status %d body %.200s", w.Code, w.Body.String())
 	}
 
 	var v string
-	a.DB.QueryRow(a.Q(`SELECT value FROM {$db_prefix}themes WHERE ID_MEMBER = -1 AND ID_THEME = 1 AND variable = 'calendar_start_day'`)).Scan(&v)
+	a.DB.QueryRow(a.Q(`SELECT value FROM {$db_prefix}themes WHERE ID_MEMBER = -1 AND ID_THEME = 1 AND variable = 'show_board_desc'`)).Scan(&v)
 	if v != "1" {
-		t.Errorf("calendar_start_day default not saved, got %q", v)
+		t.Errorf("show_board_desc default not saved, got %q", v)
 	}
 }
 

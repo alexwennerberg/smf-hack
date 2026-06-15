@@ -51,10 +51,6 @@ $txt['smf306'] = 'Unable to verify referring url.  Please go back and try again.
 
 $txt['cannot_admin_forum'] = 'You are not allowed to administrate this forum.';
 $txt['cannot_announce_topic'] = 'You are not allowed to announce topics on this board.';
-$txt['cannot_calendar_edit_any'] = 'You cannot edit calendar events.';
-$txt['cannot_calendar_edit_own'] = 'You don\'t have the privileges necessary to edit your own events.';
-$txt['cannot_calendar_post'] = 'Event posting isn\'t allowed - sorry.';
-$txt['cannot_calendar_view'] = 'Sorry, but you are not allowed to view the calendar.';
 $txt['cannot_remove_any'] = 'Sorry, but you don\'t have the privilege to remove just any topic.';
 $txt['cannot_remove_own'] = 'You cannot delete your own topics in this board.';
 $txt['cannot_edit_news'] = 'You are not allowed to edit news items on this forum.';
@@ -133,24 +129,6 @@ $txt['rtm11'] = 'No moderators found!';
 $txt['parent_not_found'] = 'Board structure corrupt: unable to find parent board';
 $txt['modify_post_time_passed'] = 'You may not modify this post as the time limit for edits has passed.';
 
-$txt['calendar_off'] = 'You cannot access the calendar right now because it is disabled.';
-$txt['calendar1'] = 'Invalid month value.';
-$txt['calendar2'] = 'Invalid year value.';
-$txt['calendar7'] = 'Event month is missing.';
-$txt['calendar8'] = 'Event year is missing.';
-$txt['calendar14'] = 'Event day is missing.';
-$txt['calendar15'] = 'Event title is missing.';
-$txt['calendar16'] = 'Invalid date.';
-$txt['calendar17'] = 'No event title was entered.';
-$txt['calendar18'] = 'Missing event ID.';
-$txt['calendar19'] = 'You do not have permission to edit this event.';
-$txt['calendar38'] = 'Board ID is missing.';
-$txt['calendar39'] = 'Topic ID is missing.';
-$txt['calendar40'] = 'Topic doesn\'t exist.';
-$txt['calendar41'] = 'You are not the owner of this topic.';
-$txt['calendar42'] = 'The board does not exist.';
-$txt['calendar55'] = 'The span feature is currently disabled.';
-$txt['calendar56'] = 'Invalid number of days to span.';
 
 $txt['moveto_noboards'] = 'There are no boards to move this topic to!';
 

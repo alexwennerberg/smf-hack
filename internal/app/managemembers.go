@@ -401,8 +401,8 @@ func (c *Ctx) buildMemberWhere(in map[string]any) (string, []any) {
 				now := time.Unix(c.forumTime(false, 0), 0).UTC()
 				yr, mon, day := now.Year(), int(now.Month()), now.Day()
 				age := atoi(val)
-				upper := zeroPad(yr-age, 4) + "-" + zeroPad(mon, 2) + "-" + zeroPad(day, 2)
-				lower := zeroPad(yr-age-1, 4) + "-" + zeroPad(mon, 2) + "-" + zeroPad(day, 2)
+				upper := padInt(yr-age, 4) + "-" + padInt(mon, 2) + "-" + padInt(day, 2)
+				lower := padInt(yr-age-1, 4) + "-" + padInt(mon, 2) + "-" + padInt(day, 2)
 				if rangeOp == "-" || rangeOp == "--" || rangeOp == "=" {
 					b := lower
 					if rangeOp == "--" {

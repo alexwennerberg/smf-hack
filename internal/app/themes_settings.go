@@ -34,7 +34,6 @@ type themeField struct {
 // defaults. Each entry is default=true (a "default option"). Types are already
 // resolved the way SetThemeOptions would (bool→checkbox, options→list).
 func (c *Ctx) buildThemeOptions() []*themeField {
-	day := func(i int) string { return c.TxtListItem("days", i) }
 	return []*themeField{
 		{ID: "show_board_desc", Label: c.Txt("732"), Type: "checkbox", Default: true},
 		{ID: "show_children", Label: c.Txt("show_children"), Type: "checkbox", Default: true},
@@ -48,8 +47,6 @@ func (c *Ctx) buildThemeOptions() []*themeField {
 		{ID: "popup_messages", Label: c.Txt("popup_messages"), Type: "checkbox", Default: true},
 		{ID: "copy_to_outbox", Label: c.Txt("copy_to_outbox"), Type: "checkbox", Default: true},
 		{ID: "auto_notify", Label: c.Txt("auto_notify"), Type: "checkbox", Default: true},
-		{ID: "calendar_start_day", Label: c.Txt("calendar_start_day"), Type: "list", Default: true,
-			Options: []themeFieldOption{{"0", day(0)}, {"1", day(1)}, {"6", day(6)}}},
 		{ID: "display_quick_reply", Label: c.Txt("display_quick_reply"), Type: "list", Default: true,
 			Options: []themeFieldOption{{"0", c.Txt("display_quick_reply1")}, {"1", c.Txt("display_quick_reply2")}, {"2", c.Txt("display_quick_reply3")}}},
 		{ID: "display_quick_mod", Label: c.Txt("display_quick_mod"), Type: "list", Default: true,

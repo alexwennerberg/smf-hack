@@ -127,7 +127,6 @@ type DisplayCtx struct {
 	CanSticky          bool
 	CanMerge           bool
 	CanSplit           bool
-	CalendarPost       bool
 	CanMarkNotify      bool
 	CanSendTopic       bool
 	CanSendPM          bool
@@ -562,7 +561,6 @@ func (c *Ctx) Display() {
 	page.CanSticky = c.allowedTo("make_sticky")
 	page.CanMerge = c.allowedTo("merge_any")
 	page.CanSplit = c.allowedTo("split_any")
-	page.CalendarPost = c.allowedTo("calendar_post")
 	page.CanMarkNotify = c.allowedTo("mark_any_notify")
 	page.CanSendTopic = c.allowedTo("send_topic")
 	page.CanSendPM = c.allowedTo("pm_send")
@@ -582,7 +580,6 @@ func (c *Ctx) Display() {
 	// Cleanup all the permissions with extra stuff...
 	page.CanMarkNotify = page.CanMarkNotify && !c.User.IsGuest
 	page.CanSticky = page.CanSticky && !a.SettingEmpty("enableStickyTopics")
-	page.CalendarPost = page.CalendarPost && !a.SettingEmpty("cal_enabled")
 	page.CanAddPoll = page.CanAddPoll && a.Setting("pollMode") == "1" && idPoll <= 0
 	page.CanRemovePoll = page.CanRemovePoll && a.Setting("pollMode") == "1" && idPoll > 0
 	page.CanReply = page.CanReply && (locked == 0 || c.allowedTo("moderate_board"))
@@ -804,7 +801,7 @@ func phpRound(v float64, precision int) string {
 	intPart := n / mult
 	s := itoa(int(intPart))
 	if precision > 0 {
-		frac := strings.TrimRight(zeroPad(int(n%mult), precision), "0")
+		frac := strings.TrimRight(padInt(int(n%mult), precision), "0")
 		if frac != "" {
 			s += "." + frac
 		}

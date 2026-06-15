@@ -319,8 +319,6 @@ func (c *Ctx) deleteMembers(users []int) {
 			WHERE ID_MEMBER = ?`), filterList(f.ignoreList), filterList(f.buddys), f.member)
 	}
 
-	// Make sure no member's birthday is still sticking in the calendar...
-	a.updateStatsCalendar()
 	c.updateStatsMemberRecount()
 }
 

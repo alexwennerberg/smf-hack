@@ -120,7 +120,6 @@ func (c *Ctx) adminIndex(area string) {
 		}
 		if c.allowedTo("admin_forum") {
 			layout.Areas = append(layout.Areas,
-				AdminArea{"manage_calendar", link(c.Txt("manage_calendar"), "?action=managecalendar")},
 				AdminArea{"manage_search", link(c.Txt("manage_search"), "?action=managesearch")})
 		}
 		if c.allowedTo("manage_smileys") {

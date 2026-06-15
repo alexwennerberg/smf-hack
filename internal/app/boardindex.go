@@ -94,14 +94,6 @@ type BoardIndexCtx struct {
 	ShowMemberList  bool
 	ShowWho         bool
 	ShowLoginBar    bool
-	ShowCalendar    bool
-
-	// calendarDoIndex() output (board-index info-center block).
-	CalendarOnlyToday bool
-	CalendarCanEdit   bool
-	CalendarHolidays  []string
-	CalendarBirthdays []*CalBirthday
-	CalendarEvents    []*CalEvent
 }
 
 // BoardIndex is BoardIndex() from BoardIndex.php.
@@ -381,107 +373,9 @@ func (c *Ctx) BoardIndex() {
 
 	// Set some permission related settings.
 	page.ShowLoginBar = c.User.IsGuest && !a.SettingEmpty("enableVBStyleLogin")
-	page.ShowCalendar = c.allowedTo("calendar_view") && !a.SettingEmpty("cal_enabled")
-	if page.ShowCalendar {
-		page.ShowCalendar = c.calendarDoIndex(page)
-	}
 
 	c.PageTitle = c.Txt("18")
 	c.SubTemplate = templateBoardIndexMain
-}
-
-// calendarDoIndex is calendarDoIndex() from BoardIndex.php: prepares today's
-// (and the next cal_days_for_index days') holidays, birthdays and events for
-// the board-index info-center block, returning whether anything should show.
-// PHP caches the data PHP-serialized in cal_today_* settings (refreshed by
-// updateStats('calendar') once per day); this port recomputes it live each
-// request — a perf-only difference with identical output, as elsewhere.
-func (c *Ctx) calendarDoIndex(page *BoardIndexCtx) bool {
-	a := c.App
-
-	// Make sure at least one of the options is checked.
-	if a.SettingEmpty("cal_showeventsonindex") && a.SettingEmpty("cal_showbdaysonindex") && a.SettingEmpty("cal_showholidaysonindex") {
-		return false
-	}
-
-	// This shouldn't be less than one!
-	calDays := a.SettingInt("cal_days_for_index")
-	daysCount := calDays
-	if daysCount < 1 {
-		daysCount = 1
-	}
-	page.CalendarOnlyToday = calDays == 1
-
-	// Get the current member time/date and the days we span.
-	now := c.forumTime(true, 0)
-	today := time.Unix(now, 0).UTC().Format("2006-01-02")
-	dates := make([]string, daysCount)
-	for k := 0; k < daysCount; k++ {
-		dates[k] = time.Unix(now+int64(k)*86400, 0).UTC().Format("2006-01-02")
-	}
-	low, high := dates[0], dates[len(dates)-1]
-
-	// Load today's holidays / birthdays / events (only the enabled ones).
-	var holidays map[string][]string
-	if !a.SettingEmpty("cal_showholidaysonindex") {
-		holidays = c.calendarHolidayArray(low, high)
-	}
-	var bday map[string][]*CalBirthday
-	if !a.SettingEmpty("cal_showbdaysonindex") {
-		bday = c.calendarBirthdayArray(low, high)
-	}
-	var events map[string][]*CalEvent
-	if !a.SettingEmpty("cal_showeventsonindex") {
-		// Board-visibility filtering replaces PHP's per-event allowed_groups
-		// array_intersect check (usePermissions = true).
-		events = c.calendarEventArray(low, high, true)
-	}
-
-	// No events, birthdays, or holidays... don't show anything. Simple.
-	if len(holidays) == 0 && len(bday) == 0 && len(events) == 0 {
-		return false
-	}
-
-	// This is used to show the "how-do-I-edit" help.
-	page.CalendarCanEdit = c.allowedTo("calendar_edit_any")
-
-	// Holidays between now and now + days.
-	for _, d := range dates {
-		page.CalendarHolidays = append(page.CalendarHolidays, holidays[d]...)
-	}
-
-	// Happy Birthday, guys and gals!
-	for _, d := range dates {
-		for _, b := range bday[d] {
-			b.IsToday = d == today
-			page.CalendarBirthdays = append(page.CalendarBirthdays, b)
-		}
-	}
-
-	// Events like community get-togethers (deduped by topic+title).
-	duplicates := map[string]bool{}
-	for _, d := range dates {
-		for _, ev := range events[d] {
-			key := itoa(ev.Topic) + ev.Title
-			if duplicates[key] {
-				continue
-			}
-			ev.IsToday = d == today
-			duplicates[key] = true
-			page.CalendarEvents = append(page.CalendarEvents, ev)
-		}
-	}
-
-	// Recompute is_last across the merged lists.
-	for i := range page.CalendarBirthdays {
-		page.CalendarBirthdays[i].IsLast = i == len(page.CalendarBirthdays)-1
-	}
-	for i := range page.CalendarEvents {
-		page.CalendarEvents[i].IsLast = i == len(page.CalendarEvents)-1
-	}
-
-	// This is used to make sure the header should be displayed.
-	return len(page.CalendarHolidays) > 0 || len(page.CalendarBirthdays) > 0 || len(page.CalendarEvents) > 0
 }
 
 func boardHasModerator(b *BIBoard, id int) bool {

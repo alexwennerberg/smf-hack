@@ -3,18 +3,18 @@ package lang
 import "testing"
 
 // Counts cross-checked against grep -c '^\$txt\[' on the source files:
-// index.english.php has 469 top-level entries, Errors.english.php 251.
-// (The ICQ/AIM/YIM/MSN messenger entries were removed.)
+// index.english.php has 444 top-level entries, Errors.english.php 229.
+// (The ICQ/AIM/YIM/MSN messenger and calendar entries were removed.)
 func TestGeneratedCounts(t *testing.T) {
 	idx := English["index"]
 	n := len(idx.Strings) + len(idx.Dynamic) + len(idx.Lists)
-	if n != 469 {
-		t.Errorf("index entries = %d, want 469", n)
+	if n != 444 {
+		t.Errorf("index entries = %d, want 444", n)
 	}
 	errs := English["Errors"]
 	n = len(errs.Strings) + len(errs.Dynamic) + len(errs.Lists)
-	if n != 251 {
-		t.Errorf("Errors entries = %d, want 251", n)
+	if n != 229 {
+		t.Errorf("Errors entries = %d, want 229", n)
 	}
 }
 

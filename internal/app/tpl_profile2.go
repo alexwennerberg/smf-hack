@@ -883,13 +883,6 @@ func templateProfileThemeSettings(c *Ctx) {
 	checkOpt("view_newest_first", c.Txt("recent_posts_at_top"))
 	checkOpt("view_newest_pm_first", c.Txt("recent_pms_at_top"))
 
-	dayOpt := opts["calendar_start_day"]
-	daySel := func(v string) string {
-		if (empty(dayOpt) && v == "0") || (!empty(dayOpt) && dayOpt == v) {
-			return ` selected="selected"`
-		}
-		return ""
-	}
 	qrOpt := opts["display_quick_reply"]
 	qrSel := func(v string) string {
 		if (empty(qrOpt) && v == "0") || (!empty(qrOpt) && qrOpt == v) {
@@ -910,14 +903,6 @@ func templateProfileThemeSettings(c *Ctx) {
 	}
 	c.O(`
 										<tr>
-											<td colspan="2"><label for="calendar_start_day">`, c.Txt("calendar_start_day"), `:</label>
-												<select name="default_options[calendar_start_day]" id="calendar_start_day">
-													<option value="0"`, daySel("0"), `>`, c.TxtList("days").Items[0], `</option>
-													<option value="1"`, daySel("1"), `>`, c.TxtList("days").Items[1], `</option>
-													<option value="6"`, daySel("6"), `>`, c.TxtList("days").Items[6], `</option>
-												</select>
-											</td>
-										</tr><tr>
 											<td colspan="2"><label for="display_quick_reply">`, c.Txt("display_quick_reply"), `</label>
 												<select name="default_options[display_quick_reply]" id="display_quick_reply">
 													<option value="0"`, qrSel("0"), `>`, c.Txt("display_quick_reply1"), `</option>

@@ -45,9 +45,9 @@ func init() {
 			return inetNtoa(n), nil
 		})
 
-	// Date-part extractors for the 'YYYY-MM-DD' TEXT columns (log_activity,
-	// calendar): MySQL's YEAR()/MONTH()/DAYOFMONTH() ported so Stats/Calendar
-	// queries translate verbatim.
+	// Date-part extractors for the 'YYYY-MM-DD' TEXT columns (log_activity):
+	// MySQL's YEAR()/MONTH()/DAYOFMONTH() ported so Stats queries translate
+	// verbatim.
 	datePart := func(name string, lo, hi int) {
 		sqlite.RegisterDeterministicScalarFunction(name, 1,
 			func(ctx *sqlite.FunctionContext, args []driver.Value) (driver.Value, error) {

@@ -341,7 +341,6 @@ func (c *Ctx) moveTopics(topics []int, toBoard int) {
 	// Move the topic.  Done.  :P
 	a.DB.Exec(a.Q(`UPDATE {$db_prefix}topics SET ID_BOARD = ` + itoa(toBoard) + ` WHERE ID_TOPIC ` + condition))
 	a.DB.Exec(a.Q(`UPDATE {$db_prefix}messages SET ID_BOARD = ` + itoa(toBoard) + ` WHERE ID_TOPIC ` + condition))
-	a.DB.Exec(a.Q(`UPDATE {$db_prefix}calendar SET ID_BOARD = ` + itoa(toBoard) + ` WHERE ID_TOPIC ` + condition))
 
 	// Mark target board as seen, if it was already marked as seen before.
 	var isSeen int
@@ -361,7 +360,6 @@ func (c *Ctx) moveTopics(topics []int, toBoard int) {
 	// Update 'em pesky stats.
 	a.updateStatsTopic()
 	a.updateStatsMessage()
-	a.updateStatsCalendar()
 
 	updates := []int{toBoard}
 	for _, stats := range fromBoards {

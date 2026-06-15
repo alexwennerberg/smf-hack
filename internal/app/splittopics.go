@@ -973,12 +973,6 @@ func (c *Ctx) MergeExecute(topics []int) {
 	// The first message keeps the bare subject.
 	a.DB.Exec(a.Q(`UPDATE {$db_prefix}messages SET subject = ? WHERE ID_MSG = ?`), targetSubject, firstMsg)
 
-	// Adjust calendar events to point to the merged topic.
-	a.DB.Exec(a.Q(`
-		UPDATE {$db_prefix}calendar
-		SET ID_TOPIC = ?, ID_BOARD = ?
-		WHERE ID_TOPIC IN (`+joinInts(deletedTopics)+`)`), idTopic, targetBoard)
-
 	// Merge log_topics (read markers): keep the earliest ID_MSG per member.
 	lrows, err := a.DB.Query(a.Q(`
 		SELECT ID_MEMBER, MIN(ID_MSG) AS new_ID_MSG

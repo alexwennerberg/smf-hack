@@ -179,12 +179,6 @@ a img
 	color: #000000;
 	background-color: #E0E1E8;
 }
-/* the today container in calendar */
-.calendar_today
-{
-	background-color: #FFFFFF;
-}
-
 /* These are used primarily for titles, but also for headers (the row that says what everything in the table is.) */
 .titlebg, tr.titlebg th, tr.titlebg td, .titlebg2, tr.titlebg2 th, tr.titlebg2 td
 {

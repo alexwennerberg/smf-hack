@@ -553,7 +553,7 @@ func templateMenu(c *Ctx) {
 	adminActions := map[string]bool{"admin": true, "ban": true, "boardrecount": true, "cleanperms": true,
 		"detailedversion": true, "dumpdb": true, "featuresettings": true, "featuresettings2": true,
 		"findmember": true, "maintain": true, "manageattachments": true, "manageboards": true,
-		"managecalendar": true, "managesearch": true, "membergroups": true, "modlog": true, "news": true,
+		"managesearch": true, "membergroups": true, "modlog": true, "news": true,
 		"optimizetables": true, "packageget": true, "packages": true, "permissions": true,
 		"pgdownload": true, "postsettings": true, "regcenter": true, "repairboards": true,
 		"reports": true, "serversettings": true, "serversettings2": true, "smileys": true,
@@ -562,7 +562,7 @@ func templateMenu(c *Ctx) {
 		currentAction = "admin"
 	}
 	switch c.CurrentAction {
-	case "search", "admin", "calendar", "profile", "mlist", "register", "login", "help", "pm":
+	case "search", "admin", "profile", "mlist", "register", "login", "help", "pm":
 		currentAction = c.CurrentAction
 	}
 	if c.CurrentAction == "search2" {
@@ -616,11 +616,6 @@ func templateMenu(c *Ctx) {
 			label += `[<strong>` + itoa(c.User.UnreadMessages) + `</strong>]`
 		}
 		c.menuTab(currentAction == "pm", first, last, scripturl+"?action=pm", label)
-	}
-
-	// The [calendar]!
-	if c.AllowCalendar {
-		c.menuTab(currentAction == "calendar", first, last, scripturl+"?action=calendar", c.Txt("calendar24"))
 	}
 
 	// the [member] list button

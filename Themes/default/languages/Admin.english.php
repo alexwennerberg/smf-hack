@@ -111,7 +111,6 @@ $txt['dvc_more'] = '(more detailed)';
 
 $txt['lfyi'] = 'You are unable to connect to simplemachines.org\'s latest news file.';
 
-$txt['manage_calendar'] = 'Calendar';
 $txt['manage_search'] = 'Search';
 
 $txt['smileys_manage'] = 'Smileys and Message Icons';
@@ -291,7 +290,6 @@ $txt['repair_missing_categories'] = 'Board #%d is in category #%d, which is miss
 $txt['repair_missing_posters'] = 'Message #%d was posted by member #%d, who is now missing.';
 $txt['repair_missing_parents'] = 'Board #%d is a child of board #%d, which is missing.';
 $txt['repair_missing_polls'] = 'Topic #%d is tied to non-existent poll #%d.';
-$txt['repair_missing_calendar_topics'] = 'Event #%d is tied to topic #%d, which is missing.';
 $txt['repair_missing_log_topics'] = 'Topic #%d is marked as read for one or more people, but does not exist.';
 $txt['repair_missing_log_topics_members'] = 'Member #%d has marked one or more topics as read, but does not exist.';
 $txt['repair_missing_log_boards'] = 'Board #%d is marked as read for one or more people, but does not exist.';

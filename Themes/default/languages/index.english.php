@@ -408,33 +408,6 @@ $txt['topbottom5'] = 'Go Down';
 $forum_copyright = '<a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by ' . $forum_version . '</a> |
 <a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>';
 
-$txt['calendar3'] = 'Birthdays:';
-$txt['calendar4'] = 'Events:';
-$txt['calendar3b'] = 'Upcoming Birthdays:';
-$txt['calendar4b'] = 'Upcoming Events:';
-// Prompt for holidays in the calendar, leave blank to just display the holiday's name.
-$txt['calendar5'] = '';
-$txt['calendar9'] = 'Month:';
-$txt['calendar10'] = 'Year:';
-$txt['calendar11'] = 'Day:';
-$txt['calendar12'] = 'Event Title:';
-$txt['calendar13'] = 'Post In:';
-$txt['calendar20'] = 'Edit Event';
-$txt['calendar21'] = 'Delete this event?';
-$txt['calendar22'] = 'Delete Event';
-$txt['calendar23'] = 'Post Event';
-$txt['calendar24'] = 'Calendar';
-$txt['calendar37'] = 'Link to Calendar';
-$txt['calendar43'] = 'Link Event';
-$txt['calendar47'] = 'Upcoming Calendar';
-$txt['calendar47b'] = 'Today\'s Calendar';
-$txt['calendar51'] = 'Week';
-$txt['calendar54'] = 'Number of Days:';
-$txt['calendar_how_edit'] = 'how do you edit these events?';
-$txt['calendar_link_event'] = 'Link Event To Post:';
-$txt['calendar_confirm_delete'] = 'Are you sure you want to delete this event?';
-$txt['calendar_linked_events'] = 'Linked Events';
-
 $txt['moveTopic1'] = 'Post a redirection topic';
 $txt['moveTopic2'] = 'Change the topic\'s subject';
 $txt['moveTopic3'] = 'New subject';

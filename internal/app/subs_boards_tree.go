@@ -472,14 +472,13 @@ func (c *Ctx) deleteBoards(boardsToRemove []int, moveChildrenTo int) {
 	}
 	c.removeTopics(topics, false, false)
 
-	for _, tbl := range []string{"log_mark_read", "log_boards", "log_notify", "moderators", "calendar", "board_permissions", "message_icons"} {
+	for _, tbl := range []string{"log_mark_read", "log_boards", "log_notify", "moderators", "board_permissions", "message_icons"} {
 		a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}` + tbl + ` WHERE ID_BOARD IN (` + in + `)`))
 	}
 	a.DB.Exec(a.Q(`DELETE FROM {$db_prefix}boards WHERE ID_BOARD IN (` + in + `)`))
 
 	a.updateStatsMessage()
 	a.updateStatsTopic()
-	a.updateStatsCalendar()
 
 	if !a.SettingEmpty("recycle_board") && inInts(boardsToRemove, a.SettingInt("recycle_board")) {
 		a.UpdateSettings(map[string]string{"recycle_board": "0", "recycle_enable": "0"})

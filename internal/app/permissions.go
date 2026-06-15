@@ -28,7 +28,6 @@ type permGroupDef struct {
 var permListMembergroup = []permGroupDef{
 	{"general", []permDef{{"view_stats", false}, {"view_mlist", false}, {"who_view", false}, {"search_posts", false}, {"karma_edit", false}}},
 	{"pm", []permDef{{"pm_read", false}, {"pm_send", false}}},
-	{"calendar", []permDef{{"calendar_view", false}, {"calendar_post", false}, {"calendar_edit", true}}},
 	{"maintenance", []permDef{{"admin_forum", false}, {"manage_boards", false}, {"manage_attachments", false}, {"manage_smileys", false}, {"edit_news", false}}},
 	{"member_admin", []permDef{{"moderate_forum", false}, {"manage_membergroups", false}, {"manage_permissions", false}, {"manage_bans", false}, {"send_mail", false}}},
 	{"profile", []permDef{{"profile_view", true}, {"profile_identity", true}, {"profile_extra", true}, {"profile_title", true}, {"profile_remove", true}, {"profile_server_avatar", false}, {"profile_upload_avatar", false}, {"profile_remote_avatar", false}}},
@@ -43,7 +42,7 @@ var permListBoard = []permGroupDef{
 	{"attachment", []permDef{{"view_attachments", false}, {"post_attachment", false}}},
 }
 
-var leftPermissionGroups = map[string]bool{"general": true, "calendar": true, "maintenance": true, "member_admin": true, "general_board": true, "topic": true, "post": true}
+var leftPermissionGroups = map[string]bool{"general": true, "maintenance": true, "member_admin": true, "general_board": true, "topic": true, "post": true}
 
 var nonGuestPermissions = map[string]bool{
 	"karma_edit": true, "pm_read": true, "pm_send": true, "profile_identity": true, "profile_extra": true,
@@ -659,11 +658,11 @@ func (c *Ctx) setPermissionLevel(level string, group, board int) {
 	c.loadIllegalPermissions()
 
 	globalLevels := map[string][]string{
-		"restrict": {"search_posts", "calendar_view", "view_stats", "who_view", "profile_view_own", "profile_identity_own"},
+		"restrict": {"search_posts", "view_stats", "who_view", "profile_view_own", "profile_identity_own"},
 	}
 	globalLevels["standard"] = append(append([]string{}, globalLevels["restrict"]...), "view_mlist", "karma_edit", "pm_read", "pm_send", "profile_view_any", "profile_extra_own", "profile_server_avatar", "profile_upload_avatar", "profile_remote_avatar", "profile_remove_own")
-	globalLevels["moderator"] = append(append([]string{}, globalLevels["standard"]...), "calendar_post", "calendar_edit_own")
-	globalLevels["maintenance"] = append(append([]string{}, globalLevels["moderator"]...), "manage_attachments", "manage_smileys", "manage_boards", "moderate_forum", "manage_membergroups", "manage_bans", "admin_forum", "manage_permissions", "edit_news", "calendar_edit_any", "profile_identity_any", "profile_extra_any", "profile_title_any")
+	globalLevels["moderator"] = append([]string{}, globalLevels["standard"]...)
+	globalLevels["maintenance"] = append(append([]string{}, globalLevels["moderator"]...), "manage_attachments", "manage_smileys", "manage_boards", "moderate_forum", "manage_membergroups", "manage_bans", "admin_forum", "manage_permissions", "edit_news", "profile_identity_any", "profile_extra_any", "profile_title_any")
 
 	boardLevels := map[string][]string{
 		"restrict": {"poll_view", "post_new", "post_reply_own", "post_reply_any", "delete_own", "modify_own", "mark_any_notify", "mark_notify", "report_any", "send_topic"},

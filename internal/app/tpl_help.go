@@ -26,7 +26,6 @@ func templateManualIntro(c *Ctx) {
 		<li>`, c.Txt("manual_index_home_desc_part1"), `<a href="`, scripturl, `?action=help;page=index#board">`, c.Txt("manual_index_home_desc_link_board"), `</a>`, c.Txt("manual_index_home_desc_part2"), `</li>
 		<li>`, c.Txt("manual_index_help_desc"), `</li>
 		<li>`, c.Txt("manual_index_search_desc_part1"), `<a href="`, scripturl, `?action=help;page=searching">`, c.Txt("manual_index_search_desc_link_searching"), `</a>`, c.Txt("manual_index_search_desc_part2"), `</li>
-		<li>`, c.Txt("manual_index_calendar_desc_part1"), `<a href="`, scripturl, `?action=help;page=post#calendar">`, c.Txt("manual_index_calendar_desc_link_posting_calendar"), `</a>`, c.Txt("manual_index_calendar_desc_part2"), `</li>
 		<li>`, c.Txt("manual_index_login_desc_part1"), `<a href="`, scripturl, `?action=help;page=loginout">`, c.Txt("manual_index_login_desc_link_loginout"), `</a>`, c.Txt("manual_index_login_desc_part2"), `</li>
 		<li>`, c.Txt("manual_index_register_desc_part1"), `<a href="`, scripturl, `?action=help;page=registering">`, c.Txt("manual_index_register_desc_link_registering"), `</a>`, c.Txt("manual_index_register_desc_part2"), `</li>
 	</ul>
@@ -36,7 +35,6 @@ func templateManualIntro(c *Ctx) {
 		<li>`, c.Txt("manual_index_help_reg"), `</li>
 		<li>`, c.Txt("manual_index_search_reg"), `</li>
 		<li>`, c.Txt("manual_index_profile_reg_part1"), `<a href="`, scripturl, `?action=help;page=profile">`, c.Txt("manual_index_profile_reg_link_profile"), `</a>`, c.Txt("manual_index_profile_reg_part2"), `</li>
-		<li>`, c.Txt("manual_index_calendar_reg"), `</li>
 		<li>`, c.Txt("manual_index_logout_reg_part1"), `<a href="`, scripturl, `?action=help;page=loginout#logout">`, c.Txt("manual_index_logout_reg_link_loginout_logout"), `</a>`, c.Txt("manual_index_logout_reg_part2"), `</li>
 	</ul>
 	<p>`, c.Txt("manual_index_forum_admins_note_presentation"), `</p>
@@ -1051,17 +1049,6 @@ func templateManualProfile(c *Ctx) {
 														<tr>
 															<td width="28"><input type="checkbox" class="check" /></td>
 															<td>`, c.Txt("manual_profile_recent_pms"), `</td>
-														</tr>
-														<tr>
-															<td colspan="2">`, c.Txt("manual_profile_first_day_week"), `
-															<select>
-																<option selected="selected">
-																	`, c.Txt("manual_profile_sun"), `
-																</option>
-																<option>
-																	`, c.Txt("manual_profile_mon"), `
-																</option>
-															</select></td>
 														</tr>
 														<tr>
 															<td colspan="2">`, c.Txt("manual_profile_quick_reply"), `: <select>
