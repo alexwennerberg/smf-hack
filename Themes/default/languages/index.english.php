@@ -255,7 +255,6 @@ $txt[511] = 'Logged';
 // Use numeric entities in the below string.
 $txt[512] = 'IP';
 
-$txt[513] = 'ICQ';
 $txt[515] = 'WWW';
 
 $txt[525] = 'by';
@@ -267,10 +266,6 @@ $txt[581] = ', our newest member.';
 
 $txt[582] = 'Search for';
 
-$txt[603] = 'AIM';
-// In this string, please use +'s for spaces.
-$txt['aim_default_message'] = 'Hi.+Are+you+there?';
-$txt[604] = 'YIM';
 
 $txt[616] = 'Remember, this forum is in \'Maintenance Mode\'.';
 
@@ -459,7 +454,6 @@ $txt['mail_send_unable'] = 'Unable to send mail to the email address \'%s\'';
 $txt['mlist_search'] = 'Search for members';
 $txt['mlist_search2'] = 'Search again';
 $txt['mlist_search_email'] = 'Search by email address';
-$txt['mlist_search_messenger'] = 'Search by messenger nickname';
 $txt['mlist_search_group'] = 'Search by position';
 $txt['mlist_search_name'] = 'Search by name';
 $txt['mlist_search_website'] = 'Search by website';
@@ -468,8 +462,6 @@ $txt['mlist_search_results'] = 'Search results for';
 $txt['attach_downloaded'] = 'downloaded';
 $txt['attach_viewed'] = 'viewed';
 $txt['attach_times'] = 'times';
-
-$txt['MSN'] = 'MSN';
 
 $txt['settings'] = 'Settings';
 $txt['never'] = 'Never';
