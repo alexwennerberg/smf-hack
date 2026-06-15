@@ -170,3 +170,35 @@ func TestThumbnailCreation(t *testing.T) {
 		t.Errorf("parent ID_THUMB = %d, want %d", linked, idThumb)
 	}
 }
+
+// TestAttachmentRejectCleansTempFile guards the upload_tmp_* leak: a rejected
+// attachment (bad extension) must not leave its staged temp file behind.
+func TestAttachmentRejectCleansTempFile(t *testing.T) {
+	a := newTestApp(t)
+	admin := adminCookie(t, a)
+	dir := a.Setting("attachmentUploadDir")
+	os.MkdirAll(dir, 0755)
+	// Turn on extension checking and disallow .exe.
+	a.UpdateSettings(map[string]string{
+		"attachmentEnable":          "1",
+		"attachmentCheckExtensions": "1",
+		"attachmentExtensions":      "png,jpg,gif,txt",
+	})
+
+	sc, seq, cookies := openPostForm(t, a, "/index.php?action=post;board=1.0", admin)
+	w := postMultipart(t, a, "/index.php?action=post2;start=0;board=1.0", map[string]string{
+		"topic": "0", "subject": "Bad ext", "message": "x",
+		"icon": "xx", "additional_options": "0", "sc": sc, "seqnum": seq,
+	}, "evil.exe", []byte("MZ malware"), cookies...)
+	// Rejected -> the error page (200), not a 302 redirect.
+	if w.Code == 302 {
+		t.Fatalf("disallowed .exe was accepted (status 302)")
+	}
+
+	entries, _ := os.ReadDir(dir)
+	for _, e := range entries {
+		if strings.HasPrefix(e.Name(), "upload_tmp_") {
+			t.Errorf("leaked staged temp file after rejected upload: %s", e.Name())
+		}
+	}
+}

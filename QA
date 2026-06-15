@@ -1,2 +1,22 @@
-BUGS
--  Your file is too large. The maximum attachment size allowed is 192 KB. 
+I did this in phases. I could not find a prompt
+
+functionality
+- Password lockout is very early
+- Remove SMF logo
+- Remove little icons from footer
+- http://127.0.0.1:8080/index.php?action=unread (top Mark All Messages as Read button missing)
+- remove .php from urls
+- http://127.0.0.1:8070/index.php?action=pm;sa=send;u=1
+
+footer smf-go should link to github
+should drop | SMF © 2015, Simple Machines from footer
+remove instances of SMF in http://127.0.0.1:8080/index.php?action=help and elsewhere
+
+admin pages need a bunch of text changes
+
+
+Untested:
+- all the admin settings
+
+To Cut:
+-

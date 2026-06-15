@@ -1,0 +1,11 @@
+This was from an era where people used less software, so certain conventions
+were not intuited. The help articles are extremely extensive and teach you hvery
+basic things about the forum
+
+The model of 'installing software' is goneA
+
+Trimming down
+
+A lot of the 'vestigal' features (calendar, karma, etc) are against my goal of
+'a codebase that I can maintain solo'. I did not want to produce "AI slop", I
+wanted to produce something I was happy with. 

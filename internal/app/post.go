@@ -878,6 +878,18 @@ func (c *Ctx) handlePost2Attachments(hasMsg bool, msgID int) []int {
 	}
 	var files []pending
 
+	// upload_tmp_* files staged from a direct multipart upload this request. A
+	// successful createAttachment renames the temp into place (so removing it
+	// here is a no-op), but a rejected attachment (bad extension, too large,
+	// directory full, ...) aborts via fatalError before any cleanup — without
+	// this the temp would leak on disk. The defer runs on the smfExit unwind too.
+	var stagedTemps []string
+	defer func() {
+		for _, p := range stagedTemps {
+			os.Remove(p)
+		}
+	}()
+
 	temp := c.tempAttachments()
 	haveDirect := c.R.MultipartForm != nil && len(c.R.MultipartForm.File["attachment[]"]) > 0
 
@@ -942,6 +954,7 @@ func (c *Ctx) handlePost2Attachments(hasMsg bool, msgID int) []int {
 				src.Close()
 				c.fatalLangError("attachments_no_write", true)
 			}
+			stagedTemps = append(stagedTemps, tmp.Name())
 			if _, err := io.Copy(tmp, src); err != nil {
 				tmp.Close()
 				src.Close()

@@ -816,7 +816,7 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		{"maxMsgID", "1"},
 		{"enableAllMessages", "0"},
 		{"fixLongWords", "0"},
-		{"knownThemes", "1,2,3"},
+		{"knownThemes", "1"},
 		{"who_enabled", "1"},
 		{"time_offset", "0"},
 		{"cookieTime", "60"},
@@ -881,8 +881,7 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		}
 	}
 
-	// themes (only the default theme is ported, but rows 2 and 3 are kept so
-	// knownThemes/theme settings behave identically)
+	// themes (only the default theme is ported)
 	themeRows := [][3]string{
 		{"1", "name", "SMF Default Theme - Core"},
 		{"1", "theme_url", cfg.BoardURL + "/Themes/default"},
@@ -908,14 +907,6 @@ func InsertDefaultData(db *sql.DB, cfg Config) error {
 		{"1", "additional_options_collapsable", "1"},
 		{"1", "use_image_buttons", "1"},
 		{"1", "enable_news", "1"},
-		{"2", "name", "Classic YaBB SE Theme"},
-		{"2", "theme_url", cfg.BoardURL + "/Themes/classic"},
-		{"2", "images_url", cfg.BoardURL + "/Themes/classic/images"},
-		{"2", "theme_dir", cfg.AssetDir + "/Themes/classic"},
-		{"3", "name", "Babylon Theme"},
-		{"3", "theme_url", cfg.BoardURL + "/Themes/babylon"},
-		{"3", "images_url", cfg.BoardURL + "/Themes/babylon/images"},
-		{"3", "theme_dir", cfg.AssetDir + "/Themes/babylon"},
 	}
 	for _, r := range themeRows {
 		if err := exec(`INSERT INTO {$db_prefix}themes (ID_THEME, variable, value) VALUES (?, ?, ?)`, r[0], r[1], r[2]); err != nil {
