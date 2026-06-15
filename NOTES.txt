@@ -1,3 +1,21 @@
+Porting SMF 1.1.21 to Go
+
+Many folks interested in, for example, permacomputing, are heavily anti-coding
+agent. I am interested in leveraging agents to do 'archival' work. 
+
+1. All code gets a human reviewer (me)
+2. The coding agent's role diminishes over time: it creates scaffolding that I
+am ultimately responsible for maintaining
+3. The artifact should not be unmaintainable garbage. 
+
+The code produced is mediocre. It looks like translated PHP code. It is not
+beautiful. But it is legible, and I can work on it.
+
+Creating a "software artifact"
+
+I decided to preserve the php-like stuff, like the routing, to minimize the
+porting effort.
+
 This was from an era where people used less software, so certain conventions
 were not intuited. The help articles are extremely extensive and teach you hvery
 basic things about the forum
@@ -11,3 +29,15 @@ A lot of the 'vestigal' features (calendar, karma, etc) are against my goal of
 wanted to produce something I was happy with. 
 
 Foru
+
+The resulant code is... not very good. It is not exactly idiomatic Go, it reads
+like Go that was translated from PHP. However, remember my goal: the code
+doesn't have to be beautiful, it just has to be *maintainable*. The goal is to
+product a feature-complete functional artifact, where the only changes I intend
+to make are bug/performance fixes
+
+If you want to play around with the port, you can go to X where you will find a
+build that runs locally in your own browser (use the login admin/admin for admin access
+and user/user for user access)
+
+If you want to run this yourself, good luck, and have fun at your own risk :)

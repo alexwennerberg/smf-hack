@@ -358,13 +358,13 @@ func (c *Ctx) loadMemberContext(user int) bool {
 			(p.HideEmail != 0 && !a.SettingEmpty("allow_hideEmail") && !c.allowedTo("moderate_forum") && c.User.ID != p.ID),
 		EmailPublic: (p.HideEmail == 0 || a.SettingEmpty("allow_hideEmail")) &&
 			(a.SettingEmpty("guest_hideContacts") || !c.User.IsGuest),
-		Blurb:        blurb,
-		GenderName:   gendertxt,
-		WebsiteTitle: p.WebsiteTitle,
-		WebsiteURL:   p.WebsiteURL,
-		Signature:    signature,
-		Location:     location,
-		RealPosts:    p.Posts,
+		Blurb:          blurb,
+		GenderName:     gendertxt,
+		WebsiteTitle:   p.WebsiteTitle,
+		WebsiteURL:     p.WebsiteURL,
+		Signature:      signature,
+		Location:       location,
+		RealPosts:      p.Posts,
 		IP:             Htmlspecialchars(p.MemberIP),
 		IP2:            Htmlspecialchars(p.MemberIP2),
 		IsOnline:       isOnline,
@@ -489,24 +489,4 @@ func ucwords(s string) string {
 		up = ch == ' ' || ch == '\t' || ch == '\r' || ch == '\n'
 	}
 	return string(out)
-}
-
-// urlencode is PHP urlencode (%XX with + for spaces).
-func urlencode(s string) string {
-	var b strings.Builder
-	for i := 0; i < len(s); i++ {
-		ch := s[i]
-		switch {
-		case ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z' || ch >= '0' && ch <= '9' || ch == '-' || ch == '_' || ch == '.':
-			b.WriteByte(ch)
-		case ch == ' ':
-			b.WriteByte('+')
-		default:
-			const hex = "0123456789ABCDEF"
-			b.WriteByte('%')
-			b.WriteByte(hex[ch>>4])
-			b.WriteByte(hex[ch&0xF])
-		}
-	}
-	return b.String()
 }
