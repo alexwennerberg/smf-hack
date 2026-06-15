@@ -1,0 +1,595 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="SMF User Help: Profile" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>SMF User Help: Profile</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+		<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/help.css" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			document.cookie = "upshrink=" + (mode ? 1 : 0);
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">Welcome, <b>Guest</b>. Please <a href="http://127.0.0.1:8080/index.php?action=login">login</a> or <a href="http://127.0.0.1:8080/index.php?action=register">register</a>.				</span>
+								<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/sha1.js"></script>
+
+								<form action="http://127.0.0.1:8080/index.php?action=login2" method="post" accept-charset="ISO-8859-1" class="middletext" style="margin: 3px 1ex 1px 0;" onsubmit="hashLoginPassword(this, '{TOKEN}');">
+									<input type="text" name="user" size="10" /> <input type="password" name="passwrd" size="10" />
+									<select name="cookielength">
+										<option value="60">1 Hour</option>
+										<option value="1440">1 Day</option>
+										<option value="10080">1 Week</option>
+										<option value="43200">1 Month</option>
+										<option value="-1" selected="selected">Forever</option>
+									</select>
+									<input type="submit" value="Login" /><br />
+									<span class="middletext">Login with username, password and session length</span>
+									<input type="hidden" name="hash_passwrd" value="" />
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=login">Login</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=register">Register</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+	<div class="tborder" style="margin-top: 1ex;">
+		<div id="helpmenu" class="titlebg" style="padding: 4px;"><a href="http://127.0.0.1:8080/index.php?action=help;page=index">Introduction</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=registering">Registering</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">Logging In</a> &bull; <span class="error" style="font-weight: bold;">Profile</span> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=post">Posting</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=pm">Personal Message</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=searching">Searching</a>
+		</div>
+		<div style="padding: 2ex;" id="helpmain" class="windowbg2">
+	<p>The profile screen in the default theme normally consists of a single main pane, with an additional menu to the left to lead you through the editing options for your own profile. Please note that, because an SMF forum may be customized extensively by its administrator(s), the features and user permissions described here are typical rather than definitive.</p>
+	<p>To edit your own profile, start by selecting <strong>Profile</strong> from the <a href="http://127.0.0.1:8080/index.php?action=help;page=index#main">main menu</a> or clicking your own username. You can also view (but not edit) other members' profiles by clicking on their names.</p>
+	<ol>
+		<li>
+			<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#all">Information Normally Available to all Members</a>
+			<ol class="la">
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#info-all">Profile Info</a></li>
+			</ol>
+		</li>
+				<li>
+			<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners">Settings Normally Available to Profile Owners</a>
+			<ol class="la">
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#edit-owners">Modify Profile</a></li>
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#actions-owners">Actions</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins">Settings Normally Restricted to Admins</a>
+			<ol class="la">
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#info-admins">Profile Info</a></li>
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#edit-admins">Modify Profile</a></li>
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#actions-admins">Actions</a></li>
+			</ol>
+		</li>
+	</ol>
+	<h2 id="all">Information Normally Available to all Members</h2>
+	<h3 id="info-all">Profile Info</h3>
+	<div style="border: solid 1px;">
+		<div style="padding: 2px 30px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top: 1ex;">
+				<tr>
+					<td width="100%" valign="top">
+						<table border="0" cellpadding="4" cellspacing="1" align="center" class="bordercolor">
+							<tr class="titlebg">
+								<td align="left" width="420" height="26"><img src="http://127.0.0.1:8080/Themes/default/images/icons/profile_sm.gif" alt="" border="0" align="top" />&nbsp; Username:&nbsp;Member's login name</td>
+								<td align="center" width="150">Picture/Text</td>
+							</tr>
+							<tr>
+								<td class="windowbg" width="420" align="left">
+									<table border="0" cellspacing="0" cellpadding="2" width="100%">
+										<tr>
+											<td><b>Name:</b></td>
+											<td>Member's screen name</td>
+										</tr>
+										<tr>
+											<td><b>Posts:</b></td>
+											<td>Member's number of posts</td>
+										</tr>
+										<tr>
+											<td><b>Position:</b></td>
+											<td>Member's member group or post group</td>
+										</tr>
+										<tr>
+											<td><b>Date Registered:</b></td>
+											<td>Date and time of registration</td>
+										</tr>
+										<tr>
+											<td><b>Last Active:</b></td>
+											<td>Date and time last active</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<hr size="1" width="100%" class="hrcolor" />
+											</td>
+										</tr>
+										<tr>
+											<td><b>ICQ:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>AIM:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>MSN:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>YIM:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>Email:</b></td>
+											<td><a href="mailto:member@their.address" class="board">member@their.address</a></td>
+										</tr>
+										<tr>
+											<td><b>Website:</b></td>
+											<td><a href="http://www.simplemachines.org/" target="_blank"></a></td>
+										</tr>
+										<tr>
+											<td><b>Current Status:</b></td>
+											<td><i><a href="http://127.0.0.1:8080/index.php?action=help;page=pm" title="Personal Message (Online)  "><img src="http://127.0.0.1:8080/Themes/default/images/useron.gif" border="0" align="middle" alt="Online" /></a> <span class="smalltext">Online</span></i></td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<hr size="1" width="100%" class="hrcolor" />
+											</td>
+										</tr>
+										<tr>
+											<td><b>Gender:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>Age:</b></td>
+											<td>N/A</td>
+										</tr>
+										<tr>
+											<td><b>Location:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><b>Local Time:</b></td>
+											<td>Current date and time in member's time zone</td>
+										</tr>
+										<tr>
+											<td><b>Language:</b></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<hr size="1" width="100%" class="hrcolor" />
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" height="25">
+												<table border="0">
+													<tr>
+														<td><b>Signature:</b></td>
+													</tr>
+													<tr>
+														<td colspan="2"></td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="windowbg" valign="middle" align="center" width="150"><br />
+								<br /></td>
+							</tr>
+							<tr class="titlebg">
+								<td colspan="2" align="left">Additional Information:</td>
+							</tr>
+							<tr>
+								<td class="windowbg2" colspan="2" align="left"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#all" class="board">Send this member a personal message.</a><br />
+								<br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#all" class="board">Show the last posts of this person.</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#all" class="board">Show general statistics for this member.</a><br />
+								<br /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table><br />
+		</div>
+	</div><br />
+	<ul>
+		<li>This <strong>Summary</strong> screen is not only there to tell you about others, but also the first screen that you see when <a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners">editing your own profile</a>.</li>
+		<li>Members may choose to hide their <strong>email address</strong> and/or <strong>online status</strong>.</li>
+		<li>The fields left empty here are not filled in by default, so you should <a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners">edit your profile</a> if you wish to display this information.</li>
+		<li>You can send the profile owner a <a href="http://127.0.0.1:8080/index.php?action=help;page=pm">Personal Message</a> by clicking the <strong>Current Status</strong> <strong>On/Offline Icon</strong> or following the link from <strong>Additional Information</strong> below.</li>
+		<li><strong>Show the last posts of this person</strong> links to a complete paginated listing of the member's posts.</li>
+		<li><strong>Show general statistics for this member</strong> links to a screen of statistics about the member's time online and posting activity.</li>
+	</ul>
+	<h2 id="owners">Settings Normally Available to Profile Owners</h2>
+	<p>While the <strong>Summary</strong> screen is the same as the one shown above and the <strong>Show Posts</strong> and <strong>Show Stats</strong> links are effectively duplicates, profile owners are also provided with the tools to customize their own profiles:</p>
+	<h3 id="edit-owners">Modify Profile</h3>
+	<ul>
+		<li><strong>Account Related Settings</strong> enables you to make changes to your <strong>display name</strong> (your <strong>login</strong> or <strong>username</strong> can only be changed by an administrator), preferred <strong>language</strong> (if the forum administrators have installed alternative language packs), <strong>email</strong> and <strong>password</strong> settings.</li>
+		<li><strong>Forum Profile Information</strong> enables you to enter optional personal details such as <strong>gender</strong>, <strong>birthdate</strong>, <strong>location</strong>, <strong>website</strong> and <strong>instant messenger</strong> contact information. It's also where you go to enter your own <strong>personal text</strong> and <strong>signature</strong> and select an <strong>avatar</strong> (personal picture) from a list (if provided by the forum administrators) or link to one of your own on the web.</li>
+		<li><strong>Look and Layout Preferences</strong> enables you to select your preferred <strong>theme</strong> (forum skin), time zone and format and other personal choices for <strong>layout settings</strong>. Note that the currently selected option in the menu pane is highlighted in bold type:</li>
+	</ul>
+		<div style="border: solid 1px;">
+		<div style="padding: 2px 30px;">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-top: 1ex;">
+				<tr>
+					<td width="180" valign="top">
+						<table border="0" cellpadding="4" cellspacing="1" class="bordercolor" width="170">
+							<tr>
+								<td class="catbg">Profile Info</td>
+							</tr>
+							<tr class="windowbg2">
+								<td class="smalltext"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Summary</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Show Stats</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Show Posts</a><br />
+								<br /></td>
+							</tr>
+							<tr>
+								<td class="catbg">Modify Profile</td>
+							</tr>
+							<tr class="windowbg2">
+								<td class="smalltext"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Account Related Settings</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Forum Profile Information</a><br />
+								<b><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Look and Layout Preferences</a></b><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Notifications and Email</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Personal Message Options</a><br />
+								<br /></td>
+							</tr>
+							<tr>
+								<td class="catbg">Actions</td>
+							</tr>
+							<tr class="windowbg2">
+								<td class="smalltext"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" style="font-size: x-small;" class="board">Delete this account</a><br />
+								<br /></td>
+							</tr>
+						</table>
+					</td>
+					<td width="100%" valign="top">
+						<form action="http://127.0.0.1:8080/index.php?action=help;page=profile" method="post" accept-charset="ISO-8859-1">
+							<table border="0" width="85%" cellspacing="1" cellpadding="4" align="center" class="bordercolor">
+								<tr class="titlebg">
+									<td height="26" align="left">&nbsp;<img src="http://127.0.0.1:8080/Themes/default/images/icons/profile_sm.gif" alt="" border="0" align="top" />&nbsp; Edit Profile</td>
+								</tr>
+								<tr>
+									<td class="windowbg" height="25" align="left"><span class="smalltext"><br />
+									This section allows you to customize the look and layout of the forum.<br />
+									<br /></span></td>
+								</tr>
+								<tr>
+									<td class="windowbg2" align="left">
+										<table border="0" width="100%" cellpadding="3">
+											<tr>
+												<td colspan="2" width="40%"><b>Current Theme:</b>&nbsp;Forum or Board Default&nbsp;<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#owners" class="board">(change)</a></td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<hr width="100%" size="1" class="hrcolor" />
+												</td>
+											</tr>
+											<tr>
+												<td width="40%"><b>Time Format:</b><br />
+												<a href="http://127.0.0.1:8080/index.php/index.php?action=helpadmin;help=time_format" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="left" style="padding-right: 1ex;" /></a> <span class="smalltext">The format here will be used to show dates throughout this forum.</span></td>
+												<td><select style="margin-bottom: 4px;">
+													<option selected="selected">
+														(Forum Default)
+													</option>
+													<option>
+														Month Day, Year, HH:MM:SS a/pm
+													</option>
+													<option>
+														Month Day, Year, HH:MM:SS (army time.)
+													</option>
+													<option>
+														YYYY-MM-DD, HH:MM:SS
+													</option>
+													<option>
+														DD Month YYYY, HH:MM:SS
+													</option>
+													<option>
+														DD-MM-YYYY, HH:MM:SS
+													</option>
+												</select><br />
+												<input type="text" value="" size="30" /></td>
+											</tr>
+											<tr>
+												<td width="40%">
+													<b>Time Offset:</b>
+													<div class="smalltext">
+														Number of hours to +/- to make displayed time equal to your local time.
+													</div>
+												</td>
+												<td class="smalltext"><input type="text" size="5" maxlength="5" value="0" /><br />
+												<em>(Current forum time should be displayed here.)</em></td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<hr width="100%" size="1" class="hrcolor" />
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<br />
+													<table width="100%" cellspacing="0" cellpadding="3">
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Show board descriptions inside boards.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Show child boards on every page inside boards, not just the first.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Don't show other user's avatars.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Don't show other user's signatures.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Return to topics after posting by default.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Show most recent posts at the top.</td>
+														</tr>
+														<tr>
+															<td width="28"><input type="checkbox" class="check" /></td>
+															<td>Show most recent personal messages at top.</td>
+														</tr>
+														<tr>
+															<td colspan="2">First day of the week on the calendar:
+															<select>
+																<option selected="selected">
+																	Sunday
+																</option>
+																<option>
+																	Monday
+																</option>
+															</select></td>
+														</tr>
+														<tr>
+															<td colspan="2">Use quick reply on topic display: <select>
+																<option selected="selected">
+																	don't show at all
+																</option>
+																<option>
+																	show, off by default
+																</option>
+																<option>
+																	show, on by default
+																</option>
+															</select></td>
+														</tr>
+														<tr>
+															<td colspan="2">Show quick-moderation on message index as&nbsp; <select>
+																<option selected="selected">
+																	don't show.
+																</option>
+																<option>
+																	checkboxes.
+																</option>
+																<option>
+																	icons.
+																</option>
+															</select></td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+													<hr width="100%" size="1" class="hrcolor" />
+												</td>
+											</tr>
+											<tr>
+												<td align="right" colspan="2"><input type="button" value="Change profile" /></td>
+											</tr>
+										</table><br />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</td>
+				</tr>
+			</table><br />
+		</div>
+	</div><br />
+	<ul>
+		<li><strong>Notifications and Email</strong> enables you to select personal preferences for <strong>notifications</strong> (emails about new topics/replies) and lists any notifications that you have set up.</li>
+		<li><strong>Personal Message Options</strong> enables you to set up an <strong>ignore list</strong> (blacklist) for <a href="http://127.0.0.1:8080/index.php?action=help;page=pm">Personal Messages</a>, to request <strong>notification</strong> of new PMs by email and to <strong>save copies</strong> of your outgoing PMs by default.</li>
+	</ul>
+	<h3 id="actions-owners">Actions</h3>
+	<ul>
+		<li><strong>Delete this account</strong> does exactly what it says! Yes, there's a <strong>confirmation screen</strong>, but it really does <strong>delete your own account</strong>, so be careful...</li>
+	</ul>
+	<h2 id="admins">Settings Normally Restricted to Admins</h2>
+	<p>As well as being able to view/edit any of the details above from other members' profiles, some further options are normally visible to (and executable by) admins only:</p>
+		<div>
+		<div style="width: 180px; float: left; border: none;">
+			<table border="0" cellpadding="4" cellspacing="1" class="bordercolor" width="170">
+				<tr>
+					<td class="catbg">Profile Info</td>
+				</tr>
+				<tr class="windowbg2">
+					<td class="windowbg2"><b><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Summary</a></b><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Show Stats</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Show Posts</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Track User</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Track IP</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Show Permissions</a><br />
+					<br /></td>
+				</tr>
+				<tr>
+					<td class="catbg">Modify Profile</td>
+				</tr>
+				<tr class="windowbg2">
+					<td class="windowbg2"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Account Related Settings</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Forum Profile Information</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Look and Layout Preferences</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Notifications and Email</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Personal Message Options</a><br />
+					<br /></td>
+				</tr>
+				<tr>
+					<td class="catbg">Actions</td>
+				</tr>
+				<tr class="windowbg2">
+					<td class="windowbg2"><a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Ban this user</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=help;page=profile#admins" style="font-size: x-small;" class="board">Delete this account</a><br />
+					<br /></td>
+				</tr>
+			</table>
+		</div><br />
+		<div style="margin: -1.8em 20px 0 200px;">
+			<h3 id="info-admins">Profile Info</h3>
+			<ul>
+				<li><strong>Track User</strong> provides a list of <strong>IP numbers</strong> used by the member, other members who might be in the same <strong>IP range</strong> and <strong>error messages</strong> generated/experienced by the member.</li>
+				<li><strong>Track IP</strong> provides tools for tracking <strong>members</strong>, <strong>messages</strong> and <strong>errors</strong> from any specified <strong>IP range</strong>.</li>
+				<li><strong>Show Permissions</strong> lists the <strong>board permissions</strong> that have been granted to the member and who gave them.</li>
+			</ul>
+			<h3 id="edit-admins">Modify Profile</h3>
+			<ul>
+				<li><strong>Account Related Settings</strong> is basically the same screen as shown to profile owners, but with the additional option to assign members to <strong>member groups</strong>.</li>
+				<li><strong>Forum Profile Information</strong> is basically the same screen as shown to profile owners, but with the additional option to specify <strong>custom titles</strong> for members.</li>
+			</ul>
+			<h3 id="actions-admins">Actions</h3>
+			<ul>
+				<li><strong>Ban this user</strong> provides tools for <strong>banning</strong> users, configuring the <strong>level</strong> of the ban and maintaining a <strong>ban list</strong> noting the details of any bans in force.</li>
+				<li><strong>Delete this account</strong> is similar to the screen of the same name available to all members, but the <strong>confirmation question</strong> is different when it's not your own account that's about to be deleted.</li>
+			</ul>
+		</div>
+	</div><br clear="all" />
+		</div>
+		<div id="helpmenu2" class="titlebg" style="padding: 4px;"><a href="http://127.0.0.1:8080/index.php?action=help;page=index">Introduction</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=registering">Registering</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">Logging In</a> &bull; <span class="error" style="font-weight: bold;">Profile</span> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=post">Posting</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=pm">Personal Message</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=searching">Searching</a>
+		</div>
+	</div>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

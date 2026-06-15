@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Manage members" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Manage members</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>admin</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=admin">Admin</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top: 1ex;"><tr>
+			<td width="150" valign="top" style="width: 23ex; padding-right: 10px; padding-bottom: 10px;">
+				<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bordercolor">
+					<tr>
+						<td class="catbg">Main</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=admin">Administration Center</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=admin;credits">Support and Credits</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=news">News and newsletters</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=packages">Packages</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Configuration</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings">Features and Options</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=serversettings;sesc={TOKEN}">Server Settings</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=settings;th=1;sesc={TOKEN}">Current Theme</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=admin;sesc={TOKEN}">Themes and Layout</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Forum</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=manageboards">Boards</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=postsettings">Posts and Topics</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managecalendar">Calendar</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managesearch">Search</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=smileys">Smileys and Message Icons</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=manageattachments">Attachments and Avatars</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Members</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<b><a href="http://127.0.0.1:8080/index.php?action=viewmembers">Members</a></b><br />
+							<a href="http://127.0.0.1:8080/index.php?action=membergroups;">Membergroups</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=permissions">Permissions</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=regcenter">Registration</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=ban">Ban List</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Maintenance</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=maintain">Forum Maintenance</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=reports">Generate Reports</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=viewErrorLog;desc">Forum Error Log</a><br />
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td valign="top">
+				<table border="0" cellspacing="0" cellpadding="4" align="center" width="100%" class="tborder" >
+					<tr class="titlebg">
+						<td>
+							<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=view_members" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> 
+							Manage members
+						</td>
+					</tr>
+					<tr class="windowbg">
+						<td class="smalltext" style="padding: 2ex;">Below is a listing of all the members currently registered with your forum.</td>
+					</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+					<tr>
+						<td class="maintab_first">&nbsp;</td>
+						<td class="maintab_active_first">&nbsp;</td>
+						<td valign="top" class="maintab_active_back">
+							<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sa=all">View all members</a>
+						</td>
+						<td class="maintab_active_last">&nbsp;</td>
+						<td valign="top" class="maintab_back">
+							<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sa=search">Search for members</a>
+						</td>
+						<td class="maintab_last">&nbsp;</td>
+					</tr>
+				</table><br />
+	<form action="http://127.0.0.1:8080/index.php?action=viewmembers" method="post" accept-charset="ISO-8859-1">
+		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="bordercolor" align="center">
+			<tr class="catbg">
+				<td align="left" colspan="8">
+					<b>Pages:</b> [<b>1</b>] 
+				</td>
+			</tr>
+			<tr class="titlebg">
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=ID_MEMBER;start=0">ID</a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=memberName;start=0;desc">Username <img src="http://127.0.0.1:8080/Themes/default/images/sort_down.gif" alt="" /></a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=realName;start=0">Display name</a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=emailAddress;start=0">Email Address</a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=memberIP;start=0">IP address</a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=lastLogin;start=0">Last Online</a>
+				</td>
+				<td valign="top">
+					<a href="http://127.0.0.1:8080/index.php?action=viewmembers;sort=posts;start=0">Posts</a>
+				</td>
+				<td align="center">
+					<input type="checkbox" class="check" onclick="invertAll(this, this.form);" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					1
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:a@b.com">a@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip=192.0.2.1">192.0.2.1</a>
+				</td>
+				<td class="windowbg2">
+					Today
+				</td>
+				<td class="windowbg2">
+					0
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="1" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					2
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=2">member</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=2">Member One</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:m@b.com">m@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip=192.0.2.1">192.0.2.1</a>
+				</td>
+				<td class="windowbg2">
+					Today
+				</td>
+				<td class="windowbg2">
+					1
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="2" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					3
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=3">mod</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=3">Mod One</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:mod@b.com">mod@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip=192.0.2.1">192.0.2.1</a>
+				</td>
+				<td class="windowbg2">
+					Today
+				</td>
+				<td class="windowbg2">
+					2
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="3" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					4
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=4">user01</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=4">User 1</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user01@b.com">user01@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					3
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="4" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					5
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=5">user02</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=5">User 2</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user02@b.com">user02@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					6
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="5" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					6
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=6">user03</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=6">User 3</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user03@b.com">user03@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					9
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="6" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					7
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=7">user04</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=7">User 4</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user04@b.com">user04@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					12
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="7" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					8
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=8">user05</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=8">User 5</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user05@b.com">user05@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					15
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="8" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					9
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=9">user06</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=9">User 6</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user06@b.com">user06@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					18
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="9" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg" width="5%">
+					10
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=10">user07</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=profile;u=10">User 7</a>
+				</td>
+				<td class="windowbg">
+					<a href="mailto:user07@b.com">user07@b.com</a>
+				</td>
+				<td class="windowbg2">
+					<a href="http://127.0.0.1:8080/index.php?action=trackip;searchip="></a>
+				</td>
+				<td class="windowbg2">
+					{DAYSAGO}
+				</td>
+				<td class="windowbg2">
+					21
+				</td>
+				<td align="center" class="windowbg" width="5%">
+					<input type="checkbox" name="delete[]" value="10" class="check" />
+				</td>
+			</tr>
+			<tr>
+				<td class="windowbg2" align="right" colspan="8">
+					<input type="submit" name="delete_members" value="Delete Selected Members" onclick="return confirm('Are you sure you want to delete the selected members?');" />
+					<input type="hidden" name="sc" value="{TOKEN}" />
+					<input type="hidden" name="sort" value="memberName" />
+					<input type="hidden" name="start" value="0" />
+				</td>
+			</tr>
+		</table>
+	</form>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

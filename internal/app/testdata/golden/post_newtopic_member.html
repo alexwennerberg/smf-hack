@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Start new topic" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Start new topic</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" />
+	<link rel="index" href="http://127.0.0.1:8080/index.php?board=1.0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>Member One</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+						<input type="hidden" name="brd[1]" value="1" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var icon_urls = {
+				"xx": "http://127.0.0.1:8080/Themes/default/images/post/xx.gif",
+				"thumbup": "http://127.0.0.1:8080/Themes/default/images/post/thumbup.gif",
+				"thumbdown": "http://127.0.0.1:8080/Themes/default/images/post/thumbdown.gif",
+				"exclamation": "http://127.0.0.1:8080/Themes/default/images/post/exclamation.gif",
+				"question": "http://127.0.0.1:8080/Themes/default/images/post/question.gif",
+				"lamp": "http://127.0.0.1:8080/Themes/default/images/post/lamp.gif",
+				"smiley": "http://127.0.0.1:8080/Themes/default/images/post/smiley.gif",
+				"angry": "http://127.0.0.1:8080/Themes/default/images/post/angry.gif",
+				"cheesy": "http://127.0.0.1:8080/Themes/default/images/post/cheesy.gif",
+				"grin": "http://127.0.0.1:8080/Themes/default/images/post/grin.gif",
+				"sad": "http://127.0.0.1:8080/Themes/default/images/post/sad.gif",
+				"wink": "http://127.0.0.1:8080/Themes/default/images/post/wink.gif"
+			};
+			function showimage()
+			{
+				document.images.icons.src = icon_urls[document.forms.postmodify.icon.options[document.forms.postmodify.icon.selectedIndex].value];
+			}
+			var current_board = 1;
+			var make_poll = false;
+			var txt_preview_title = "Preview post";
+			var txt_preview_fetch = "Fetching preview...";
+			function previewPost()
+			{
+				if (window.XMLHttpRequest)
+				{
+					// Opera didn't support setRequestHeader() before 8.01.
+					if (typeof(window.opera) != "undefined")
+					{
+						var test = new XMLHttpRequest();
+						if (typeof(test.setRequestHeader) != "function")
+							return submitThisOnce(document.forms.postmodify);
+					}
+					// !!! Currently not sending poll options and option checkboxes.
+					var i, x = new Array();
+					var textFields = ["subject", "message", "icon", "guestname", "email", "evtitle", "question", "topic", "sc"];
+					var numericFields = [
+						"board", "topic", "num_replies",
+						"eventid", "calendar", "year", "month", "day",
+						"poll_max_votes", "poll_expire", "poll_change_vote", "poll_hide"
+					];
+					var checkboxFields = [
+						"ns",
+					];
+
+					for (i in textFields)
+						if (document.forms.postmodify.elements[textFields[i]])
+							x[x.length] = textFields[i] + "=" + escape(textToEntities(document.forms.postmodify[textFields[i]].value.replace(/&#/g, "&#38;#"))).replace(/\+/g, "%2B");
+					for (i in numericFields)
+						if (document.forms.postmodify.elements[numericFields[i]] && typeof(document.forms.postmodify[numericFields[i]].value) != "undefined")
+							x[x.length] = numericFields[i] + "=" + parseInt(document.forms.postmodify.elements[numericFields[i]].value);
+					for (i in checkboxFields)
+						if (document.forms.postmodify.elements[checkboxFields[i]] && document.forms.postmodify.elements[checkboxFields[i]].checked)
+							x[x.length] = checkboxFields[i] + "=" + document.forms.postmodify.elements[checkboxFields[i]].value;
+
+					sendXMLDocument(smf_scripturl + "?action=post2" + (current_board ? ";board=" + current_board : "") + (make_poll ? ";poll" : "") + ";preview;xml", x.join("&"), onDocSent);
+
+					document.getElementById("preview_section").style.display = "";
+					setInnerHTML(document.getElementById("preview_subject"), txt_preview_title);
+					setInnerHTML(document.getElementById("preview_body"), txt_preview_fetch);
+
+					return false;
+				}
+				else
+					return submitThisOnce(document.forms.postmodify);
+			}
+			function onDocSent(XMLDoc)
+			{
+				if (!XMLDoc)
+				{
+					document.forms.postmodify.preview.onclick = new function ()
+					{
+						return true;
+					}
+					document.forms.postmodify.preview.click();
+				}
+
+				// Show the preview section.
+				var i, preview = XMLDoc.getElementsByTagName("smf")[0].getElementsByTagName("preview")[0];
+				setInnerHTML(document.getElementById("preview_subject"), preview.getElementsByTagName("subject")[0].firstChild.nodeValue);
+
+				var bodyText = "";
+				for (i = 0; i < preview.getElementsByTagName("body")[0].childNodes.length; i++)
+					bodyText += preview.getElementsByTagName("body")[0].childNodes[i].nodeValue;
+
+				setInnerHTML(document.getElementById("preview_body"), bodyText);
+				document.getElementById("preview_body").className = "post";
+
+				// Show a list of errors (if any).
+				var errors = XMLDoc.getElementsByTagName("smf")[0].getElementsByTagName("errors")[0];
+				var numErrors = errors.getElementsByTagName("error").length, errorList = new Array();
+				for (i = 0; i < numErrors; i++)
+					errorList[errorList.length] = errors.getElementsByTagName("error")[i].firstChild.nodeValue;
+				document.getElementById("errors").style.display = numErrors == 0 ? "none" : "";
+				document.getElementById("error_serious").style.display = errors.getAttribute("serious") == 1 ? "" : "none";
+				setInnerHTML(document.getElementById("error_list"), numErrors == 0 ? "" : errorList.join("<br />"));
+
+				// Show a warning if the topic has been locked.
+				document.getElementById("lock_warning").style.display = errors.getAttribute("topic_locked") == 1 ? "" : "none";
+
+				// Adjust the color of captions if the given data is erroneous.
+				var captions = errors.getElementsByTagName("caption"), numCaptions = errors.getElementsByTagName("caption").length;
+				for (i = 0; i < numCaptions; i++)
+					if (document.getElementById("caption_" + captions[i].getAttribute("name")))
+						document.getElementById("caption_" + captions[i].getAttribute("name")).style.color = captions[i].getAttribute("color");
+
+				if (errors.getElementsByTagName("post_error").length == 1)
+					document.forms.postmodify.message.style.border = "1px solid red";
+				else if (document.forms.postmodify.message.style.borderColor == "red" || document.forms.postmodify.message.style.borderColor == "red red red red")
+				{
+					if (typeof(document.forms.postmodify.message.runtimeStyle) == "undefined")
+						document.forms.postmodify.message.style.border = null;
+					else
+						document.forms.postmodify.message.style.borderColor = "";
+				}
+
+				// Set the new number of replies.
+				if (document.forms.postmodify.elements["num_replies"])
+					document.forms.postmodify.num_replies.value = XMLDoc.getElementsByTagName("smf")[0].getElementsByTagName("num_replies")[0].firstChild.nodeValue;
+
+				var newPosts = XMLDoc.getElementsByTagName("smf")[0].getElementsByTagName("new_posts")[0] ? XMLDoc.getElementsByTagName("smf")[0].getElementsByTagName("new_posts")[0].getElementsByTagName("post") : {length: 0};
+				var numNewPosts = newPosts.length;
+				if (numNewPosts != 0)
+				{
+					var newTable = '<span id="new_replies"></span><table width="100%" class="windowbg" cellspacing="0" cellpadding="2" align="center" style="table-layout: fixed;">';
+					for (i = 0; i < numNewPosts; i++)
+						newTable += '<tr class="catbg"><td colspan="2" align="left" class="smalltext"><div style="float: right;">Posted on: ' + newPosts[i].getElementsByTagName("time")[0].firstChild.nodeValue + ' <img src="' + smf_images_url + '/english/new.gif" alt="New message" /></div>Posted by: ' + newPosts[i].getElementsByTagName("poster")[0].firstChild.nodeValue + '</td></tr><tr class="windowbg2"><td colspan="2" class="smalltext" id="msg' + newPosts[i].getAttribute("id") + '" width="100%"><div align="right" class="smalltext"><a href="#top" onclick="return insertQuoteFast(\'' + newPosts[i].getAttribute("id") + '\');">Insert Quote</a></div><div class="post">' + newPosts[i].getElementsByTagName("message")[0].firstChild.nodeValue + '</div></td></tr>';
+					newTable += '</table>';
+					setOuterHTML(document.getElementById("new_replies"), newTable);
+				}
+
+				if (typeof(smf_codeFix) != "undefined")
+					smf_codeFix();
+			}
+			function saveEntities()
+			{
+				var textFields = ["subject", "message", "guestname", "evtitle", "question"];
+				for (i in textFields)
+					if (document.forms.postmodify.elements[textFields[i]])
+						document.forms.postmodify[textFields[i]].value = document.forms.postmodify[textFields[i]].value.replace(/&#/g, "&#38;#");
+				for (var i = document.forms.postmodify.elements.length - 1; i >= 0; i--)
+					if (document.forms.postmodify.elements[i].name.indexOf("options") == 0)
+						document.forms.postmodify.elements[i].value = document.forms.postmodify.elements[i].value.replace(/&#/g, "&#38;#");
+			}
+			var currentSwap = false;
+			function swapOptions()
+			{
+				document.getElementById("postMoreExpand").src = smf_images_url + "/" + (currentSwap ? "collapse.gif" : "expand.gif");
+				document.getElementById("postMoreExpand").alt = currentSwap ? "-" : "+";
+
+				document.getElementById("postMoreOptions").style.display = currentSwap ? "" : "none";
+
+				if (document.getElementById("postAttachment"))
+					document.getElementById("postAttachment").style.display = currentSwap ? "" : "none";
+				if (document.getElementById("postAttachment2"))
+					document.getElementById("postAttachment2").style.display = currentSwap ? "" : "none";
+
+				if (typeof(document.forms.postmodify) != "undefined")
+					document.forms.postmodify.additional_options.value = currentSwap ? "1" : "0";
+
+				currentSwap = !currentSwap;
+			}
+		// ]]></script>
+
+		<form action="http://127.0.0.1:8080/index.php?action=post2;start=0;board=1" method="post" accept-charset="ISO-8859-1" name="postmodify" id="postmodify" onsubmit="submitonce(this);saveEntities();" enctype="multipart/form-data" style="margin: 0;">
+			<table width="100%" align="center" cellpadding="0" cellspacing="3">
+				<tr>
+					<td valign="bottom" colspan="2">
+						<div class="nav" style="font-size: smaller; margin-bottom: 2ex; margin-top: 2ex;"><b><a href="http://127.0.0.1:8080/index.php" class="nav">My Community</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php#1" class="nav">General Category</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?board=1.0" class="nav">General Discussion</a></b>&nbsp;>&nbsp;<b><i>Start new topic</i></b></div>
+					</td>
+				</tr>
+			</table>
+		<div id="preview_section" style="display: none;">
+			<table border="0" width="100%" cellspacing="1" cellpadding="3" class="bordercolor" align="center" style="table-layout: fixed;">
+				<tr class="titlebg">
+					<td id="preview_subject"></td>
+				</tr>
+				<tr>
+					<td class="post" width="100%" id="preview_body">
+						<br /><br /><br /><br /><br />
+					</td>
+				</tr>
+			</table><br />
+		</div>
+			<table border="0" width="100%" align="center" cellspacing="1" cellpadding="3" class="bordercolor">
+				<tr class="titlebg">
+					<td>Start new topic</td>
+				</tr>
+				<tr>
+					<td class="windowbg">
+						<input type="hidden" name="topic" value="0" />
+						<table border="0" cellpadding="3" width="100%">
+							<tr style="display: none" id="errors">
+								<td></td>
+								<td align="left">
+									<div style="padding: 0px; font-weight: bold; display: none;" id="error_serious">
+										The following error or errors occurred while posting this message:
+									</div>
+									<div style="color: red; margin: 1ex 0 2ex 3ex;" id="error_list">
+										
+									</div>
+								</td>
+							</tr>
+							<tr style="display: none" id="lock_warning">
+								<td></td>
+								<td align="left">
+									Warning: topic is currently/will be locked!<br />Only admins and moderators can reply.
+								</td>
+							</tr>
+							<tr>
+								<td align="right" style="font-weight: bold;" id="caption_subject">
+									Subject:
+								</td>
+								<td>
+									<input type="text" name="subject" tabindex="1" size="80" maxlength="80" />
+								</td>
+							</tr>
+							<tr>
+								<td align="right">
+									<b>Message icon:</b>
+								</td>
+								<td>
+									<select name="icon" id="icon" onchange="showimage()">
+										<option value="xx" selected="selected">Standard</option>
+										<option value="thumbup">Thumb Up</option>
+										<option value="thumbdown">Thumb Down</option>
+										<option value="exclamation">Exclamation point</option>
+										<option value="question">Question mark</option>
+										<option value="lamp">Lamp</option>
+										<option value="smiley">Smiley</option>
+										<option value="angry">Angry</option>
+										<option value="cheesy">Cheesy</option>
+										<option value="grin">Grin</option>
+										<option value="sad">Sad</option>
+										<option value="wink">Wink</option>
+									</select>
+									<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" name="icons" hspace="15" alt="" />
+								</td>
+							</tr>
+			<tr>
+				<td align="right"></td>
+				<td valign="middle">
+					<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+						function bbc_highlight(something, mode)
+						{
+							something.style.backgroundImage = "url(" + smf_images_url + (mode ? "/bbc/bbc_hoverbg.gif)" : "/bbc/bbc_bg.gif)");
+						}
+					// ]]></script><a href="javascript:void(0);" onclick="surroundText('[b]', '[/b]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/bold.gif" align="bottom" width="23" height="22" alt="Bold" title="Bold" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[i]', '[/i]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/italicize.gif" align="bottom" width="23" height="22" alt="Italicized" title="Italicized" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[u]', '[/u]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/underline.gif" align="bottom" width="23" height="22" alt="Underline" title="Underline" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[s]', '[/s]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/strike.gif" align="bottom" width="23" height="22" alt="Strikethrough" title="Strikethrough" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[glow=red,2,300]', '[/glow]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/glow.gif" align="bottom" width="23" height="22" alt="Glow" title="Glow" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[shadow=red,left]', '[/shadow]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/shadow.gif" align="bottom" width="23" height="22" alt="Shadow" title="Shadow" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[move]', '[/move]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/move.gif" align="bottom" width="23" height="22" alt="Marquee" title="Marquee" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[pre]', '[/pre]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/pre.gif" align="bottom" width="23" height="22" alt="Preformatted Text" title="Preformatted Text" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[left]', '[/left]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/left.gif" align="bottom" width="23" height="22" alt="Left Align" title="Left Align" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[center]', '[/center]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/center.gif" align="bottom" width="23" height="22" alt="Centered" title="Centered" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[right]', '[/right]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/right.gif" align="bottom" width="23" height="22" alt="Right Align" title="Right Align" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="replaceText('[hr]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/hr.gif" align="bottom" width="23" height="22" alt="Horizontal Rule" title="Horizontal Rule" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[size=10pt]', '[/size]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/size.gif" align="bottom" width="23" height="22" alt="Font Size" title="Font Size" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[font=Verdana]', '[/font]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/face.gif" align="bottom" width="23" height="22" alt="Font Face" title="Font Face" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a> <select onchange="surroundText('[color=' + this.options[this.selectedIndex].value.toLowerCase() + ']', '[/color]', document.forms.postmodify.message); this.selectedIndex = 0; document.forms.postmodify.message.focus(document.forms.postmodify.message.caretPos);" style="margin-bottom: 1ex;">
+							<option value="" selected="selected">Change Color</option>
+							<option value="Black">Black</option>
+							<option value="Red">Red</option>
+							<option value="Yellow">Yellow</option>
+							<option value="Pink">Pink</option>
+							<option value="Green">Green</option>
+							<option value="Orange">Orange</option>
+							<option value="Purple">Purple</option>
+							<option value="Blue">Blue</option>
+							<option value="Beige">Beige</option>
+							<option value="Brown">Brown</option>
+							<option value="Teal">Teal</option>
+							<option value="Navy">Navy</option>
+							<option value="Maroon">Maroon</option>
+							<option value="LimeGreen">Lime Green</option>
+						</select><br /><a href="javascript:void(0);" onclick="surroundText('[flash=200,200]', '[/flash]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/flash.gif" align="bottom" width="23" height="22" alt="Insert Flash" title="Insert Flash" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[img]', '[/img]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/img.gif" align="bottom" width="23" height="22" alt="Insert Image" title="Insert Image" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[url]', '[/url]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/url.gif" align="bottom" width="23" height="22" alt="Insert Hyperlink" title="Insert Hyperlink" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[email]', '[/email]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/email.gif" align="bottom" width="23" height="22" alt="Insert Email" title="Insert Email" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[ftp]', '[/ftp]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/ftp.gif" align="bottom" width="23" height="22" alt="Insert FTP Link" title="Insert FTP Link" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[table]', '[/table]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/table.gif" align="bottom" width="23" height="22" alt="Insert Table" title="Insert Table" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[tr]', '[/tr]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/tr.gif" align="bottom" width="23" height="22" alt="Insert Table Row" title="Insert Table Row" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[td]', '[/td]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/td.gif" align="bottom" width="23" height="22" alt="Insert Table Column" title="Insert Table Column" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[sup]', '[/sup]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/sup.gif" align="bottom" width="23" height="22" alt="Superscript" title="Superscript" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[sub]', '[/sub]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/sub.gif" align="bottom" width="23" height="22" alt="Subscript" title="Subscript" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[tt]', '[/tt]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/tele.gif" align="bottom" width="23" height="22" alt="Teletype" title="Teletype" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[code]', '[/code]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/code.gif" align="bottom" width="23" height="22" alt="Insert Code" title="Insert Code" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><a href="javascript:void(0);" onclick="surroundText('[quote]', '[/quote]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/quote.gif" align="bottom" width="23" height="22" alt="Insert Quote" title="Insert Quote" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a><img src="http://127.0.0.1:8080/Themes/default/images/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" /><a href="javascript:void(0);" onclick="surroundText('[list]\n[li]', '[/li]\n[li][/li]\n[/list]', document.forms.postmodify.message); return false;"><img onmouseover="bbc_highlight(this, true);" onmouseout="if (window.bbc_highlight) bbc_highlight(this, false);" src="http://127.0.0.1:8080/Themes/default/images/bbc/list.gif" align="bottom" width="23" height="22" alt="Insert List" title="Insert List" style="background-image: url(http://127.0.0.1:8080/Themes/default/images/bbc/bbc_bg.gif); margin: 1px 2px 1px 1px;" /></a>
+				</td>
+			</tr>
+			<tr>
+				<td align="right"></td>
+				<td valign="middle">
+					<a href="javascript:void(0);" onclick="replaceText(' :)', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/smiley.gif" align="bottom" alt="Smiley" title="Smiley" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' ;)', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/wink.gif" align="bottom" alt="Wink" title="Wink" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :D', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/cheesy.gif" align="bottom" alt="Cheesy" title="Cheesy" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' ;D', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/grin.gif" align="bottom" alt="Grin" title="Grin" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' >:(', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/angry.gif" align="bottom" alt="Angry" title="Angry" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :(', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/sad.gif" align="bottom" alt="Sad" title="Sad" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :o', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/shocked.gif" align="bottom" alt="Shocked" title="Shocked" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' 8)', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/cool.gif" align="bottom" alt="Cool" title="Cool" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' ???', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/huh.gif" align="bottom" alt="Huh" title="Huh" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' ::)', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/rolleyes.gif" align="bottom" alt="Roll Eyes" title="Roll Eyes" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :P', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/tongue.gif" align="bottom" alt="Tongue" title="Tongue" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :-[', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/embarrassed.gif" align="bottom" alt="Embarrassed" title="Embarrassed" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :-X', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/lipsrsealed.gif" align="bottom" alt="Lips sealed" title="Lips sealed" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :-\\', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/undecided.gif" align="bottom" alt="Undecided" title="Undecided" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :-*', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/kiss.gif" align="bottom" alt="Kiss" title="Kiss" /></a>
+					<a href="javascript:void(0);" onclick="replaceText(' :\'(', document.forms.postmodify.message); return false;"><img src="http://127.0.0.1:8080/Smileys/default/cry.gif" align="bottom" alt="Cry" title="Cry" /></a>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" align="right"></td>
+				<td>
+					<textarea class="editor" name="message" rows="12" cols="60" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);" tabindex="2"></textarea>
+				</td>
+			</tr>
+									<tr>
+										<td colspan="2" style="padding-left: 5ex;">
+											<a href="javascript:swapOptions();"><img src="http://127.0.0.1:8080/Themes/default/images/expand.gif" alt="+" id="postMoreExpand" /></a> <a href="javascript:swapOptions();"><b>Additional Options...</b></a>
+										</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td>
+											<div id="postMoreOptions">
+												<table width="80%" cellpadding="0" cellspacing="0" border="0">
+													<tr>
+														<td class="smalltext"><input type="hidden" name="notify" value="0" /><label for="check_notify"><input type="checkbox" name="notify" id="check_notify" value="1" class="check" /> Notify me of replies.</label></td>
+														<td class="smalltext"><input type="hidden" name="lock" value="0" /><label for="check_lock"><input type="checkbox" name="lock" id="check_lock" value="1" class="check" /> Lock this topic.</label></td>
+													</tr>
+													<tr>
+														<td class="smalltext"><label for="check_back"><input type="checkbox" name="goback" id="check_back" value="1" class="check" /> Return to this topic.</label></td>
+														<td class="smalltext"></td>
+													</tr>
+													<tr>
+														<td class="smalltext"><label for="check_smileys"><input type="checkbox" name="ns" id="check_smileys" value="NS" class="check" /> Don't use smileys.</label></td>
+														<td class="smalltext"></td>
+													</tr>
+												</table>
+											</div>
+										</td>
+									</tr>
+							<tr id="postAttachment2">
+								<td align="right" valign="top">
+									<b>Attach:</b>
+								</td>
+								<td class="smalltext">
+									<input type="file" size="48" name="attachment[]" />
+									<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+										var allowed_attachments = 4 - 1;
+
+										function addAttachment()
+										{
+											if (allowed_attachments <= 0)
+												return alert("Sorry, you aren't allowed to post any more attachments.");
+
+											setOuterHTML(document.getElementById("moreAttachments"), '<br /><input type="file" size="48" name="attachment[]" /><span id="moreAttachments"></span>');
+											allowed_attachments = allowed_attachments - 1;
+
+											return true;
+										}
+									// ]]></script>
+									<span id="moreAttachments"></span> <a href="javascript:addAttachment(); void(0);">(more attachments)</a><br />
+									<noscript><input type="file" size="48" name="attachment[]" /><br /></noscript>
+									Maximum attachment size allowed: 128 KB, per post: 4
+								</td>
+							</tr>
+							<tr>
+								<td align="center" colspan="2">
+									<span class="smalltext"><br />shortcuts: hit alt+s to submit/post or alt+p to preview</span><br />
+									<input type="submit" name="post" value="Post" tabindex="3" onclick="return submitThisOnce(this);" accesskey="s" />
+									<input type="submit" name="preview" value="Preview" tabindex="4" onclick="return event.ctrlKey || previewPost();" accesskey="p" />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="additional_options" value="0" />
+			<input type="hidden" name="sc" value="{TOKEN}" />
+			<input type="hidden" name="seqnum" value="{SEQNUM}" />
+		</form>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			swapOptions();
+		// ]]></script>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

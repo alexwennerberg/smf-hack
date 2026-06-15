@@ -1,0 +1,604 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="General Discussion" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>General Discussion</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" />
+	<link rel="index" href="http://127.0.0.1:8080/index.php?board=1.0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			document.cookie = "upshrink=" + (mode ? 1 : 0);
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">Welcome, <b>Guest</b>. Please <a href="http://127.0.0.1:8080/index.php?action=login">login</a> or <a href="http://127.0.0.1:8080/index.php?action=register">register</a>.				</span>
+								<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/sha1.js"></script>
+
+								<form action="http://127.0.0.1:8080/index.php?action=login2" method="post" accept-charset="ISO-8859-1" class="middletext" style="margin: 3px 1ex 1px 0;" onsubmit="hashLoginPassword(this, '{TOKEN}');">
+									<input type="text" name="user" size="10" /> <input type="password" name="passwrd" size="10" />
+									<select name="cookielength">
+										<option value="60">1 Hour</option>
+										<option value="1440">1 Day</option>
+										<option value="10080">1 Week</option>
+										<option value="43200">1 Month</option>
+										<option value="-1" selected="selected">Forever</option>
+									</select>
+									<input type="submit" value="Login" /><br />
+									<span class="middletext">Login with username, password and session length</span>
+									<input type="hidden" name="hash_passwrd" value="" />
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+						<input type="hidden" name="brd[1]" value="1" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=login">Login</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=register">Register</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+	<div style="margin-bottom: 2px;"><a name="top"></a><div class="nav" style="font-size: smaller; margin-bottom: 2ex; margin-top: 2ex;"><b><a href="http://127.0.0.1:8080/index.php" class="nav">My Community</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php#1" class="nav">General Category</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?board=1.0" class="nav">General Discussion</a></b> (Moderator: <a href="http://127.0.0.1:8080/index.php?action=profile;u=3" title="Board Moderator">Mod One</a>)</div></div>
+	<div class="tborder" style="margin-bottom: 3ex; ">
+		<table border="0" width="100%" cellspacing="1" cellpadding="5" class="bordercolor">
+			<tr>
+				<td colspan="4" class="catbg">Child Boards</td>
+			</tr>
+			<tr>
+				<td  class="windowbg" width="6%" align="center" valign="top"><a href="http://127.0.0.1:8080/index.php?action=unread;board=2.0"><img src="http://127.0.0.1:8080/Themes/default/images/off.gif" alt="No New Posts" title="No New Posts" /></a>
+				</td>
+				<td class="windowbg2">
+					<b><a href="http://127.0.0.1:8080/index.php?board=2.0" name="b2">Child Board</a></b><br />
+					A nested board.
+				</td>
+				<td class="windowbg" valign="middle" align="center" style="width: 12ex;"><small>
+					0 Posts <br />
+					0 Topics</small>
+				</td>
+				<td class="windowbg2" valign="middle" width="22%"><small></small>
+				</td>
+			</tr>
+		</table>
+	</div>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="middletext">Pages: [<b>1</b>] <a class="navPages" href="http://127.0.0.1:8080/index.php?board=1.10">2</a> </td>
+				<td align="right" style="padding-right: 1ex;">
+					<table cellpadding="0" cellspacing="0">
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+			<div class="tborder" >
+				<table border="0" width="100%" cellspacing="1" cellpadding="4" class="bordercolor">
+					<tr>
+						<td width="9%" colspan="2" class="catbg3"></td>
+
+						<td class="catbg3"><a href="http://127.0.0.1:8080/index.php?board=1.0;sort=subject">Subject</a></td>
+
+						<td class="catbg3" width="11%"><a href="http://127.0.0.1:8080/index.php?board=1.0;sort=starter">Started by</a></td>
+
+						<td class="catbg3" width="4%" align="center"><a href="http://127.0.0.1:8080/index.php?board=1.0;sort=replies">Replies</a></td>
+
+						<td class="catbg3" width="4%" align="center"><a href="http://127.0.0.1:8080/index.php?board=1.0;sort=views">Views</a></td>
+
+						<td class="catbg3" width="22%"><a href="http://127.0.0.1:8080/index.php?board=1.0;sort=last_post">Last post <img src="http://127.0.0.1:8080/Themes/default/images/sort_down.gif" alt="" /></a></td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg3" valign="middle" >
+							<img src="http://127.0.0.1:8080/Themes/default/images/icons/quick_lock.gif" align="right" alt="" id="lockicon15" style="margin: 0;" />
+							<img src="http://127.0.0.1:8080/Themes/default/images/icons/show_sticky.gif" align="right" alt="" id="stickyicon15" style="margin: 0;" />
+							<b><span id="msg_15"><a href="http://127.0.0.1:8080/index.php?topic=201.0">Announcement</a></span></b>
+							<small id="pages15"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg3" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg3" valign="middle" width="4%" align="center">
+							2
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=201.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_poll.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_29"><a href="http://127.0.0.1:8080/index.php?topic=203.0">Vote here</a></span>
+							<small id="pages29"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							4
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=203.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_16"><a href="http://127.0.0.1:8080/index.php?topic=202.0">Long thread</a></span>
+							<small id="pages16">&#171; <a href="http://127.0.0.1:8080/index.php?topic=202.0">1</a> <a href="http://127.0.0.1:8080/index.php?topic=202.10">2</a> &#187;</small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							12
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							9
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=202.msg28#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_14"><a href="http://127.0.0.1:8080/index.php?topic=200.0">BBC showcase</a></span>
+							<small id="pages14"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							7
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=200.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_13"><a href="http://127.0.0.1:8080/index.php?topic=112.0">Topic number 12</a></span>
+							<small id="pages13"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							12
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=112.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_12"><a href="http://127.0.0.1:8080/index.php?topic=111.0">Topic number 11</a></span>
+							<small id="pages12"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							11
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=111.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_11"><a href="http://127.0.0.1:8080/index.php?topic=110.0">Topic number 10</a></span>
+							<small id="pages11"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							10
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=110.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_10"><a href="http://127.0.0.1:8080/index.php?topic=109.0">Topic number 09</a></span>
+							<small id="pages10"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							9
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=109.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_9"><a href="http://127.0.0.1:8080/index.php?topic=108.0">Topic number 08</a></span>
+							<small id="pages9"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							8
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=108.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="windowbg2" valign="middle" align="center" width="5%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" />
+						</td>
+						<td class="windowbg2" valign="middle" align="center" width="4%">
+							<img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" />
+						</td>
+						<td class="windowbg" valign="middle" >
+							
+							
+							<span id="msg_8"><a href="http://127.0.0.1:8080/index.php?topic=107.0">Topic number 07</a></span>
+							<small id="pages8"></small>
+						</td>
+						<td class="windowbg2" valign="middle" width="14%">
+							<a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a>
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							0
+						</td>
+						<td class="windowbg" valign="middle" width="4%" align="center">
+							7
+						</td>
+						<td class="windowbg2" valign="middle" width="22%">
+							<a href="http://127.0.0.1:8080/index.php?topic=107.0#new"><img src="http://127.0.0.1:8080/Themes/default/images/icons/last_post.gif" alt="Last post" title="Last post" style="float: right;" /></a>
+							<span class="smalltext">
+								{DATETIME}<br />
+								by <a href="http://127.0.0.1:8080/index.php?action=profile;u=1">admin</a>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<a name="bot"></a>
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td class="middletext">Pages: [<b>1</b>] <a class="navPages" href="http://127.0.0.1:8080/index.php?board=1.10">2</a> </td>
+			<td align="right" style="padding-right: 1ex;">
+				<table cellpadding="0" cellspacing="0">
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div><div class="nav" style="font-size: smaller; margin-bottom: 2ex; margin-top: 2ex;"><b><a href="http://127.0.0.1:8080/index.php" class="nav">My Community</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php#1" class="nav">General Category</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?board=1.0" class="nav">General Discussion</a></b> (Moderator: <a href="http://127.0.0.1:8080/index.php?action=profile;u=3" title="Board Moderator">Mod One</a>)</div><br /></div>
+	<div class="tborder">
+		<table cellpadding="8" cellspacing="0" width="100%" class="titlebg2">
+			<tr>
+				<td style="padding-top: 2ex;" class="smalltext">
+					<img src="http://127.0.0.1:8080/Themes/default/images/topic/my_normal_post.gif" alt="" align="middle" /> Topic you have posted in<br />
+					<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" alt="" align="middle" /> Normal Topic<br />
+					<img src="http://127.0.0.1:8080/Themes/default/images/topic/hot_post.gif" alt="" align="middle" /> Hot Topic (More than 15 replies)<br />
+					<img src="http://127.0.0.1:8080/Themes/default/images/topic/veryhot_post.gif" alt="" align="middle" /> Very Hot Topic (More than 25 replies)
+				</td>
+				<td valign="top" style="padding-top: 2ex;" class="smalltext">
+					<img src="http://127.0.0.1:8080/Themes/default/images/icons/quick_lock.gif" alt="" align="middle" /> Locked Topic<br />
+					<img src="http://127.0.0.1:8080/Themes/default/images/icons/quick_sticky.gif" alt="" align="middle" /> Sticky Topic<br />
+					<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_poll.gif" alt="" align="middle" /> Poll
+				</td>
+				<td align="right" valign="middle">
+					<form action="http://127.0.0.1:8080/index.php" method="get" accept-charset="ISO-8859-1" name="jumptoForm">
+						<span class="smalltext"><label for="jumpto">Jump to</label>:</span>
+					<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl + this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf('?') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != '?' ? 0 : 1);">
+								<option value="">Please select a destination:</option>
+								<option value="" disabled="disabled">-----------------------------</option>
+								<option value="#1">General Category</option>
+								<option value="" disabled="disabled">-----------------------------</option>
+								<option value="?board=1.0" selected="selected"> => General Discussion</option>
+								<option value="?board=2.0"> ===> Child Board</option>
+								<option value="?board=3.0"> => Second Board</option>
+						</select>&nbsp;
+					<input type="button" value="go" onclick="if (this.form.jumpto.options[this.form.jumpto.selectedIndex].value) window.location.href = 'http://127.0.0.1:8080/index.php' + this.form.jumpto.options[this.form.jumpto.selectedIndex].value;" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/xml_board.js"></script>
+<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+
+	// Hide certain bits during topic edit.
+	hide_prefixes.push("lockicon", "stickyicon", "pages", "newicon");
+
+	// Use it to detect when we've stopped editing.
+	document.onclick = modify_topic_click;
+
+	var mouse_on_div;
+	function modify_topic_click()
+	{
+		if (in_edit_mode == 1 && mouse_on_div == 0)
+			modify_topic_save("{TOKEN}");
+	}
+
+	function modify_topic_keypress(oEvent)
+	{
+		if (typeof(oEvent.keyCode) != "undefined" && oEvent.keyCode == 13)
+		{
+			modify_topic_save("{TOKEN}");
+			if (typeof(oEvent.preventDefault) == "undefined")
+				oEvent.returnValue = false;
+			else
+				oEvent.preventDefault();
+		}
+	}
+
+	// For templating, shown when an inline edit is made.
+	function modify_topic_show_edit(subject)
+	{
+		// Just template the subject.
+		setInnerHTML(cur_subject_div, '<input type="text" name="subject" value="' + subject + '" size="60" style="width: 99%;"  maxlength="80" onkeypress="modify_topic_keypress(event)" /><input type="hidden" name="topic" value="' + cur_topic_id + '" /><input type="hidden" name="msg" value="' + cur_msg_id.substr(4) + '" />');
+	}
+
+	// And the reverse for hiding it.
+	function modify_topic_hide_edit(subject)
+	{
+		// Re-template the subject!
+		setInnerHTML(cur_subject_div, '<a href="http://127.0.0.1:8080/index.php?topic=' + cur_topic_id + '.0">' + subject + '</a>');
+	}
+
+// ]]></script>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

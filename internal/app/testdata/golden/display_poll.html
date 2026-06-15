@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Vote here" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Vote here</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" />
+	<link rel="prev" href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=prev" />
+	<link rel="next" href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=next" />
+	<link rel="index" href="http://127.0.0.1:8080/index.php?board=1.0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>Member One</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+						<input type="hidden" name="topic" value="203" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+<a name="top"></a>
+<a name="msg29"></a>
+<div><div class="nav" style="font-size: smaller; margin-bottom: 2ex; margin-top: 2ex;"><b><a href="http://127.0.0.1:8080/index.php" class="nav">My Community</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php#1" class="nav">General Category</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?board=1.0" class="nav">General Discussion</a></b> (Moderator: <a href="http://127.0.0.1:8080/index.php?action=profile;u=3" title="Board Moderator">Mod One</a>)&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?topic=203.0" class="nav">Vote here</a></b></div></div>
+<table cellpadding="3" cellspacing="0" border="0" width="100%" class="tborder" style="padding-top: 0; margin-bottom: 2ex;">
+	<tr>
+		<td class="titlebg" colspan="2" valign="middle" style="padding-left: 6px;">
+			<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_poll.gif" alt="" align="bottom" /> Poll
+		</td>
+	</tr>
+	<tr>
+		<td width="5%" valign="top" class="windowbg"><b>Question:</b></td>
+		<td class="windowbg">
+			Favorite color?
+			<form action="http://127.0.0.1:8080/index.php?action=vote;topic=203.0;poll=1" method="post" accept-charset="ISO-8859-1" style="margin: 0px;">
+				<table>
+					<tr>
+						<td colspan="2">
+							<input type="radio" name="options[]" id="options-0" value="0" class="check" /> Red<br />
+							<input type="radio" name="options[]" id="options-1" value="1" class="check" /> Green<br />
+							<input type="radio" name="options[]" id="options-2" value="2" class="check" /> Blue<br />
+						</td>
+						<td valign="bottom" style="padding-left: 15px;">
+							<a href="http://127.0.0.1:8080/index.php?topic=203.0;viewResults">View results</a><br />
+						</td>
+					</tr><tr>
+						<td colspan="2"><input type="submit" value="Submit Vote" /></td>
+					</tr>
+				</table>
+				<input type="hidden" name="sc" value="{TOKEN}" />
+			</form>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td class="middletext" valign="bottom" style="padding-bottom: 4px;">Pages: [<b>1</b>] </td>
+		<td align="right" style="padding-right: 1ex;">
+			<div class="nav" style="margin-bottom: 2px;"> <a href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=prev#new">&laquo; previous</a> <a href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=next#new">next &raquo;</a></div>
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					
+		<td class="mirrortab_first">&nbsp;</td>
+		<td class="mirrortab_back"><a href="http://127.0.0.1:8080/index.php?action=post;topic=203.0;num_replies=0" >Reply</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=notify;sa=on;topic=203.0;sesc={TOKEN}" onclick="return confirm('Are you sure you wish to enable notification of new replies for this topic?');">Notify</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=markasread;sa=topic;t=0;topic=203.0;sesc={TOKEN}" >Mark unread</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=sendtopic;topic=203.0" >Send this topic</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=printpage;topic=203.0" target="_blank">Print</a></td>
+		<td class="mirrortab_last">&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="3" cellspacing="0" border="0" class="tborder" style="border-bottom: 0;">
+		<tr class="catbg3">
+				<td valign="middle" width="2%" style="padding-left: 6px;">
+						<img src="http://127.0.0.1:8080/Themes/default/images/topic/normal_post.gif" align="bottom" alt="" />
+				</td>
+				<td width="13%"> Author</td>
+				<td valign="middle" width="85%" style="padding-left: 6px;" id="top_subject">
+						Topic: Vote here &nbsp;(Read 5 times)
+				</td>
+		</tr>
+</table>
+<form action="http://127.0.0.1:8080/index.php?action=quickmod2;topic=203.0" method="post" accept-charset="ISO-8859-1" name="quickModForm" id="quickModForm" style="margin: 0;" onsubmit="return in_edit_mode == 1 ? modify_save('{TOKEN}') : confirm('Are you sure you want to do this?');">
+<table cellpadding="0" cellspacing="0" border="0" width="100%" class="bordercolor">
+	<tr><td style="padding: 1px 1px 0 1px;">
+		<table width="100%" cellpadding="3" cellspacing="0" border="0">
+			<tr><td class="windowbg">
+				<table width="100%" cellpadding="5" cellspacing="0" style="table-layout: fixed;">
+					<tr>
+						<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+							<b><a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a></b>
+							<div class="smalltext">
+								Administrator<br />
+								<img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><br />
+								Posts: 0<br />
+								<br />
+								
+								
+								
+								<br />
+								<a href="http://127.0.0.1:8080/index.php?action=profile;u=1"><img src="http://127.0.0.1:8080/Themes/default/images/icons/profile_sm.gif" alt="View Profile" title="View Profile" border="0" /></a>
+								<a href="mailto:a@b.com"><img src="http://127.0.0.1:8080/Themes/default/images/email_sm.gif" alt="Email" title="Email" border="0" /></a>
+								<a href="http://127.0.0.1:8080/index.php?action=pm;sa=send;u=1" title="Personal Message (Offline)"><img src="http://127.0.0.1:8080/Themes/default/images/im_off.gif" alt="Personal Message (Offline)" border="0" /></a>
+							</div>
+						</td>
+						<td valign="top" width="85%" height="100%">
+							<table width="100%" border="0"><tr>
+								<td valign="middle"><a href="http://127.0.0.1:8080/index.php?topic=203.msg29#msg29"><img src="http://127.0.0.1:8080/Themes/default/images/post/xx.gif" alt="" border="0" /></a></td>
+								<td valign="middle">
+									<div style="font-weight: bold;" id="subject_29">
+										<a href="http://127.0.0.1:8080/index.php?topic=203.msg29#msg29">Vote here</a>
+									</div>
+									<div class="smalltext">&#171; <b> on:</b> {DATETIME} &#187;</div></td>
+								<td align="right" valign="bottom" height="20" style="font-size: smaller;">
+					<a href="http://127.0.0.1:8080/index.php?action=post;quote=29;topic=203.0;num_replies=0;sesc={TOKEN}"><img src="http://127.0.0.1:8080/Themes/default/images/buttons/quote.gif" alt="Reply with quote" align="middle" /><b>Quote</b></a>
+								</td>
+							</tr></table>
+							<hr width="100%" size="1" class="hrcolor" />
+							<div class="post">Cast your vote.</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="bottom" class="smalltext" width="85%">
+							<table width="100%" border="0" style="table-layout: fixed;"><tr>
+								<td colspan="2" class="smalltext" width="100%">
+								</td>
+							</tr><tr>
+								<td valign="bottom" class="smalltext" id="modified_29">
+								</td>
+								<td align="right" valign="bottom" class="smalltext">
+									<a href="http://127.0.0.1:8080/index.php?action=reporttm;topic=203.0;msg=29">Report to moderator</a> &nbsp;
+									<img src="http://127.0.0.1:8080/Themes/default/images/ip.gif" alt="" border="0" />
+									<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);" class="help">Logged</a>
+								</td>
+							</tr></table>
+						</td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
+	</td></tr>
+	<tr><td style="padding: 0 0 1px 0;"></td></tr>
+</table>
+<a name="lastPost"></a>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td class="middletext">Pages: [<b>1</b>] </td>
+		<td align="right" style="padding-right: 1ex;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					
+		<td class="maintab_first">&nbsp;</td>
+		<td class="maintab_back"><a href="http://127.0.0.1:8080/index.php?action=post;topic=203.0;num_replies=0" >Reply</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=notify;sa=on;topic=203.0;sesc={TOKEN}" onclick="return confirm('Are you sure you wish to enable notification of new replies for this topic?');">Notify</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=markasread;sa=topic;t=0;topic=203.0;sesc={TOKEN}" >Mark unread</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=sendtopic;topic=203.0" >Send this topic</a> &nbsp;|&nbsp; <a href="http://127.0.0.1:8080/index.php?action=printpage;topic=203.0" target="_blank">Print</a></td>
+		<td class="maintab_last">&nbsp;</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/xml_topic.js"></script>
+<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+	quickReplyCollapsed = true;
+
+	smf_topic = 203;
+	smf_start = 0;
+	smf_show_modify = 1;
+
+	// On quick modify, this is what the body will look like.
+	var smf_template_body_edit = '<div id="error_box" style="padding: 4px; color: red;"></div><textarea class="editor" name="message" rows="12" style="width: 94%; margin-bottom: 10px;">%body%</textarea><br /><input type="hidden" name="sc" value="{TOKEN}" /><input type="hidden" name="topic" value="203" /><input type="hidden" name="msg" value="%msg_id%" /><div style="text-align: center;"><input type="submit" name="post" value="Save" onclick="return modify_save(\'{TOKEN}\');" accesskey="s" />&nbsp;&nbsp;<input type="submit" name="cancel" value="Cancel" onclick="return modify_cancel();" /></div>';
+
+	// And this is the replacement for the subject.
+	var smf_template_subject_edit = '<input type="text" name="subject" value="%subject%" size="60" style="width: 99%;"  maxlength="80" />';
+
+	// Restore the message to this after editing.
+	var smf_template_body_normal = '%body%';
+	var smf_template_subject_normal = '<a href="http://127.0.0.1:8080/index.php?topic=203.msg%msg_id%#msg%msg_id%">%subject%</a>';
+	var smf_template_top_subject = "Topic: %subject% &nbsp;(Read 5 times)"
+
+	if (window.XMLHttpRequest)
+		showModifyButtons();
+// ]]></script>
+<table border="0" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom: 1ex;">
+		<tr>
+				<td valign="top" align="right" class="nav"> <a href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=prev#new">&laquo; previous</a> <a href="http://127.0.0.1:8080/index.php?topic=203.0;prev_next=next#new">next &raquo;</a></td>
+		</tr>
+</table>
+	<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 1ex;">
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+	</table>
+</form>
+<div class="tborder"><div class="titlebg2" style="padding: 4px;" align="right">
+	<form action="http://127.0.0.1:8080/index.php" method="get" accept-charset="ISO-8859-1" style="padding:0; margin: 0;">
+		<span class="smalltext">Jump to:</span>
+		<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl + this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf('?') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != '?' ? 0 : 1);">
+			<option value="">Please select a destination:</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="#1">General Category</option>
+			<option value="" disabled="disabled">-----------------------------</option>
+			<option value="?board=1.0" selected="selected"> => General Discussion</option>
+			<option value="?board=2.0"> ===> Child Board</option>
+			<option value="?board=3.0"> => Second Board</option>
+		</select>&nbsp;
+		<input type="button" value="go" onclick="if (this.form.jumpto.options[this.form.jumpto.selectedIndex].value) window.location.href = 'http://127.0.0.1:8080/index.php' + this.form.jumpto.options[this.form.jumpto.selectedIndex].value;" />
+	</form>
+</div></div><br />
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Forum Maintenance" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Forum Maintenance</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>admin</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=admin">Admin</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top: 1ex;"><tr>
+			<td width="150" valign="top" style="width: 23ex; padding-right: 10px; padding-bottom: 10px;">
+				<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bordercolor">
+					<tr>
+						<td class="catbg">Main</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=admin">Administration Center</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=admin;credits">Support and Credits</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=news">News and newsletters</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=packages">Packages</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Configuration</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings">Features and Options</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=serversettings;sesc={TOKEN}">Server Settings</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=settings;th=1;sesc={TOKEN}">Current Theme</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=admin;sesc={TOKEN}">Themes and Layout</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Forum</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=manageboards">Boards</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=postsettings">Posts and Topics</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managecalendar">Calendar</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managesearch">Search</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=smileys">Smileys and Message Icons</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=manageattachments">Attachments and Avatars</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Members</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=viewmembers">Members</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=membergroups;">Membergroups</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=permissions">Permissions</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=regcenter">Registration</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=ban">Ban List</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Maintenance</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<b><a href="http://127.0.0.1:8080/index.php?action=maintain">Forum Maintenance</a></b><br />
+							<a href="http://127.0.0.1:8080/index.php?action=reports">Generate Reports</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=viewErrorLog;desc">Forum Error Log</a><br />
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td valign="top">
+		<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bordercolor">
+			<tr class="titlebg">
+				<td><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=maintenance_general" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> Forum Maintenance - General Maintenance</td>
+			</tr>
+			<tr>
+				<td class="windowbg2" style="line-height: 1.3; padding-bottom: 2ex;">
+					<a href="http://127.0.0.1:8080/index.php?action=optimizetables">Optimize all tables to improve performance.</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=detailedversion">Check all files against current versions.</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=repairboards">Find and repair any errors.</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=boardrecount">Recount all forum totals and statistics.</a><br />
+					<a href="http://127.0.0.1:8080/index.php?action=maintain;sa=logs">Empty out unimportant logs.</a><br />
+				</td>
+			</tr>
+			<tr class="titlebg">
+				<td><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=maintenance_backup" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> Forum Maintenance - Backup Database</td>
+			</tr>
+			<tr>
+				<td class="windowbg2" style="padding-bottom: 1ex;">
+					<form action="http://127.0.0.1:8080/index.php" method="get" accept-charset="ISO-8859-1" onsubmit="return this.struct.checked || this.data.checked;">
+						<label for="struct"><input type="checkbox" name="struct" id="struct" onclick="this.form.submitDump.disabled = !this.form.struct.checked &amp;&amp; !this.form.data.checked;" class="check" /> Save the table structure.</label><br />
+						<label for="data"><input type="checkbox" name="data" id="data" onclick="this.form.submitDump.disabled = !this.form.struct.checked &amp;&amp; !this.form.data.checked;" checked="checked" class="check" /> Save the table data. (the important stuff.)</label><br />
+						<br />
+						<label for="compress"><input type="checkbox" name="compress" id="compress" value="gzip" checked="checked" class="check" /> Compress the file with gzip.</label>
+						<div align="right" style="margin: 1ex;"><input type="submit" id="submitDump" value="Download" /></div>
+						<input type="hidden" name="action" value="dumpdb" />
+						<input type="hidden" name="sesc" value="{TOKEN}" />
+					</form>
+				</td>
+			</tr>
+			<tr class="titlebg">
+				<td><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=maintenance_rot" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> Forum Maintenance - Remove Old Posts</td>
+			</tr>
+			<tr>
+				<td class="windowbg2">
+					<a name="rotLink"></a>
+					<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+						var rotSwap = false;
+						function swapRot()
+						{
+							rotSwap = !rotSwap;
+
+							document.getElementById("rotIcon").src = smf_images_url + (rotSwap ? "/collapse.gif" : "/expand.gif");
+							setInnerHTML(document.getElementById("rotText"), rotSwap ? "Choose Specific Boards" : "All Boards");
+							document.getElementById("rotPanel").style.display = (rotSwap ? "block" : "none");
+
+							for (var i = 0; i < document.forms.rotForm.length; i++)
+							{
+								if (document.forms.rotForm.elements[i].type.toLowerCase() == "checkbox" && document.forms.rotForm.elements[i].id != "delete_old_not_sticky")
+									document.forms.rotForm.elements[i].checked = !rotSwap;
+							}
+						}
+					// ]]></script>
+					<form action="http://127.0.0.1:8080/index.php?action=removeoldtopics2" method="post" accept-charset="ISO-8859-1" name="rotForm" id="rotForm">
+						Remove all topics not posted in for <input type="text" name="maxdays" value="30" size="3" /> days, which are:<br />
+						<div style="padding-left: 3ex;">
+							<label for="delete_type_nothing"><input type="radio" name="delete_type" id="delete_type_nothing" value="nothing" class="check" checked="checked" /> Any sort of topic.</label><br />
+							<label for="delete_type_moved"><input type="radio" name="delete_type" id="delete_type_moved" value="moved" class="check" /> Moved topic notices.</label><br />
+							<label for="delete_type_locked"><input type="radio" name="delete_type" id="delete_type_locked" value="locked" class="check" /> Locked.</label><br />
+						</div>
+						<div style="padding-left: 3ex; padding-top: 1ex;">
+							<label for="delete_old_not_sticky"><input type="checkbox" name="delete_old_not_sticky" id="delete_old_not_sticky" class="check" checked="checked" /> But don't count stickied topics.</label><br />
+						</div>
+						<br />
+						<a href="#rotLink" onclick="swapRot();"><img src="http://127.0.0.1:8080/Themes/default/images/expand.gif" alt="+" id="rotIcon" /></a> <a href="#rotLink" onclick="swapRot();"><span id="rotText" style="font-weight: bold;">All Boards</span></a>
+						<div style="display: none;" id="rotPanel">
+							<table width="100%" cellpadding="3" cellspacing="0" border="0">
+								<tr>
+									<td valign="top">
+										<span style="text-decoration: underline;">General Category</span><br />
+										<label for="boards_1"><input type="checkbox" name="boards[1]" id="boards_1" checked="checked" class="check" /> General Discussion</label><br />
+										<label for="boards_2"><input type="checkbox" name="boards[2]" id="boards_2" checked="checked" class="check" /> &nbsp; Child Board</label><br />
+										<label for="boards_3"><input type="checkbox" name="boards[3]" id="boards_3" checked="checked" class="check" /> Second Board</label><br />
+										<br />
+								</td>
+								</tr>
+							</table>
+						</div>
+
+						<div align="right" style="margin: 1ex;"><input type="submit" value="Remove now" onclick="return confirm('Are you really sure you want to delete old posts now?\n\nThis cannot be undone!');" /></div>
+						<input type="hidden" name="sc" value="{TOKEN}" />
+					</form>
+				</td>
+			</tr>
+		</table>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

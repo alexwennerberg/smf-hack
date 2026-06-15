@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Manage Permissions" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Manage Permissions</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>admin</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=admin">Admin</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top: 1ex;"><tr>
+			<td width="150" valign="top" style="width: 23ex; padding-right: 10px; padding-bottom: 10px;">
+				<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bordercolor">
+					<tr>
+						<td class="catbg">Main</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=admin">Administration Center</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=admin;credits">Support and Credits</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=news">News and newsletters</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=packages">Packages</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Configuration</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings">Features and Options</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=serversettings;sesc={TOKEN}">Server Settings</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=settings;th=1;sesc={TOKEN}">Current Theme</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=admin;sesc={TOKEN}">Themes and Layout</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Forum</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=manageboards">Boards</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=postsettings">Posts and Topics</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managecalendar">Calendar</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managesearch">Search</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=smileys">Smileys and Message Icons</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=manageattachments">Attachments and Avatars</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Members</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=viewmembers">Members</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=membergroups;">Membergroups</a><br />
+							<b><a href="http://127.0.0.1:8080/index.php?action=permissions">Permissions</a></b><br />
+							<a href="http://127.0.0.1:8080/index.php?action=regcenter">Registration</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=ban">Ban List</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Maintenance</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=maintain">Forum Maintenance</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=reports">Generate Reports</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=viewErrorLog;desc">Forum Error Log</a><br />
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td valign="top">
+				<table border="0" cellspacing="0" cellpadding="4" align="center" width="100%" class="tborder" >
+					<tr class="titlebg">
+						<td>
+							<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=permissions" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> 
+							Manage Permissions
+						</td>
+					</tr>
+					<tr class="windowbg">
+						<td class="smalltext" style="padding: 2ex;">Here you can set all global permissions for each membergroup. These permissions are valid on all boards that have not been overridden by local permissions set in the 'Permissions by board'-screen.</td>
+					</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+					<tr>
+						<td class="maintab_first">&nbsp;</td>
+						<td class="maintab_active_first">&nbsp;</td>
+						<td valign="top" class="maintab_active_back">
+							<a href="http://127.0.0.1:8080/index.php?action=permissions">Permissions by Membergroup</a>
+						</td>
+						<td class="maintab_active_last">&nbsp;</td>
+						<td valign="top" class="maintab_back">
+							<a href="http://127.0.0.1:8080/index.php?action=permissions;sa=board">Permissions by Board</a>
+						</td>
+						<td valign="top" class="maintab_back">
+							<a href="http://127.0.0.1:8080/index.php?action=permissions;sa=settings">Settings</a>
+						</td>
+						<td class="maintab_last">&nbsp;</td>
+					</tr>
+				</table><br />
+		<form action="http://127.0.0.1:8080/index.php?action=permissions;sa=quick" method="post" accept-charset="ISO-8859-1" name="permissionForm" id="permissionForm">
+			<table width="100%" border="0" cellpadding="2" cellspacing="1" class="tborder">
+				<tr class="catbg3">
+					<td valign="middle">Name</td>
+					<td width="10%" align="center" valign="middle">Members</td>
+					<td width="16%" align="center">
+						Permissions
+					</td>
+					<td width="10%" align="center" valign="middle">Modify</td>
+					<td width="4%" align="center" valign="middle">
+						<input type="checkbox" class="check" onclick="invertAll(this, this.form, 'group');" /></td>
+				</tr>
+				<tr>
+					<td class="windowbg2">Guests (<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=membergroup_guests" onclick="return reqWin(this.href);">?</a>)</td>
+					<td class="windowbg" align="center">n/a</td>
+					<td class="windowbg2" align="center">
+						5
+					</td>
+					<td class="windowbg2" align="center"><a href="http://127.0.0.1:8080/index.php?action=permissions;sa=modify;group=-1">Modify</a></td>
+					<td class="windowbg" align="center"><input type="checkbox" name="group[]" value="-1" class="check" /></td>
+				</tr>
+				<tr>
+					<td class="windowbg2">Regular Members (<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=membergroup_regular_members" onclick="return reqWin(this.href);">?</a>)</td>
+					<td class="windowbg" align="center"><a href="http://127.0.0.1:8080/index.php?action=viewmembers;sa=query;group=0">16</a></td>
+					<td class="windowbg2" align="center">
+						35
+					</td>
+					<td class="windowbg2" align="center"><a href="http://127.0.0.1:8080/index.php?action=permissions;sa=modify;group=0">Modify</a></td>
+					<td class="windowbg" align="center"><input type="checkbox" name="group[]" value="0" class="check" /></td>
+				</tr>
+				<tr>
+					<td class="windowbg2">Administrator (<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=membergroup_administrator" onclick="return reqWin(this.href);">?</a>)</td>
+					<td class="windowbg" align="center"><a href="http://127.0.0.1:8080/index.php?action=viewmembers;sa=query;group=1">1</a></td>
+					<td class="windowbg2" align="center" style="font-style: italic;">
+						(all)
+					</td>
+					<td class="windowbg2" align="center"></td>
+					<td class="windowbg" align="center"></td>
+				</tr>
+				<tr>
+					<td class="windowbg2">Global Moderator</td>
+					<td class="windowbg" align="center"><a href="http://127.0.0.1:8080/index.php?action=viewmembers;sa=query;group=2">0</a></td>
+					<td class="windowbg2" align="center">
+						44
+					</td>
+					<td class="windowbg2" align="center"><a href="http://127.0.0.1:8080/index.php?action=permissions;sa=modify;group=2">Modify</a></td>
+					<td class="windowbg" align="center"><input type="checkbox" name="group[]" value="2" class="check" /></td>
+				</tr>
+				<tr>
+					<td class="windowbg2">Moderator (<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=membergroup_moderator" onclick="return reqWin(this.href);">?</a>)</td>
+					<td class="windowbg" align="center">n/a</td>
+					<td class="windowbg2" align="center">
+						24
+					</td>
+					<td class="windowbg2" align="center"><a href="http://127.0.0.1:8080/index.php?action=permissions;sa=modify;group=3">Modify</a></td>
+					<td class="windowbg" align="center"><input type="checkbox" name="group[]" value="3" class="check" /></td>
+				</tr>
+				<tr class="windowbg">
+					<td colspan="6" style="padding-top: 1ex; padding-bottom: 1ex; text-align: right;">
+						<table width="100%" cellspacing="0" cellpadding="3" border="0"><tr><td>
+							<div style="margin-bottom: 1ex;"><b>With selection...</b></div>
+							Apply pre-defined permission profile <a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=permissions_quickgroups" onclick="return reqWin(this.href);">(?)</a>:
+							<select name="predefined">
+								<option value="">(Select a pre-defined profile)</option>
+								<option value="restrict">Restrictive</option>
+								<option value="standard">Standard</option>
+								<option value="moderator">Moderator</option>
+								<option value="maintenance">Maintenance</option>
+							</select><br /><br />
+							Set permissions like this group:
+							<select name="copy_from">
+								<option value="empty">(Select a membergroup)</option>
+								<option value="-1">Guests</option>
+								<option value="0">Regular Members</option>
+								<option value="2">Global Moderator</option>
+								<option value="3">Moderator</option>
+							</select><br /><br />
+							<select name="add_remove">
+								<option value="add">Add permission...</option>
+								<option value="clear">Clear permission...</option>
+							</select>&nbsp;<select name="permissions">
+								<option value="">(Select a permission)</option>
+								<option value="" disabled="disabled">[General]</option>
+								<option value="membergroup/view_stats">&nbsp;&nbsp;&nbsp;View forum statistics</option>
+								<option value="membergroup/view_mlist">&nbsp;&nbsp;&nbsp;View the memberlist</option>
+								<option value="membergroup/who_view">&nbsp;&nbsp;&nbsp;View Who's Online</option>
+								<option value="membergroup/search_posts">&nbsp;&nbsp;&nbsp;Search for posts and topics</option>
+								<option value="membergroup/karma_edit">&nbsp;&nbsp;&nbsp;Change other people's karma</option>
+								<option value="" disabled="disabled">[Calendar]</option>
+								<option value="membergroup/calendar_view">&nbsp;&nbsp;&nbsp;View the calendar</option>
+								<option value="membergroup/calendar_post">&nbsp;&nbsp;&nbsp;Create events in the calendar</option>
+								<option value="membergroup/calendar_edit_own">&nbsp;&nbsp;&nbsp;Edit events in the calendar (Own events)</option>
+								<option value="membergroup/calendar_edit_any">&nbsp;&nbsp;&nbsp;Edit events in the calendar (Any events)</option>
+								<option value="" disabled="disabled">[Forum administration]</option>
+								<option value="membergroup/admin_forum">&nbsp;&nbsp;&nbsp;Administrate forum and database</option>
+								<option value="membergroup/manage_boards">&nbsp;&nbsp;&nbsp;Manage boards and categories</option>
+								<option value="membergroup/manage_attachments">&nbsp;&nbsp;&nbsp;Manage attachments and avatars</option>
+								<option value="membergroup/manage_smileys">&nbsp;&nbsp;&nbsp;Manage smileys</option>
+								<option value="membergroup/edit_news">&nbsp;&nbsp;&nbsp;Edit news</option>
+								<option value="" disabled="disabled">[Member administration]</option>
+								<option value="membergroup/moderate_forum">&nbsp;&nbsp;&nbsp;Moderate forum members</option>
+								<option value="membergroup/manage_membergroups">&nbsp;&nbsp;&nbsp;Manage and assign membergroups</option>
+								<option value="membergroup/manage_permissions">&nbsp;&nbsp;&nbsp;Manage permissions</option>
+								<option value="membergroup/manage_bans">&nbsp;&nbsp;&nbsp;Manage ban list</option>
+								<option value="membergroup/send_mail">&nbsp;&nbsp;&nbsp;Send a forum email to members</option>
+								<option value="" disabled="disabled">[Personal Messaging]</option>
+								<option value="membergroup/pm_read">&nbsp;&nbsp;&nbsp;Read personal messages</option>
+								<option value="membergroup/pm_send">&nbsp;&nbsp;&nbsp;Send personal messages</option>
+								<option value="" disabled="disabled">[Member Profiles]</option>
+								<option value="membergroup/profile_view_own">&nbsp;&nbsp;&nbsp;View profile summary and stats (Own profile)</option>
+								<option value="membergroup/profile_view_any">&nbsp;&nbsp;&nbsp;View profile summary and stats (Any profile)</option>
+								<option value="membergroup/profile_identity_own">&nbsp;&nbsp;&nbsp;Edit account settings (Own profile)</option>
+								<option value="membergroup/profile_identity_any">&nbsp;&nbsp;&nbsp;Edit account settings (Any profile)</option>
+								<option value="membergroup/profile_extra_own">&nbsp;&nbsp;&nbsp;Edit additional profile settings (Own profile)</option>
+								<option value="membergroup/profile_extra_any">&nbsp;&nbsp;&nbsp;Edit additional profile settings (Any profile)</option>
+								<option value="membergroup/profile_title_own">&nbsp;&nbsp;&nbsp;Edit custom title (Own profile)</option>
+								<option value="membergroup/profile_title_any">&nbsp;&nbsp;&nbsp;Edit custom title (Any profile)</option>
+								<option value="membergroup/profile_remove_own">&nbsp;&nbsp;&nbsp;Delete account (Own account)</option>
+								<option value="membergroup/profile_remove_any">&nbsp;&nbsp;&nbsp;Delete account (Any account)</option>
+								<option value="membergroup/profile_server_avatar">&nbsp;&nbsp;&nbsp;Select an avatar from the server</option>
+								<option value="membergroup/profile_upload_avatar">&nbsp;&nbsp;&nbsp;Upload an avatar to the server</option>
+								<option value="membergroup/profile_remote_avatar">&nbsp;&nbsp;&nbsp;Choose a remotely stored avatar</option>
+								<option value="" disabled="disabled">[General]</option>
+								<option value="board/moderate_board">&nbsp;&nbsp;&nbsp;Moderate board</option>
+								<option value="" disabled="disabled">[Topics]</option>
+								<option value="board/post_new">&nbsp;&nbsp;&nbsp;Post new topics</option>
+								<option value="board/merge_any">&nbsp;&nbsp;&nbsp;Merge any topic</option>
+								<option value="board/split_any">&nbsp;&nbsp;&nbsp;Split any topic</option>
+								<option value="board/send_topic">&nbsp;&nbsp;&nbsp;Send topics to friends</option>
+								<option value="board/make_sticky">&nbsp;&nbsp;&nbsp;Make topics sticky</option>
+								<option value="board/move_own">&nbsp;&nbsp;&nbsp;Move topic (Own topic)</option>
+								<option value="board/move_any">&nbsp;&nbsp;&nbsp;Move topic (Any topic)</option>
+								<option value="board/lock_own">&nbsp;&nbsp;&nbsp;Lock topics (Own topic)</option>
+								<option value="board/lock_any">&nbsp;&nbsp;&nbsp;Lock topics (Any topic)</option>
+								<option value="board/remove_own">&nbsp;&nbsp;&nbsp;Remove topics (Own topic)</option>
+								<option value="board/remove_any">&nbsp;&nbsp;&nbsp;Remove topics (Any topics)</option>
+								<option value="board/post_reply_own">&nbsp;&nbsp;&nbsp;Post replies to topics (Own topic)</option>
+								<option value="board/post_reply_any">&nbsp;&nbsp;&nbsp;Post replies to topics (Any topic)</option>
+								<option value="board/modify_replies">&nbsp;&nbsp;&nbsp;Modify replies to own topics</option>
+								<option value="board/delete_replies">&nbsp;&nbsp;&nbsp;Delete replies to own topics</option>
+								<option value="board/announce_topic">&nbsp;&nbsp;&nbsp;Announce topic</option>
+								<option value="" disabled="disabled">[Posts]</option>
+								<option value="board/delete_own">&nbsp;&nbsp;&nbsp;Delete posts (Own post)</option>
+								<option value="board/delete_any">&nbsp;&nbsp;&nbsp;Delete posts (Any post)</option>
+								<option value="board/modify_own">&nbsp;&nbsp;&nbsp;Modify posts (Own post)</option>
+								<option value="board/modify_any">&nbsp;&nbsp;&nbsp;Modify posts (Any post)</option>
+								<option value="board/report_any">&nbsp;&nbsp;&nbsp;Report posts to the moderators</option>
+								<option value="" disabled="disabled">[Polls]</option>
+								<option value="board/poll_view">&nbsp;&nbsp;&nbsp;View polls</option>
+								<option value="board/poll_vote">&nbsp;&nbsp;&nbsp;Vote in polls</option>
+								<option value="board/poll_post">&nbsp;&nbsp;&nbsp;Post polls</option>
+								<option value="board/poll_add_own">&nbsp;&nbsp;&nbsp;Add poll to topics (Own topics)</option>
+								<option value="board/poll_add_any">&nbsp;&nbsp;&nbsp;Add poll to topics (Any topics)</option>
+								<option value="board/poll_edit_own">&nbsp;&nbsp;&nbsp;Edit polls (Own poll)</option>
+								<option value="board/poll_edit_any">&nbsp;&nbsp;&nbsp;Edit polls (Any poll)</option>
+								<option value="board/poll_lock_own">&nbsp;&nbsp;&nbsp;Lock polls (Own poll)</option>
+								<option value="board/poll_lock_any">&nbsp;&nbsp;&nbsp;Lock polls (Any poll)</option>
+								<option value="board/poll_remove_own">&nbsp;&nbsp;&nbsp;Remove polls (Own poll)</option>
+								<option value="board/poll_remove_any">&nbsp;&nbsp;&nbsp;Remove polls (Any poll)</option>
+								<option value="" disabled="disabled">[Notifications]</option>
+								<option value="board/mark_any_notify">&nbsp;&nbsp;&nbsp;Request notification on replies</option>
+								<option value="board/mark_notify">&nbsp;&nbsp;&nbsp;Request notification on new topics</option>
+								<option value="" disabled="disabled">[Attachments]</option>
+								<option value="board/view_attachments">&nbsp;&nbsp;&nbsp;View attachments</option>
+								<option value="board/post_attachment">&nbsp;&nbsp;&nbsp;Post attachments</option>
+							</select>
+						</td><td valign="bottom" width="16%">
+							<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+								function checkSubmit()
+								{
+									if ((document.forms.permissionForm.predefined.value != "" && (document.forms.permissionForm.copy_from.value != "empty" || document.forms.permissionForm.permissions.value != "")) || (document.forms.permissionForm.copy_from.value != "empty" && document.forms.permissionForm.permissions.value != ""))
+									{
+										alert("You can only select one action to modify the permissions");
+										return false;
+									}
+									if (document.forms.permissionForm.predefined.value == "" && document.forms.permissionForm.copy_from.value == "" && document.forms.permissionForm.permissions.value == "")
+									{
+										alert("No action selected");
+										return false;
+									}
+									if (document.forms.permissionForm.permissions.value != "" && document.forms.permissionForm.add_remove.value == "deny")
+										return confirm("You are about to deny one or more permissions.\nThis can be dangerous and cause unexpected results if you haven't made sure no one is \"accidentally\" in the group or groups you are denying permissions to.\n\nAre you sure you want to continue?");
+
+									return true;
+								}
+							// ]]></script>
+							<input type="submit" value="Set permissions" onclick="return checkSubmit();" />
+						</td></tr></table>
+					</td>
+				</tr>
+			</table>
+			<input type="hidden" name="sc" value="{TOKEN}" />
+		</form>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="SMF User Help: Personal Message" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>SMF User Help: Personal Message</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+		<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/help.css" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			document.cookie = "upshrink=" + (mode ? 1 : 0);
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">Welcome, <b>Guest</b>. Please <a href="http://127.0.0.1:8080/index.php?action=login">login</a> or <a href="http://127.0.0.1:8080/index.php?action=register">register</a>.				</span>
+								<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/sha1.js"></script>
+
+								<form action="http://127.0.0.1:8080/index.php?action=login2" method="post" accept-charset="ISO-8859-1" class="middletext" style="margin: 3px 1ex 1px 0;" onsubmit="hashLoginPassword(this, '{TOKEN}');">
+									<input type="text" name="user" size="10" /> <input type="password" name="passwrd" size="10" />
+									<select name="cookielength">
+										<option value="60">1 Hour</option>
+										<option value="1440">1 Day</option>
+										<option value="10080">1 Week</option>
+										<option value="43200">1 Month</option>
+										<option value="-1" selected="selected">Forever</option>
+									</select>
+									<input type="submit" value="Login" /><br />
+									<span class="middletext">Login with username, password and session length</span>
+									<input type="hidden" name="hash_passwrd" value="" />
+								</form>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=login">Login</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=register">Register</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+	<div class="tborder" style="margin-top: 1ex;">
+		<div id="helpmenu" class="titlebg" style="padding: 4px;"><a href="http://127.0.0.1:8080/index.php?action=help;page=index">Introduction</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=registering">Registering</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">Logging In</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=profile">Profile</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=post">Posting</a> &bull; <span class="error" style="font-weight: bold;">Personal Message</span> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=searching">Searching</a>
+		</div>
+		<div style="padding: 2ex;" id="helpmain" class="windowbg2">
+		<p>SMF is about community and communication. And there are many ways to communicate, such as posting to the boards, personal messaging, email, ICQ, AIM and YIM. But SMF's own personal message system, as available to registered members in most forums, is sometimes a more suitable option than any of these.</p>
+	<ol>
+		<li>
+			<a href="http://127.0.0.1:8080/index.php?action=help;page=pm#pm">Personal Messaging</a>
+			<ol class="la">
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#description">Description</a></li>
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#reading">Reading Your Messages</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface">The PM Interface</a>
+			<ol class="la">
+				<li><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#starting">Starting or Replying to a Message</a></li>
+			</ol>
+		</li>
+	</ol>
+	<h2 id="pm">Personal Messaging</h2>
+	<h3 id="description">Description</h3>
+	<p>While email is a good way to correspond directly with members, it also has several drawbacks for forum purposes: you must open your email application to write and send the message, the recipient must open his/her email application and check his/her mail, your message will be mixed in with all the other mail and it can sometimes take several minutes to an hour for mail to reach the recipient.</p>
+	<p>As an alternative to email, SMF offers a faster, more private method. Personal messaging on the boards provides instantaneous delivery to the recipient's private mailbox. The mail is sent and received entirely through SMF, so neither you nor the recipient have to open another program or leave SMF. Personal messaging also offers both the sender and the recipient greater privacy because no-one's real email address is revealed. Personal messages show only the handle and name of both parties.</p>
+	<p>If a recipient isn't online, personal messages wait in the member's PM box until the next time he/she logs in and reads and/or deletes them. SMF Personal Messages is a self-contained, highly private email system.</p>
+	<h3 id="reading">Reading Your Messages</h3>
+	<p>To read your personal messages, you need to be <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">logged in</a>, then follow the link that says something like 'Hey, [username], you have <a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface">x messages</a>, x are new'.</p>
+	<h2 id="interface">The PM Interface</h2>
+	<p>The PM interface is similar in operation to that of the <a href="http://127.0.0.1:8080/index.php?action=help;page=index#message">message index</a>. While we are showing the inbox interface here, the outbox works in much the same way:</p>
+	<div style="border: solid 1px;">
+		<div style="padding: 2px 30px;">
+			<script language="JavaScript1.2" type="text/javascript">
+//<![CDATA[
+			var currentSort = false;
+			function sortLastPM()
+			{
+					document.getElementById("sort-arrow").src = smf_images_url + "/" + (currentSort ? "sort_up.gif" : "sort_down.gif");
+					document.getElementById("sort-arrow").alt = "";
+					currentSort = !currentSort;
+			}
+//]]>
+</script>
+			<form action="http://127.0.0.1:8080/index.php?action=help;page=pm" method="post" accept-charset="ISO-8859-1">
+				<table border="0" width="100%" cellspacing="0" cellpadding="3">
+					<tr>
+						<td valign="bottom"><span class="nav"><img src="http://127.0.0.1:8080/Themes/default/images/icons/folder_open.gif" alt="+" border="0" />&nbsp; <b><a href="http://127.0.0.1:8080/index.php?action=help;page=index#board" class="nav">Forum Name</a></b><br />
+						<img src="http://127.0.0.1:8080/Themes/default/images/icons/linktree_side.gif" alt="|-" border="0" /> <img src="http://127.0.0.1:8080/Themes/default/images/icons/folder_open.gif" alt="+" border="0" />&nbsp; <b><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface" class="nav">Personal Messages</a></b><br />
+						<img src="http://127.0.0.1:8080/Themes/default/images/icons/linktree_main.gif" alt="| " border="0" /> <img src="http://127.0.0.1:8080/Themes/default/images/icons/linktree_side.gif" alt="|-" border="0" /> <img src="http://127.0.0.1:8080/Themes/default/images/icons/folder_open.gif" alt="+" border="0" />&nbsp; <b><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface" class="nav">Inbox</a></b></span></td>
+					</tr>
+				</table>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+					<td width="125" valign="top">
+						<table border="0" cellpadding="4" cellspacing="1" class="bordercolor" width="100">
+							<tr>
+								<td class="catbg">Messages</td>
+							</tr>
+							<tr class="windowbg">
+								<td class="smalltext" style="padding-bottom: 2ex;">
+								New Message<br /><br />
+								<b>Inbox</b><br />
+								Outbox<br />
+							</td>
+						</tr>
+					</table>
+					<br />
+				</td>
+				<td valign="top">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%" class="bordercolor" align="center">
+						<tr>
+							<td>
+								<table border="0" width="100%" cellspacing="1" class="bordercolor">
+									<tr class="titlebg">
+										<td>&nbsp;</td>
+										<td style="width: 32ex;"><a href="javascript:sortLastPM();">Date&nbsp; <img id="sort-arrow" src="http://127.0.0.1:8080/Themes/default/images/sort_up.gif" alt="" border="0" name="sort-arrow" /></a></td>
+										<td width="46%"><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface">Subject</a></td>
+										<td><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface">From</a></td>
+										<td align="center" width="24"><input type="checkbox" onclick="invertAll(this, this.form);" class="check" /></td>
+									</tr>
+									<tr class="windowbg">
+										<td align="center" width="2%"><img src="http://127.0.0.1:8080/Themes/default/images/icons/pm_read.gif" style="margin-right: 4px;" alt="" /></td>
+										<td>Date and time of message</td>
+										<td><a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface" class="board">Message Subject</a></td>
+										<td>Another Member</td>
+										<td align="center"><input type="checkbox" class="check" /></td>
+									</tr>
+									<tr>
+										<td class="windowbg" style="padding: 2px;" align="right" colspan="6"></td>
+									</tr>
+									<tr>
+										<td colspan="6" class="catbg" height="25">
+											<div style="float: left;"><b>Pages:</b> [<b>1</b>]</div>
+											<div style="float: right;">&nbsp;<input type="button" value="Delete Selected" /></div>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table><br />
+				</td>
+			</tr></table>
+			<br />
+			</form>
+		</div>
+	</div><br />
+	<ul>
+		<li>Some forums show the <strong>navigation tree</strong> at the top in a space-saving horizontal mode.</li>
+		<li>The main <strong>Delete</strong> button deletes all messages in your inbox (or outbox if open). Note that the checkbox and lower <strong>Delete</strong> button also allow you to delete selected messages, with the top checkbox selecting all.</li>
+		<li>The <strong>Outbox</strong> button toggles to your outbox, where it obviously becomes an <strong>Inbox</strong> button.</li>
+		<li>The <strong>New Message</strong> button enables you to start a new message, which is similar to <a href="http://127.0.0.1:8080/index.php?action=help;page=post#newtopic">starting a new topic</a> but adds 'To:' and 'Bcc:' (blind carbon copy) fields and the option to save to your outbox.</li>
+		<li>The <strong>Reload</strong> button checks for new messages by refreshing the page.</li>
+		<li>The <strong>Date</strong>, <strong>Subject</strong>, and <strong>From</strong> links enable you to sort the columns by these parameters (with <strong>Date</strong> also toggling between descending and ascending order as indicated by the little arrow).</li>
+		<li>The main subject title links to the start of the message, which will be further down the same page.</li>
+		<li>The page numbers link to further pages of messages as applicable.</li>
+	</ul>
+	<h3 id="starting">Starting or Replying to a Message</h3>
+	<p>There are actually several different ways to start a new personal message, but all require you to be <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">logged in</a>:</p>
+	<ul>
+		<li>You can follow the link that says something like 'Hey, [username], you have <a href="http://127.0.0.1:8080/index.php?action=help;page=pm#interface">x messages</a>, x are new', then click the <strong>New Message</strong> button in your inbox.</li>
+		<li>You can click another member's name, followed by <strong>Send this member a personal message</strong> from his/her <a href="http://127.0.0.1:8080/index.php?action=help;page=profile#info-all">profile</a> summary screen.</li>
+		<li>You can start a new message direct by clicking the <strong>IM on/offline</strong> icon from the user info accompanying all of his/her posts.</li>
+		<li>You can start a new message direct by clicking the <strong>PM on/offline</strong> icon from the <strong>Current Status</strong> in his/her <a href="http://127.0.0.1:8080/index.php?action=help;page=profile#info-all">profile</a> summary screen. (This icon/link is often duplicated in the user info described above.)</li>
+		<li>Replying to a message is very similar to <a href="http://127.0.0.1:8080/index.php?action=help;page=post#reply">replying to a topic</a>.</li>
+	</ul>
+		</div>
+		<div id="helpmenu2" class="titlebg" style="padding: 4px;"><a href="http://127.0.0.1:8080/index.php?action=help;page=index">Introduction</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=registering">Registering</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=loginout">Logging In</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=profile">Profile</a> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=post">Posting</a> &bull; <span class="error" style="font-weight: bold;">Personal Message</span> &bull; <a href="http://127.0.0.1:8080/index.php?action=help;page=searching">Searching</a>
+		</div>
+	</div>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

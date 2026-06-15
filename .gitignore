@@ -1,0 +1,8 @@
+# build outputs
+/smf
+smf
+*.test
+*.out
+# local test instance / sqlite
+*.sqlite
+*.sqlite-*

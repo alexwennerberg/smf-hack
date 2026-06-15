@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Features and Options" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Features and Options</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>admin</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=admin">Admin</a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top: 1ex;"><tr>
+			<td width="150" valign="top" style="width: 23ex; padding-right: 10px; padding-bottom: 10px;">
+				<table width="100%" cellpadding="4" cellspacing="1" border="0" class="bordercolor">
+					<tr>
+						<td class="catbg">Main</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=admin">Administration Center</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=admin;credits">Support and Credits</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=news">News and newsletters</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=packages">Packages</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Configuration</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<b><a href="http://127.0.0.1:8080/index.php?action=featuresettings">Features and Options</a></b><br />
+							<a href="http://127.0.0.1:8080/index.php?action=serversettings;sesc={TOKEN}">Server Settings</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=settings;th=1;sesc={TOKEN}">Current Theme</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=theme;sa=admin;sesc={TOKEN}">Themes and Layout</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Forum</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=manageboards">Boards</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=postsettings">Posts and Topics</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managecalendar">Calendar</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=managesearch">Search</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=smileys">Smileys and Message Icons</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=manageattachments">Attachments and Avatars</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Members</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=viewmembers">Members</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=membergroups;">Membergroups</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=permissions">Permissions</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=regcenter">Registration</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=ban">Ban List</a><br />
+						</td>
+					</tr>
+					<tr>
+						<td class="catbg">Maintenance</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="smalltext" style="line-height: 1.3; padding-bottom: 3ex;">
+							<a href="http://127.0.0.1:8080/index.php?action=maintain">Forum Maintenance</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=reports">Generate Reports</a><br />
+							<a href="http://127.0.0.1:8080/index.php?action=viewErrorLog;desc">Forum Error Log</a><br />
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td valign="top">
+				<table border="0" cellspacing="0" cellpadding="4" align="center" width="100%" class="tborder" >
+					<tr class="titlebg">
+						<td>
+							<a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=modsettings" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" align="top" /></a> 
+							Features and Options
+						</td>
+					</tr>
+					<tr class="windowbg">
+						<td class="smalltext" style="padding: 2ex;">This page allows you to change the settings of features, mods, and basic options in your forum.  Please see the <a href="http://127.0.0.1:8080/index.php?action=theme;sa=settings;th=1;sesc={TOKEN}">theme settings</a> for more options.  Click the help icons for more information about a setting.</td>
+					</tr>
+				</table>
+				<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+					<tr>
+						<td class="maintab_first">&nbsp;</td>
+						<td class="maintab_active_first">&nbsp;</td>
+						<td valign="top" class="maintab_active_back">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings;sa=basic;sesc={TOKEN}">Basic Features</a>
+						</td>
+						<td class="maintab_active_last">&nbsp;</td>
+						<td valign="top" class="maintab_back">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings;sa=layout;sesc={TOKEN}">Layout and Options</a>
+						</td>
+						<td valign="top" class="maintab_back">
+							<a href="http://127.0.0.1:8080/index.php?action=featuresettings;sa=karma;sesc={TOKEN}">Karma</a>
+						</td>
+						<td class="maintab_last">&nbsp;</td>
+					</tr>
+				</table><br />
+	<form action="http://127.0.0.1:8080/index.php?action=featuresettings2;save;sa=basic" method="post" accept-charset="ISO-8859-1">
+		<table width="80%" border="0" cellspacing="0" cellpadding="0" class="tborder" align="center">
+			<tr><td>
+				<table border="0" cellspacing="0" cellpadding="4" width="100%">
+					<tr class="titlebg">
+						<td colspan="3">Basic Features</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=pollMode" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="pollMode">Poll mode</label></td>
+						<td class="windowbg2" width="50%">
+							<select name="pollMode">
+								<option value="0">Disable polls</option>
+								<option value="1" selected="selected">Enable polls</option>
+								<option value="2">Show existing polls as topics</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=allow_guestAccess" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="allow_guestAccess">Allow guests to browse the forum</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="allow_guestAccess" value="0" /><input type="checkbox" name="allow_guestAccess" id="allow_guestAccess"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=userLanguage" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="userLanguage">Enable user-selectable language support</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="userLanguage" value="0" /><input type="checkbox" name="userLanguage" id="userLanguage"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="allow_editDisplayName">Allow users to edit their displayed name?</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="allow_editDisplayName" value="0" /><input type="checkbox" name="allow_editDisplayName" id="allow_editDisplayName"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=allow_hideOnline" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="allow_hideOnline">Allow non-administrators to hide their online status?</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="allow_hideOnline" value="0" /><input type="checkbox" name="allow_hideOnline" id="allow_hideOnline"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=allow_hideEmail" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="allow_hideEmail">Allow users to hide their email from everyone except admins?</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="allow_hideEmail" value="0" /><input type="checkbox" name="allow_hideEmail" id="allow_hideEmail"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=guest_hideContacts" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="guest_hideContacts">Do not reveal contact details of members to guests</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="guest_hideContacts" value="0" /><input type="checkbox" name="guest_hideContacts" id="guest_hideContacts"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=titlesEnable" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="titlesEnable">Enable custom titles</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="titlesEnable" value="0" /><input type="checkbox" name="titlesEnable" id="titlesEnable"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="enable_buddylist">Enable buddy lists</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="enable_buddylist" value="0" /><input type="checkbox" name="enable_buddylist" id="enable_buddylist"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=default_personalText" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="default_personalText">Default personal text</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="default_personalText" value="" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="max_signatureLength">Maximum allowed characters in signatures<div class="smalltext">(0 for no max.)</div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="max_signatureLength" value="300" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=time_format" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="time_format">Default time format</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="time_format" value="%B %d, %Y, %I:%M:%S %p" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=number_format" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="number_format">Default number format</label></td>
+						<td class="windowbg2" width="50%">
+							<select name="number_format">
+								<option value="1234.00" selected="selected">1234.00</option>
+								<option value="1,234.00">1,234.00</option>
+								<option value="1.234,00">1.234,00</option>
+								<option value="1 234,00">1 234,00</option>
+								<option value="1234,00">1234,00</option>
+							</select>
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=time_offset" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="time_offset">Overall time offset<div class="smalltext">(added to the member specific option.)</div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="time_offset" value="0" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=failed_login_threshold" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="failed_login_threshold">Failed login threshold</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="failed_login_threshold" value="3" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=lastActive" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="lastActive">User online time threshold</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="lastActive" value="15" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=trackStats" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="trackStats">Track daily statistics</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="trackStats" value="0" /><input type="checkbox" name="trackStats" id="trackStats"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="hitStats">Track daily page views (must have stats enabled)</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="hitStats" value="0" /><input type="checkbox" name="hitStats" id="hitStats"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=enableErrorLogging" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="enableErrorLogging">Enable error logging</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="enableErrorLogging" value="0" /><input type="checkbox" name="enableErrorLogging" id="enableErrorLogging"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=securityDisable" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="securityDisable">Disable administration security</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="securityDisable" value="0" /><input type="checkbox" name="securityDisable" id="securityDisable"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=send_validation_onChange" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="send_validation_onChange">Require reactivation after email change</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="send_validation_onChange" value="0" /><input type="checkbox" name="send_validation_onChange" id="send_validation_onChange"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="approveAccountDeletion">Require admin approval when member deletes account</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="approveAccountDeletion" value="0" /><input type="checkbox" name="approveAccountDeletion" id="approveAccountDeletion"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=allow_disableAnnounce" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="allow_disableAnnounce">Allow users to disable announcements</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="allow_disableAnnounce" value="0" /><input type="checkbox" name="allow_disableAnnounce" id="allow_disableAnnounce"  checked="checked" class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=disallow_sendBody" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="disallow_sendBody">Don't allow post text in notifications?</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="disallow_sendBody" value="0" /><input type="checkbox" name="disallow_sendBody" id="disallow_sendBody"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=modlog_enabled" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="modlog_enabled">Log moderation actions</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="modlog_enabled" value="0" /><input type="checkbox" name="modlog_enabled" id="modlog_enabled"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=queryless_urls" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="queryless_urls">Search engine friendly URLs<div class="smalltext"><b>Apache only!</b></div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="queryless_urls" value="0" /><input type="checkbox" name="queryless_urls" id="queryless_urls"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=max_image_width" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="max_image_width">Max width of posted pictures (0 = disable)</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="max_image_width" value="0" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2"></td>
+						<td valign="top" ><label for="max_image_height">Max height of posted pictures (0 = disable)</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="max_image_height" value="0" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+							<td colspan="3" class="windowbg2"><hr size="1" width="100%" class="hrcolor" /></td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=enableReportPM" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="enableReportPM">Enable reporting of personal messages</label></td>
+						<td class="windowbg2" width="50%">
+							<input type="hidden" name="enableReportPM" value="0" /><input type="checkbox" name="enableReportPM" id="enableReportPM"  class="check" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=max_pm_recipients" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="max_pm_recipients">Maximum number of recipients allowed in a personal message.<div class="smalltext">(0 for no limit, admins are exempt)</div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="max_pm_recipients" value="10" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=pm_posts_verification" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="pm_posts_verification">Post count under which users must enter code when sending personal messages.<div class="smalltext">(0 for no limit, admins are exempt)</div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="pm_posts_verification" value="5" size="6" />
+						</td>
+					</tr>
+					<tr class="windowbg2">
+						<td class="windowbg2" valign="top" width="16"><a href="http://127.0.0.1:8080/index.php?action=helpadmin;help=pm_posts_per_hour" onclick="return reqWin(this.href);" class="help"><img src="http://127.0.0.1:8080/Themes/default/images/helptopics.gif" alt="Help" border="0" align="top" /></a></td>
+						<td valign="top" ><label for="pm_posts_per_hour">Number of personal messages a user may send in an hour.<div class="smalltext">(0 for no limit, moderators are exempt)</div></label></td>
+						<td class="windowbg2" width="50%">
+							<input type="text" name="pm_posts_per_hour" value="20" size="6" />
+						</td>
+					</tr>
+					</tr><tr>
+						<td class="windowbg2" colspan="3" align="center" valign="middle"><input type="submit" value="Save" /></td>
+					</tr>
+				</table>
+			</td></tr>
+		</table>
+		<input type="hidden" name="sc" value="{TOKEN}" />
+	</form>
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>

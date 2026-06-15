@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta name="description" content="Personal Messages Index" />
+	<meta name="keywords" content="PHP, MySQL, bulletin, board, free, open, source, smf, simple, machines, forum" />
+	<script language="JavaScript" type="text/javascript" src="http://127.0.0.1:8080/Themes/default/script.js?fin11"></script>
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var smf_theme_url = "http://127.0.0.1:8080/Themes/default";
+		var smf_images_url = "http://127.0.0.1:8080/Themes/default/images";
+		var smf_scripturl = "http://127.0.0.1:8080/index.php";
+		var smf_iso_case_folding = false;
+		var smf_charset = "ISO-8859-1";
+	// ]]></script>
+	<title>Personal Messages Index</title>
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/style.css?fin11" />
+	<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/Themes/default/print.css?fin11" media="print" />
+	<link rel="help" href="http://127.0.0.1:8080/index.php?action=help" target="_blank" />
+	<link rel="search" href="http://127.0.0.1:8080/index.php?action=search" />
+	<link rel="contents" href="http://127.0.0.1:8080/index.php" />
+	<link rel="alternate" type="application/rss+xml" title="My Community - RSS" href="http://127.0.0.1:8080/index.php?type=rss;action=.xml" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var current_header = false;
+
+		function shrinkHeader(mode)
+		{
+			smf_setThemeOption("collapse_header", mode ? 1 : 0, null, "{TOKEN}");
+			document.getElementById("upshrink").src = smf_images_url + (mode ? "/upshrink2.gif" : "/upshrink.gif");
+
+			document.getElementById("upshrinkHeader").style.display = mode ? "none" : "";
+			document.getElementById("upshrinkHeader2").style.display = mode ? "none" : "";
+
+			current_header = mode;
+		}
+	// ]]></script>
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			var current_header_ic = false;
+
+			function shrinkHeaderIC(mode)
+			{
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "{TOKEN}");
+				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");
+
+				document.getElementById("upshrinkHeaderIC").style.display = mode ? "none" : "";
+
+				current_header_ic = mode;
+			}
+		// ]]></script>
+</head>
+<body>
+	<div class="tborder" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td class="catbg" height="32">
+					<span style="font-family: Verdana, sans-serif; font-size: 140%; ">My Community</span>
+				</td>
+				<td align="right" class="catbg">
+					<img src="http://127.0.0.1:8080/Themes/default/images/smflogo.gif" style="margin: 2px;" alt="" />
+				</td>
+			</tr>
+		</table>
+		<table width="100%" cellpadding="0" cellspacing="0" border="0" >
+			<tr>
+				<td class="titlebg2" height="32">
+					<span style="font-size: 130%;"> Hello <b>Member One</b></span>
+				</td>
+				<td class="titlebg2" height="32" align="right">
+					<span class="smalltext">{DATETIME}</span>
+					<a href="#" onclick="shrinkHeader(!current_header); return false;"><img id="upshrink" src="http://127.0.0.1:8080/Themes/default/images/upshrink.gif" alt="*" title="Shrink or expand the header." align="bottom" style="margin: 0 1ex;" /></a>
+				</td>
+			</tr>
+			<tr id="upshrinkHeader">
+				<td valign="top" colspan="2">
+					<table width="100%" class="bordercolor" cellpadding="8" cellspacing="1" border="0" style="margin-top: 1px;">
+						<tr>
+							<td colspan="2" width="100%" valign="top" class="windowbg2"><span class="middletext">
+								<a href="http://127.0.0.1:8080/index.php?action=unread">Show unread posts since last visit.</a> <br />
+								<a href="http://127.0.0.1:8080/index.php?action=unreadreplies">Show new replies to your posts.</a><br />
+								Total time logged in: 0 minutes.<br />				</span>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<table id="upshrinkHeader2" width="100%" cellpadding="4" cellspacing="0" border="0">
+			<tr>
+				<td width="90%" class="titlebg2">
+					<span class="smalltext"><b>News</b>: SMF - Just Installed!</span>
+				</td>
+				<td class="titlebg2" align="right" nowrap="nowrap" valign="top">
+					<form action="http://127.0.0.1:8080/index.php?action=search2" method="post" accept-charset="ISO-8859-1" style="margin: 0;">
+						<a href="http://127.0.0.1:8080/index.php?action=search;advanced"><img src="http://127.0.0.1:8080/Themes/default/images/filter.gif" align="middle" style="margin: 0 1ex;" alt="" /></a>
+						<input type="text" name="search" value="" style="width: 190px;" />&nbsp;
+						<input type="submit" name="submit" value="Search" style="width: 11ex;" />
+						<input type="hidden" name="advanced" value="0" />
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+			<table cellpadding="0" cellspacing="0" border="0" style="margin-left: 10px;">
+				<tr>
+					<td class="maintab_first">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php">Home</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=help">Help</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=search">Search</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=profile">Profile</a>
+				</td><td class="maintab_active_first">&nbsp;</td>
+				<td valign="top" class="maintab_active_back">
+					<a href="http://127.0.0.1:8080/index.php?action=pm">My Messages </a>
+				</td><td class="maintab_active_last">&nbsp;</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=mlist">Members</a>
+				</td>
+				<td valign="top" class="maintab_back">
+					<a href="http://127.0.0.1:8080/index.php?action=logout;sesc={TOKEN}">Logout</a>
+				</td>
+				<td class="maintab_last">&nbsp;</td>
+			</tr>
+		</table>
+	<div id="bodyarea" style="padding: 1ex 0px 2ex 0px;">
+		<div style="padding: 3px;"><div class="nav" style="font-size: smaller; margin-bottom: 2ex; margin-top: 2ex;"><b><a href="http://127.0.0.1:8080/index.php" class="nav">My Community</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?action=pm" class="nav">Personal Messages</a></b>&nbsp;>&nbsp;<b><a href="http://127.0.0.1:8080/index.php?action=pm;f=inbox" class="nav">Inbox</a></b></div></div>
+			<table width="100%" border="0" cellpadding="0" cellspacing="0"><tr>
+				<td width="125" valign="top">
+					<table border="0" cellpadding="4" cellspacing="1" class="bordercolor" width="100">
+						<tr>
+							<td class="catbg">Messages</td>
+						</tr>
+						<tr class="windowbg2">
+							<td class="smalltext" style="padding-bottom: 2ex;">
+								<a href="http://127.0.0.1:8080/index.php?action=pm;sa=send">New Message</a><br /><br />
+								<b><a href="http://127.0.0.1:8080/index.php?action=pm">Inbox</a></b><br />
+								<a href="http://127.0.0.1:8080/index.php?action=pm;f=outbox">Outbox</a><br />
+							</td>
+						</tr>
+						<tr>
+							<td class="catbg">Preferences</td>
+						</tr>
+						<tr class="windowbg2">
+							<td class="smalltext" style="padding-bottom: 2ex;">
+								<a href="http://127.0.0.1:8080/index.php?action=pm;sa=search">Search Messages</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=pm;sa=manlabels">Manage Labels</a><br />
+								<a href="http://127.0.0.1:8080/index.php?action=pm;sa=prune">Prune Messages</a><br />
+							</td>
+						</tr>
+					</table>
+					<br />
+				</td>
+				<td valign="top">
+<form action="http://127.0.0.1:8080/index.php?action=pm;sa=pmactions;f=inbox;start=0" method="post" accept-charset="ISO-8859-1" name="pmFolder">
+	<table border="0" width="100%" cellpadding="2" cellspacing="1" class="bordercolor">
+		<tr class="titlebg">
+			<td align="center" width="2%">&nbsp;</td>
+			<td style="width: 32ex;"><a href="http://127.0.0.1:8080/index.php?action=pm;f=inbox;start=0;sort=date;desc;">Date <img src="http://127.0.0.1:8080/Themes/default/images/sort_up.gif" alt="" /></a></td>
+			<td width="46%"><a href="http://127.0.0.1:8080/index.php?action=pm;f=inbox;start=0;sort=subject;">Subject</a></td>
+			<td><a href="http://127.0.0.1:8080/index.php?action=pm;f=inbox;start=0;sort=name;">From</a></td>
+			<td align="center" width="24"><input type="checkbox" onclick="invertAll(this, this.form);" class="check" /></td>
+		</tr>
+		<tr class="windowbg">
+			<td align="center" width="2%"><img src="http://127.0.0.1:8080/Themes/default/images/icons/pm_read.gif" style="margin-right: 4px;" alt="Read" /></td>
+			<td>{DATETIME}</td>
+			<td><a href="#msg1">Hello there</a></td>
+			<td><a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a></td>
+			<td align="center"><input type="checkbox" name="pms[]" id="deletelisting1" value="1" onclick="document.getElementById('deletedisplay1').checked = this.checked;" class="check" /></td>
+		</tr>
+	</table>
+	<div class="bordercolor" style="padding: 1px; ">
+		<table width="100%" cellpadding="2" cellspacing="0" border="0"><tr class="catbg" valign="middle">
+			<td>
+				<div style="float: left;">Pages: [<b>1</b>] </div>
+				<div style="float: right;">&nbsp;
+				<input type="submit" name="del_selected" value="Delete Selected" style="font-weight: normal;" onclick="if (!confirm('Are you sure you want to delete all selected personal messages?')) return false;" />
+				<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+					var allLabels = {};
+					function loadLabelChoices()
+					{
+						var listing = document.forms.pmFolder.elements;
+						var theSelect = document.forms.pmFolder.pm_action;
+						var add, remove, toAdd = {length: 0}, toRemove = {length: 0};
+
+						if (theSelect.childNodes.length == 0)
+							return;
+						if (typeof(allLabels[-1]) == "undefined")
+						{
+							for (var o = 0; o < theSelect.options.length; o++)
+								if (theSelect.options[o].value.substr(0, 4) == "rem_")
+									allLabels[theSelect.options[o].value.substr(4)] = theSelect.options[o].text;
+						}
+
+						for (var i = 0; i < listing.length; i++)
+						{
+							if (listing[i].name != "pms[]" || !listing[i].checked)
+								continue;
+
+							var alreadyThere = [], x;
+							for (x in currentLabels[listing[i].value])
+							{
+								if (typeof(toRemove[x]) == "undefined")
+								{
+									toRemove[x] = allLabels[x];
+									toRemove.length++;
+								}
+								alreadyThere[x] = allLabels[x];
+							}
+
+							for (x in allLabels)
+							{
+								if (typeof(alreadyThere[x]) == "undefined")
+								{
+									toAdd[x] = allLabels[x];
+									toAdd.length++;
+								}
+							}
+						}
+
+						while (theSelect.options.length > 2)
+							theSelect.options[2] = null;
+
+						if (toAdd.length != 0)
+						{
+							theSelect.options[theSelect.options.length] = new Option("Add Label", "");
+							setInnerHTML(theSelect.options[theSelect.options.length - 1], "Add Label");
+							theSelect.options[theSelect.options.length - 1].disabled = true;
+
+							for (i in toAdd)
+							{
+								if (i != "length")
+									theSelect.options[theSelect.options.length] = new Option(toAdd[i], "add_" + i);
+							}
+						}
+
+						if (toRemove.length != 0)
+						{
+							theSelect.options[theSelect.options.length] = new Option("Remove Label", "");
+							setInnerHTML(theSelect.options[theSelect.options.length - 1], "Remove Label");
+							theSelect.options[theSelect.options.length - 1].disabled = true;
+
+							for (i in toRemove)
+							{
+								if (i != "length")
+									theSelect.options[theSelect.options.length] = new Option(toRemove[i], "rem_" + i);
+							}
+						}
+					}
+				// ]]></script>
+				</div>
+			</td>
+		</tr></table>
+	</div><br />
+
+	<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+		var currentLabels = {};
+	// ]]></script>
+		<table cellpadding="4" cellspacing="0" border="0" width="100%" class="bordercolor">
+			<tr class="titlebg">
+				<td width="16%">&nbsp;Author</td>
+				<td>Topic</td>
+			</tr>
+		</table>
+		<table cellpadding="0" cellspacing="0" border="0" width="100%" class="bordercolor">
+		<tr><td style="padding: 1px 1px 0 1px;">
+			<a name="msg1"></a>
+			<table width="100%" cellpadding="3" cellspacing="0" border="0">
+				<tr><td colspan="2" class="windowbg">
+					<table width="100%" cellpadding="4" cellspacing="1" style="table-layout: fixed;">
+						<tr>
+							<td valign="top" width="16%" rowspan="2" style="overflow: hidden;">
+								<b><a href="http://127.0.0.1:8080/index.php?action=profile;u=1" title="View the profile of admin">admin</a></b>
+								<div class="smalltext">
+									Administrator<br />
+									<img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><img src="http://127.0.0.1:8080/Themes/default/images/staradmin.gif" alt="*" border="0" /><br />
+									Posts: 0<br />
+									<br />
+									<br />
+									
+									
+									
+									<br />
+									<a href="http://127.0.0.1:8080/index.php?action=profile;u=1"><img src="http://127.0.0.1:8080/Themes/default/images/icons/profile_sm.gif" alt="View Profile" title="View Profile" /></a>
+									<a href="mailto:a@b.com"><img src="http://127.0.0.1:8080/Themes/default/images/email_sm.gif" alt="Email" title="Email" /></a>
+									<a href="http://127.0.0.1:8080/index.php?action=pm;sa=send;u=1" title="Personal Message (Offline)"><img src="http://127.0.0.1:8080/Themes/default/images/im_off.gif" alt="Personal Message (Offline)" /></a>
+								</div>
+							</td>
+							<td class="windowbg" valign="top" width="85%" height="100%">
+								<table width="100%" border="0"><tr>
+									<td align="left" valign="middle">
+										<b>Hello there</b>
+										<div class="smalltext">&#171; <b> Sent to:</b> <a href="http://127.0.0.1:8080/index.php?action=profile;u=2">Member One</a> <b> on:</b> {DATETIME} &#187;</div>
+									</td>
+									<td align="right" valign="bottom" height="20" nowrap="nowrap" style="font-size: smaller;">
+										<a href="http://127.0.0.1:8080/index.php?action=pm;sa=send;f=inbox;pmsg=1;quote;u=1"><img src="http://127.0.0.1:8080/Themes/default/images/buttons/quote.gif" alt="Reply with quote" align="middle" /><b>Quote</b></a> 
+										<a href="http://127.0.0.1:8080/index.php?action=pm;sa=send;f=inbox;pmsg=1;u=1"><img src="http://127.0.0.1:8080/Themes/default/images/buttons/im_reply.gif" alt="Reply" align="middle" /><b>Reply</b></a>  
+										<a href="http://127.0.0.1:8080/index.php?action=pm;sa=pmactions;pm_actions[1]=delete;f=inbox;start=0;;sesc={TOKEN}" onclick="return confirm('Remove this message?');"><img src="http://127.0.0.1:8080/Themes/default/images/buttons/delete.gif" alt="Remove this message" align="middle" /><b>Remove</b></a>
+										<input style="vertical-align: middle;" type="checkbox" name="pms[]" id="deletedisplay1" value="1" class="check" onclick="document.getElementById('deletelisting1').checked = this.checked;" />
+									</td>
+								</tr></table>
+								<hr width="100%" size="1" class="hrcolor" />
+								<div class="personalmessage">A private message body.</div>
+							</td>
+						</tr>
+						<tr class="windowbg">
+							<td valign="bottom" class="smalltext" width="85%">
+								
+							</td>
+						</tr>
+					</table>
+					<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+						currentLabels[1] = {
+								"-1": "Inbox"
+						};
+					// ]]></script>
+				</td></tr>
+			</table>
+		</td></tr>
+			<tr><td style="padding: 0 0 1px 0;"></td></tr>
+	</table>
+
+	<div class="tborder" style="padding: 1px; margin-top: 1ex;">
+		<table cellpadding="3" cellspacing="0" border="0" width="100%">
+			<tr class="catbg" valign="middle">
+				<td height="25">
+					<div style="float: left;">Pages: [<b>1</b>] </div>
+					<div style="float: right;"><input type="submit" name="del_selected" value="Delete Selected" style="font-weight: normal;" onclick="if (!confirm('Are you sure you want to delete all selected personal messages?')) return false;" /></div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<input type="hidden" name="sc" value="{TOKEN}" />
+</form>
+				</td>
+			</tr></table>
+	</div>
+
+	<div id="footerarea" style="text-align: center; padding-bottom: 1ex;">
+		<script language="JavaScript" type="text/javascript"><!-- // --><![CDATA[
+			function smfFooterHighlight(element, value)
+			{
+				element.src = smf_images_url + "/" + (value ? "h_" : "") + element.id + ".gif";
+			}
+		// ]]></script>
+		<table cellspacing="0" cellpadding="3" border="0" align="center" width="100%">
+			<tr>
+				<td width="28%" valign="middle" align="right">
+					<a href="http://www.mysql.com/" target="_blank"><img id="powered-mysql" src="http://127.0.0.1:8080/Themes/default/images/powered-mysql.gif" alt="Powered by MySQL" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://www.php.net/" target="_blank"><img id="powered-php" src="http://127.0.0.1:8080/Themes/default/images/powered-php.gif" alt="Powered by PHP" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+				<td valign="middle" align="center" style="white-space: nowrap;">
+					
+		<span class="smalltext" style="display: inline; visibility: visible; font-family: Verdana, Arial, sans-serif;"><a href="http://www.simplemachines.org/" title="Simple Machines Forum" target="_blank">Powered by smf-go</a> |
+<a href="http://www.simplemachines.org/about/copyright.php" title="Free Forum Software" target="_blank">SMF &copy; 2015, Simple Machines</a>
+		</span>
+				</td>
+				<td width="28%" valign="middle" align="left">
+					<a href="http://validator.w3.org/check/referer" target="_blank"><img id="valid-xhtml10" src="http://127.0.0.1:8080/Themes/default/images/valid-xhtml10.gif" alt="Valid XHTML 1.0!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+					<a href="http://jigsaw.w3.org/css-validator/check/referer" target="_blank"><img id="valid-css" src="http://127.0.0.1:8080/Themes/default/images/valid-css.gif" alt="Valid CSS!" width="54" height="20" style="margin: 5px 16px;" onmouseover="smfFooterHighlight(this, true);" onmouseout="smfFooterHighlight(this, false);" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="ajax_in_progress" style="display: none;">Loading...</div>
+</body></html>
