@@ -105,7 +105,9 @@ func TestRegistrationWithActivation(t *testing.T) {
 	var activated int
 	var vcode string
 	a.DB.QueryRow(a.Q(`SELECT is_activated, validation_code FROM {$db_prefix}members WHERE memberName = 'pending'`)).Scan(&activated, &vcode)
-	if activated != 0 || len(vcode) != 10 {
+	// generateValidationCode now returns a full 40-char SHA-1 hex token
+	// (a deliberate divergence from SMF's weak 10-char code).
+	if activated != 0 || len(vcode) != 40 {
 		t.Fatalf("pending member: activated=%d code=%q", activated, vcode)
 	}
 
