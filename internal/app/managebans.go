@@ -406,7 +406,7 @@ func (c *Ctx) banSaveGroup(bg int) int {
 		a.DB.QueryRow(a.Q(`SELECT ID_BAN_GROUP FROM {$db_prefix}ban_groups WHERE name = ? AND ID_BAN_GROUP != ? LIMIT 1`), name, bg).Scan(&dup)
 	}
 	if dup != 0 {
-		c.fatalError(phpSprintf(c.Txt("ban_name_exists"), name), false)
+		c.fatalError(phpSprintf(c.Txt("ban_name_exists"), Htmlspecialchars(name)), false)
 	}
 
 	reason := Htmlspecialchars(c.POST.Str("reason"))

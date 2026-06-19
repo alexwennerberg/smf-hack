@@ -162,6 +162,19 @@ func (c *Ctx) Register2() {
 			extra[v] = Htmlspecialchars(post(v))
 		}
 	}
+	// Normalise the website URL so it can't be a javascript:/data: link when
+	// later rendered in an href (Profile2 does this; stock Register.php does
+	// not — a divergence to close that XSS vector).
+	if c.POST.Has("websiteUrl") {
+		website := strings.TrimSpace(c.POST.Str("websiteUrl"))
+		if len(website) > 0 && !strings.Contains(website, "://") {
+			website = "http://" + website
+		}
+		if len(website) < 8 || (!strings.HasPrefix(website, "http://") && !strings.HasPrefix(website, "https://")) {
+			website = ""
+		}
+		extra["websiteUrl"] = Htmlspecialchars(website)
+	}
 	for _, v := range []string{"pm_email_notify", "notifyTypes", "gender", "ID_THEME"} {
 		if c.POST.Has(v) {
 			extra[v] = itoa(c.POST.Int(v))

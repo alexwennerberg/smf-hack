@@ -42,8 +42,10 @@ var usernameStripRe = regexp.MustCompile(`[\t\n\r \x0B\x00\xA0]+`)
 func generateValidationCode() string {
 	var b [20]byte
 	rand.Read(b[:])
-	code := fmt.Sprintf("%x", sha1.Sum(b[:]))
-	return code[:10]
+	// SMF truncated this to 10 hex chars (~40 bits). Keep the full 40-char
+	// SHA-1 hex (160 bits) so password-reset / activation tokens aren't
+	// brute-forceable (a deliberate divergence to fix a weak token).
+	return fmt.Sprintf("%x", sha1.Sum(b[:]))
 }
 
 // validatePassword is validatePassword() from Subs-Auth.php: returns the

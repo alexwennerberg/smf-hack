@@ -2,7 +2,10 @@ package app
 
 // Port of Sources/Reminder.php.
 
-import "strings"
+import (
+	"crypto/subtle"
+	"strings"
+)
 
 func init() {
 	registerAction("reminder", (*Ctx).RemindMe)
@@ -70,7 +73,7 @@ func (c *Ctx) RemindMail() {
 		if strings.TrimSpace(validationCode) == "" {
 			key = "registration_not_approved"
 		}
-		c.fatalError(c.Txt(key)+` <a href="`+a.ScriptURL+`?action=activate;user=`+c.POST.Str("user")+`">`+c.Txt("662")+`</a>.`, false)
+		c.fatalError(c.Txt(key)+` <a href="`+a.ScriptURL+`?action=activate;user=`+Htmlspecialchars(c.POST.Str("user"))+`">`+c.Txt("662")+`</a>.`, false)
 	}
 
 	// You can't get emailed if you have no email address.
@@ -82,9 +85,11 @@ func (c *Ctx) RemindMail() {
 	// Randomly generate a new password.
 	password := generateValidationCode()
 
-	// Set the password in the database.
+	// Set the password in the database. Store the full md5 of the (now
+	// full-length) token rather than a 10-char prefix, so the stored verifier
+	// can't be brute-forced (a deliberate divergence from SMF's truncation).
 	a.DB.Exec(a.Q(`UPDATE {$db_prefix}members SET validation_code = ? WHERE ID_MEMBER = ?`),
-		md5hex(password)[:10], idMember)
+		md5hex(password), idMember)
 
 	c.sendmail([]string{emailAddress}, c.Txt("reminder_subject"),
 		phpSprintf(c.Txt("sendtopic_dear"), realName)+"\n\n"+
@@ -151,8 +156,10 @@ func (c *Ctx) setPassword2() {
 		c.fatalLangError("profile_error_password_"+pwErr, false)
 	}
 
-	// Quit if this code is not right.
-	if empty(c.POST.Str("code")) || realCode[:min(10, len(realCode))] != md5hex(c.POST.Str("code"))[:10] {
+	// Quit if this code is not right. Compare the full hash in constant time
+	// (SMF compared only a 10-char prefix with ==).
+	if empty(c.POST.Str("code")) ||
+		subtle.ConstantTimeCompare([]byte(realCode), []byte(md5hex(c.POST.Str("code")))) != 1 {
 		c.fatalError(c.Txt("invalid_activation_code"), false)
 	}
 

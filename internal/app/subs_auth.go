@@ -81,11 +81,14 @@ func (c *Ctx) setLoginCookie(cookieLength int, id int, password string) {
 
 	// Set the cookie, $_COOKIE, and session variable.
 	http.SetCookie(c.W, &http.Cookie{
-		Name:    a.Config.CookieName,
-		Value:   url.QueryEscape(data),
-		Expires: time.Now().Add(time.Duration(cookieLength) * time.Second),
-		Path:    path,
-		Domain:  domain,
+		Name:     a.Config.CookieName,
+		Value:    url.QueryEscape(data),
+		Expires:  time.Now().Add(time.Duration(cookieLength) * time.Second),
+		Path:     path,
+		Domain:   domain,
+		HttpOnly: true,
+		Secure:   c.cookieSecure(),
+		SameSite: http.SameSiteLaxMode,
 	})
 
 	// Make sure the user logs in with a new session ID.
@@ -108,6 +111,8 @@ func (c *Ctx) regenerateSession() {
 		Value:    c.Session.ID,
 		Path:     "/",
 		HttpOnly: true,
+		Secure:   c.cookieSecure(),
+		SameSite: http.SameSiteLaxMode,
 	})
 }
 

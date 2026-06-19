@@ -180,7 +180,9 @@ func (c *Ctx) ViewModlog() {
 	if searchString != "" {
 		page.SearchParams = base64.StdEncoding.EncodeToString([]byte(searchType + `|"|` + searchString))
 	}
-	page.SearchString = searchString
+	// Escape for display: search arrives via the POST form (or base64 params),
+	// neither of which is htmlspecialchars'd at parse time the way GET is.
+	page.SearchString = Htmlspecialchars(searchString)
 	page.SearchType = searchType
 	page.SearchLabel = c.Txt(modlogSearchLabelKey(searchType))
 

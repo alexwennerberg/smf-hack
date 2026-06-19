@@ -49,7 +49,7 @@ func init() {
 // dispatcher, everything else is a static asset under assetdir.
 func (a *App) Handler() http.Handler {
 	mux := http.NewServeMux()
-	mux.HandleFunc("/index.go", a.dispatch)
+	mux.HandleFunc("/index.php", a.dispatch)
 	mux.HandleFunc("/{$}", a.dispatch)
 	mux.HandleFunc("/", a.serveStatic)
 	return mux

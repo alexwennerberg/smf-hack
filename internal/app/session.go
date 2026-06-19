@@ -19,6 +19,16 @@ import (
 
 const sessionCookieName = "PHPSESSID"
 
+// cookieSecure reports whether the connection is HTTPS, so auth/session
+// cookies can carry the Secure flag without breaking plain-HTTP dev setups.
+// Honours a TLS-terminating reverse proxy via X-Forwarded-Proto.
+func (c *Ctx) cookieSecure() bool {
+	if c.R.TLS != nil {
+		return true
+	}
+	return c.R.Header.Get("X-Forwarded-Proto") == "https"
+}
+
 // Session is $_SESSION. Values are kept in a JSON-compatible map; numeric
 // values decode as float64 and are converted by the typed accessors.
 type Session struct {
@@ -120,6 +130,8 @@ func (c *Ctx) loadSession() {
 			Value:    s.ID,
 			Path:     "/",
 			HttpOnly: true,
+			Secure:   c.cookieSecure(),
+			SameSite: http.SameSiteLaxMode,
 		})
 		s.dirty = true
 	}
